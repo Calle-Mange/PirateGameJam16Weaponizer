@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 	# idle
 	if input_direction.x == 0 && input_direction.y == 0:
 		animated_sprite_2d.play("idle")
+		animated_sprite_2d.rotation_degrees = 0
 		
 		
 	# move right
