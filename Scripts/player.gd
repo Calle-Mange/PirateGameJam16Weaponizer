@@ -1,20 +1,16 @@
 extends CharacterBody2D
 
 const SPEED = 100.0
-const rotation_speed = 3
-var _theta : float
+const JUMP_VELOCITY = -400.0
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
 
-	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	var rotation_direction = Input.get_axis("move_left", "move_right")
+	if not is_on_floor():
+		velocity += get_gravity() * delta
 
-	#rotation += clamp(rotation_speed * delta, 0, abs(_theta)) * sign(_theta)  
-	_theta = wrapf(atan2(input_direction.y, input_direction.x) - rotation, -PI, PI)
-	
-	velocity = input_direction * SPEED
+	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
 	# Get input dir
 	print(animated_sprite_2d.rotation)
@@ -23,6 +19,7 @@ func _physics_process(delta: float) -> void:
 	if input_direction.x == 0 && input_direction.y == 0:
 		animated_sprite_2d.play("idle")
 		animated_sprite_2d.rotation_degrees = 0
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
 		
 	# move right
