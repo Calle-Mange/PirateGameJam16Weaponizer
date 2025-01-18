@@ -1,8 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://kosbjroc1yti"]
+[gd_scene load_steps=21 format=3 uid="uid://kosbjroc1yti"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_6pwjf"]
 [ext_resource type="Texture2D" uid="uid://bchfuyjnw3xt5" path="res://Assets/Graphics/Knife/Knife_idle.png" id="1_l4xuh"]
-[ext_resource type="Texture2D" uid="uid://brl5qtdsrhdhe" path="res://Assets/Graphics/Knife/knife_moving_diagonal.png" id="3_7ci8t"]
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="1_u6kaj"]
 [ext_resource type="Texture2D" uid="uid://bkm1ig0v4j1y5" path="res://Assets/Graphics/Knife/knife_moving_up.png" id="3_eqnor"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lswd"]
@@ -16,54 +15,6 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_go5dm"]
 atlas = ExtResource("1_l4xuh")
 region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ngdow"]
-atlas = ExtResource("3_7ci8t")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j4twv"]
-atlas = ExtResource("3_7ci8t")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qobat"]
-atlas = ExtResource("3_7ci8t")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jvjmm"]
-atlas = ExtResource("3_7ci8t")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5let5"]
-atlas = ExtResource("3_7ci8t")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wqpw1"]
-atlas = ExtResource("3_7ci8t")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0nxvu"]
-atlas = ExtResource("3_7ci8t")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2jsh1"]
-atlas = ExtResource("3_7ci8t")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jnlde"]
-atlas = ExtResource("3_7ci8t")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v31ku"]
-atlas = ExtResource("3_7ci8t")
-region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7008i"]
-atlas = ExtResource("3_7ci8t")
-region = Rect2(320, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0cla6"]
-atlas = ExtResource("3_7ci8t")
-region = Rect2(352, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4kmx1"]
 atlas = ExtResource("3_eqnor")
@@ -131,47 +82,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ngdow")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j4twv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qobat")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jvjmm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5let5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wqpw1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0nxvu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2jsh1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jnlde")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v31ku")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7008i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0cla6")
-}],
-"loop": true,
-"name": &"move_diagonal",
-"speed": 12.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_4kmx1")
 }, {
 "duration": 1.0,
@@ -208,7 +118,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_tdv7k")
 }],
 "loop": true,
-"name": &"move_straight",
+"name": &"move_vertical",
 "speed": 12.0
 }]
 
@@ -216,13 +126,15 @@ animations = [{
 radius = 2.0
 
 [node name="Player" type="CharacterBody2D"]
-z_index = 5
-script = ExtResource("1_6pwjf")
+script = ExtResource("1_u6kaj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3g151")
 animation = &"idle"
-autoplay = "move_diagonal"
+autoplay = "move_vertical"
+frame_progress = 0.519797
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
