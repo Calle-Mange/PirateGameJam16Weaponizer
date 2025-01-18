@@ -4,12 +4,14 @@ var startSelector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContaine
 @onready
 var exitSelector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ExitSelector
 var currentSelector = 0
+
+const map0Scene = preload("res://Scenes/TileMapLevels/map0.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_current_selector(currentSelector)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:	
+func _process(_delta: float) -> void:	
 	if (Input.is_action_just_pressed("ui_down") && currentSelector != 1):
 		currentSelector += 1
 		set_current_selector(currentSelector)
@@ -30,6 +32,8 @@ func set_current_selector(_currentSelector) -> void:
 
 func select_current_option(_currentSelector) -> void:
 	if _currentSelector == 0:
-		print("Start!") #Change scene here
+		get_parent().add_child(map0Scene.instantiate())
+		queue_free()
+		
 	elif _currentSelector == 1:
 		get_tree().quit()
