@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_u6kaj"]
 [ext_resource type="Texture2D" uid="uid://bkm1ig0v4j1y5" path="res://Assets/Graphics/Knife/knife_moving_up.png" id="3_eqnor"]
 [ext_resource type="Script" path="res://Scripts/WeaponStateMachine/WeaponStateMachine.cs" id="4_ts2ad"]
-[ext_resource type="Script" path="res://Scenes/DaggerState.cs" id="5_c6c1q"]
-[ext_resource type="Script" path="res://Scenes/AxeState.cs" id="6_l2a34"]
-[ext_resource type="Script" path="res://Scenes/FlailState.cs" id="7_2fpvj"]
-[ext_resource type="Script" path="res://Scenes/GunState.cs" id="8_vh08n"]
+[ext_resource type="Script" path="res://Scripts/WeaponStateMachine/DaggerState.cs" id="5_c6c1q"]
+[ext_resource type="Script" path="res://Scripts/WeaponStateMachine/AxeState.cs" id="6_l2a34"]
+[ext_resource type="Script" path="res://Scripts/WeaponStateMachine/FlailState.cs" id="7_2fpvj"]
+[ext_resource type="Script" path="res://Scripts/WeaponStateMachine/GunState.cs" id="8_vh08n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lswd"]
 atlas = ExtResource("1_l4xuh")
