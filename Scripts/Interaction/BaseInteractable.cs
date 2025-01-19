@@ -17,7 +17,14 @@ public abstract partial class BaseInteractable : Area2D, IInteractable
     [Export]
     public bool RequiresSpecificWeapon { get; set; } = false;
 
-	public bool CanInteract(string weaponType){
+    protected WeaponList WeaponNamesResource;
+
+    public override void _Ready()
+    {
+        WeaponNamesResource = GD.Load<WeaponList>("res://Scripts/Resources/WeaponNames.tres");
+    }
+
+    public bool CanInteract(string weaponType){
 		if (!RequiresSpecificWeapon){
 			return true;
 		}

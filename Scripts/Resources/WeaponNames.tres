@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="WeaponList" load_steps=2 format=3 uid="uid://c0io5av3f6hpa"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/WeaponList.cs" id="1_ov747"]
+
+[resource]
+script = ExtResource("1_ov747")
+Dagger = "DaggerState"
+Axe = "AxeState"
+Flail = "FlailStatr"
+Gun = "GunState"
