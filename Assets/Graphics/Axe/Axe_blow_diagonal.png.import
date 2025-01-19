@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjy1fo6kf52h0"
-path="res://.godot/imported/isometric-sandbox-sheet-basics-sheet.png-dab97437b23a7505b72da9befddebf5b.ctex"
+uid="uid://bwi51oxy4uowm"
+path="res://.godot/imported/Axe_blow_diagonal.png-4eb088630a8477d792ffd1386cd162fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Graphics/WouldBuilding/isometric-sandbox-sheet-basics-sheet.png"
-dest_files=["res://.godot/imported/isometric-sandbox-sheet-basics-sheet.png-dab97437b23a7505b72da9befddebf5b.ctex"]
+source_file="res://Assets/Graphics/Axe/Axe_blow_diagonal.png"
+dest_files=["res://.godot/imported/Axe_blow_diagonal.png-4eb088630a8477d792ffd1386cd162fd.ctex"]
 
 [params]
 

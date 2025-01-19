@@ -9,10 +9,30 @@ public partial class Player : CharacterBody2D
     private Node2D _layerFolder;
 	private const int RADIUS = 1;
 
+    private string currentweapon = "knife"; // for testing right now
+    private Area2D interactionArea;
+
+
     public override void _Ready()
     {
         _layerFolder = GetNode<Node2D>("../LayerFolder");
         YSortEnabled = true;
+        SetupInteractionArea();
+    }
+
+    private void SetupInteractionArea(){
+        interactionArea = new Area2D();
+        var collisionShape = new CollisionShape2D();
+        var circleShape = new CircleShape2D();
+        
+        circleShape.Radius = 10.0f;  // Interaction range
+        collisionShape.Shape = circleShape;
+        
+        interactionArea.CollisionLayer = 0;
+        interactionArea.CollisionMask = 2;   // Detect layer 2 (interactables)
+        
+        interactionArea.AddChild(collisionShape);
+        AddChild(interactionArea);
     }
 
     private void UpdatePlayerZIndex()
@@ -52,6 +72,37 @@ public partial class Player : CharacterBody2D
 	
 	// ==========================
 	// Player Movement
+    public override void _Draw()
+    {
+        // Draw a circle representing the interaction range for debugging
+        DrawArc(Vector2.Zero, 10.0f, 0, Mathf.Tau, 32, Colors.Yellow, 2.0f);
+    }
+
+    private void TryInteraction()
+    {
+       var areas = interactionArea.GetOverlappingAreas();
+        foreach (var area in areas)
+        {
+            if (area is BaseInteractable interactable)
+            {
+                interactable.StartInteraction(currentweapon);
+                break;  // Only interact with the first one found
+            }
+        }
+    }
+
+    // ==========================
+    // Other Inputs
+
+    public override void _Input(InputEvent @event)
+    {
+        if(@event.IsActionPressed("interact")){
+            TryInteraction();
+        }
+    }
+
+    // ==========================
+    // Player Movement
 
     public void GetInput()
     {
@@ -64,5 +115,6 @@ public partial class Player : CharacterBody2D
         GetInput();
         MoveAndSlide();
 		UpdatePlayerZIndex();
+        QueueRedraw();
     }
 }
