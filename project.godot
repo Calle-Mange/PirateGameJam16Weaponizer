@@ -11,10 +11,15 @@ config_version=5
 [application]
 
 config/name="Pirate Game Jam 16 Weaponizer"
-run/main_scene="res://Scenes/initial_scene.tscn"
+run/main_scene="res://Scenes/Menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<HEADrun/main_scene="res://Scenes/Menu/main_menu.tscn"
+
+[autoload]
+
+LevelManager="*res://Scripts/LevelManager.cs"
+TransitionScene="*res://Scenes/Menu/transition_scene.tscn"
 
 [dotnet]
 
