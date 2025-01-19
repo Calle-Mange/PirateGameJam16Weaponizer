@@ -9,7 +9,7 @@ public partial class Player : CharacterBody2D
     private Node2D _layerFolder;
 	private const int RADIUS = 1;
 
-    private string currentweapon = "knife"; // for testing right now
+    private string currentweapon; // for testing right now
     private Area2D interactionArea;
 
 
@@ -63,11 +63,12 @@ public partial class Player : CharacterBody2D
     // ==========================
     // Weapon Transformation Logic
 
-    public void OnChangeWeaponForm(int NewSpeed, int NewAttackDamage, int NewWeight)
+    public void OnChangeWeaponForm(int NewSpeed, int NewAttackDamage, int NewWeight, string CurrentWeapon)
     {
         Speed = NewSpeed;
         AttackDamage = NewAttackDamage;
         Weight = NewWeight;
+        currentweapon = CurrentWeapon;
     }
 	
 	// ==========================
@@ -86,6 +87,7 @@ public partial class Player : CharacterBody2D
             if (area is BaseInteractable interactable)
             {
                 interactable.StartInteraction(currentweapon);
+                
                 break;  // Only interact with the first one found
             }
         }

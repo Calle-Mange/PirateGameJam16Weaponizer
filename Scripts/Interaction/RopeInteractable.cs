@@ -7,7 +7,7 @@ public partial class RopeInteractable : BaseInteractable
 	private CollisionShape2D collisionShape;
 
 	public override void _Ready(){
-		AllowedWeapons = new [] {"knife"};
+		AllowedWeapons = new [] {"DaggerState"};
 		RequiresSpecificWeapon = true;
 
 		CollisionLayer = 2;
