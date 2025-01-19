@@ -4,6 +4,8 @@ using System;
 public partial class Player : CharacterBody2D
 {
     [Export] public int Speed { get; set; } = 400;
+    public int AttackDamage { get; set; } = 3;
+    public int Weight { get; set; } = 3;
     private Node2D _layerFolder;
 	private const int RADIUS = 1;
 
@@ -36,6 +38,16 @@ public partial class Player : CharacterBody2D
                 }
             }
         }
+    }
+
+    // ==========================
+    // Weapon Transformation Logic
+
+    public void OnChangeWeaponForm(int NewSpeed, int NewAttackDamage, int NewWeight)
+    {
+        Speed = NewSpeed;
+        AttackDamage = NewAttackDamage;
+        Weight = NewWeight;
     }
 	
 	// ==========================

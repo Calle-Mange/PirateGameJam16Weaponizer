@@ -1,8 +1,13 @@
-[gd_scene load_steps=21 format=3 uid="uid://kosbjroc1yti"]
+[gd_scene load_steps=26 format=3 uid="uid://kosbjroc1yti"]
 
 [ext_resource type="Texture2D" uid="uid://bchfuyjnw3xt5" path="res://Assets/Graphics/Knife/Knife_idle.png" id="1_l4xuh"]
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_u6kaj"]
 [ext_resource type="Texture2D" uid="uid://bkm1ig0v4j1y5" path="res://Assets/Graphics/Knife/knife_moving_up.png" id="3_eqnor"]
+[ext_resource type="Script" path="res://Scripts/WeaponStateMachine/WeaponStateMachine.cs" id="4_ts2ad"]
+[ext_resource type="Script" path="res://Scenes/DaggerState.cs" id="5_c6c1q"]
+[ext_resource type="Script" path="res://Scenes/AxeState.cs" id="6_l2a34"]
+[ext_resource type="Script" path="res://Scenes/FlailState.cs" id="7_2fpvj"]
+[ext_resource type="Script" path="res://Scenes/GunState.cs" id="8_vh08n"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lswd"]
 atlas = ExtResource("1_l4xuh")
@@ -134,8 +139,28 @@ script = ExtResource("1_u6kaj")
 sprite_frames = SubResource("SpriteFrames_3g151")
 animation = &"idle"
 autoplay = "move_vertical"
-frame_progress = 0.519797
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
 shape = SubResource("CircleShape2D_urhvf")
+
+[node name="WeaponStateMachine" type="Node" parent="."]
+script = ExtResource("4_ts2ad")
+InitialState = NodePath("DaggerState")
+
+[node name="DaggerState" type="Node" parent="WeaponStateMachine"]
+script = ExtResource("5_c6c1q")
+
+[node name="AxeState" type="Node" parent="WeaponStateMachine"]
+script = ExtResource("6_l2a34")
+
+[node name="FlailState" type="Node" parent="WeaponStateMachine"]
+script = ExtResource("7_2fpvj")
+
+[node name="GunState" type="Node" parent="WeaponStateMachine"]
+script = ExtResource("8_vh08n")
+
+[connection signal="SignalPlayerStateChange" from="WeaponStateMachine/DaggerState" to="." method="OnChangeWeaponForm"]
+[connection signal="SignalPlayerStateChange" from="WeaponStateMachine/AxeState" to="." method="OnChangeWeaponForm"]
+[connection signal="SignalPlayerStateChange" from="WeaponStateMachine/FlailState" to="." method="OnChangeWeaponForm"]
+[connection signal="SignalPlayerStateChange" from="WeaponStateMachine/GunState" to="." method="OnChangeWeaponForm"]

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="WeaponStats" load_steps=2 format=3 uid="uid://dxn2a5yxb5fgo"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/WeaponStats.cs" id="1_10nl6"]
+
+[resource]
+script = ExtResource("1_10nl6")
+Speed = 200
+AttackDamage = 1
+Weight = 1
