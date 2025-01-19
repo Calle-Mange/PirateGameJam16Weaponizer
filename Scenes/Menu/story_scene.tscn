@@ -10,7 +10,6 @@ font_size = 48
 
 [node name="Node" type="Node"]
 script = ExtResource("1_hrlg2")
-storyTexts = null
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
