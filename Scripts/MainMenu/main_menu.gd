@@ -5,9 +5,7 @@ var startSelector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContaine
 var exitSelector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ExitSelector
 var currentSelector = 0
 
-@onready var level_manager = $"/root/LevelManager"
-
-# const map0Scene = preload("res://Scenes/TileMapLevels/map0.tscn")
+const map0Scene = preload("res://Scenes/TileMapLevels/map0.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_current_selector(currentSelector)
@@ -34,8 +32,7 @@ func set_current_selector(_currentSelector) -> void:
 
 func select_current_option(_currentSelector) -> void:
 	if _currentSelector == 0:
-		level_manager.ChangeSceneToFile("res://Scenes/Menu/story_scene.tscn")
-		# get_parent().add_child(map0Scene.instantiate())
+		get_parent().add_child(map0Scene.instantiate())
 		queue_free()
 		
 	elif _currentSelector == 1:
