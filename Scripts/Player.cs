@@ -60,7 +60,6 @@ public partial class Player : CharacterBody2D
         }
     }
 
-<<<<<<< HEAD
     // ==========================
     // Weapon Transformation Logic
 
@@ -73,7 +72,6 @@ public partial class Player : CharacterBody2D
 	
 	// ==========================
 	// Player Movement
-=======
     public override void _Draw()
     {
         // Draw a circle representing the interaction range for debugging
@@ -105,7 +103,6 @@ public partial class Player : CharacterBody2D
 
     // ==========================
     // Player Movement
->>>>>>> 994bbdd (base of interaction system)
 
     public void GetInput()
     {
