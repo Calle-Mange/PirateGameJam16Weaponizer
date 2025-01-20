@@ -11,10 +11,15 @@ config_version=5
 [application]
 
 config/name="Pirate Game Jam 16 Weaponizer"
-run/main_scene="res://Scenes/initial_scene.tscn"
+run/main_scene="res://Scenes/Menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<HEADrun/main_scene="res://Scenes/Menu/main_menu.tscn"
+
+[autoload]
+
+LevelManager="*res://Scripts/LevelManager.cs"
+TransitionScene="*res://Scenes/Menu/transition_scene.tscn"
 
 [dotnet]
 
@@ -62,6 +67,11 @@ move_down_right={
 "deadzone": 0.5,
 "events": []
 }
+interact={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":70,"key_label":0,"unicode":102,"location":0,"echo":false,"script":null)
+]
+}
 dagger_transform={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":49,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
@@ -82,6 +92,11 @@ gun_transform={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":52,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Interactable"
 
 [rendering]
 

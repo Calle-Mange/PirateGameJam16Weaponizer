@@ -6,7 +6,7 @@ public partial class State : Node
 	public WeaponStateMachine WeaponStateMachine;
 
 	[Signal]
-	public delegate void SignalPlayerStateChangeEventHandler(int Speed, int AttackDamage, int Weight);
+	public delegate void SignalPlayerStateChangeEventHandler(int Speed, int AttackDamage, int Weight, string StateName);
 
 	protected WeaponStats WeaponStats;
 
@@ -18,8 +18,7 @@ public partial class State : Node
 
 	public virtual void Enter() 
 	{
-        EmitSignal(SignalName.SignalPlayerStateChange, Speed, AttackDamage, Weight);
-		GD.Print(this.Name);
+        EmitSignal(SignalName.SignalPlayerStateChange, Speed, AttackDamage, Weight, this.Name);
     }
 
 	public virtual void Exit() { }

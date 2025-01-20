@@ -66,5 +66,4 @@ public partial class WeaponStateMachine : Node
 		CurrentState = States[state];
 		CurrentState.Enter();
 	}
-
 }
