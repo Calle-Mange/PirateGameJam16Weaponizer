@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class Player : CharacterBody2D
 {
@@ -11,13 +12,23 @@ public partial class Player : CharacterBody2D
 
     private string currentweapon; // for testing right now
     private Area2D interactionArea;
+    private const float GRAVITY = 980.0f;
+    private TileMapLayer currentLayer;
+    private float gravityVelocity = 0f;
+    private Vector2 movementVelocity;
+    private bool isFalling = false;
 
+    private LevelManager levelManager;
+    private AnimationPlayer transitionPlayer;
+    private Node transitionScene;
 
     public override void _Ready()
     {
         _layerFolder = GetNode<Node2D>("../LayerFolder");
         YSortEnabled = true;
         SetupInteractionArea();
+        transitionScene = GetNode("/root/TransitionScene");
+        transitionPlayer = transitionScene.GetNode<AnimationPlayer>("AnimationPlayer"); 
     }
 
     private void SetupInteractionArea(){
@@ -60,6 +71,35 @@ public partial class Player : CharacterBody2D
         }
     }
 
+    private bool HasTileBelowPlayer()
+    {
+        for (int i = _layerFolder.GetChildCount() - 1; i >= 0; i--)
+        {
+            if (_layerFolder.GetChild(i) is TileMapLayer layer)
+            {
+                Vector2I centerTile = layer.LocalToMap(layer.ToLocal(GlobalPosition));
+                Vector2I[] checkPositions = new[]
+                {
+                    centerTile,                        // Center
+                    centerTile + new Vector2I(0, 1),  // Right
+                    centerTile + new Vector2I(0, -1), // Left
+                    centerTile + new Vector2I(1, 0),  // Down
+                    centerTile + new Vector2I(-1, 0)  // Up
+                };
+
+                foreach(var pos in checkPositions)
+                {
+                 if (layer.GetCellSourceId(pos) != -1)
+                    {
+                        currentLayer = layer;
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     // ==========================
     // Weapon Transformation Logic
 
@@ -71,8 +111,6 @@ public partial class Player : CharacterBody2D
         currentweapon = CurrentWeapon;
     }
 	
-	// ==========================
-	// Player Movement
     public override void _Draw()
     {
         // Draw a circle representing the interaction range for debugging
@@ -106,15 +144,54 @@ public partial class Player : CharacterBody2D
     // ==========================
     // Player Movement
 
+    private void HandleGravity(double delta){
+        if (!HasTileBelowPlayer())
+        {
+            if(!isFalling)
+            {
+                isFalling = true;
+                movementVelocity = Vector2.Zero;
+            }
+            gravityVelocity += GRAVITY * (float)delta;
+
+            if(Position.Y > 1000)
+            {
+                Respawn();
+            }
+        } else {
+            if(!isFalling)
+            {
+                gravityVelocity = 0;
+            }
+        }
+    }
+
+    private async void Respawn(){
+        transitionPlayer.Play("fade_out");
+        await ToSignal(transitionPlayer, "animation_finished");
+
+        Position = new Vector2(0,0);
+        isFalling = false;
+        movementVelocity = Vector2.Zero;
+
+        transitionPlayer.Play("fade_in");
+    }
+
     public void GetInput()
     {
-        Vector2 inputDirection = Input.GetVector("move_left", "move_right", "move_up", "move_down");
-        Velocity = inputDirection * Speed;
+        if(!isFalling){
+            Vector2 inputDirection = Input.GetVector("move_left", "move_right", "move_up", "move_down");
+            movementVelocity = inputDirection * Speed;
+        } else {
+            movementVelocity = Vector2.Zero;
+        }
     }
 
     public override void _PhysicsProcess(double delta)
     {
         GetInput();
+        HandleGravity(delta);
+        Velocity = new Vector2(movementVelocity.X, movementVelocity.Y + gravityVelocity);
         MoveAndSlide();
 		UpdatePlayerZIndex();
         QueueRedraw();
