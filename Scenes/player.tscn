@@ -163,6 +163,10 @@ script = ExtResource("6_l5bbp")
 [node name="GunState" type="Node" parent="WeaponStateMachine"]
 script = ExtResource("7_s1pj8")
 
+[node name="GroundCheck" type="RayCast2D" parent="."]
+position = Vector2(0, 9)
+target_position = Vector2(0, 35)
+
 [connection signal="SignalPlayerStateChange" from="WeaponStateMachine/DaggerState" to="." method="OnChangeWeaponForm"]
 [connection signal="SignalPlayerStateChange" from="WeaponStateMachine/AxeState" to="." method="OnChangeWeaponForm"]
 [connection signal="SignalPlayerStateChange" from="WeaponStateMachine/FlailState" to="." method="OnChangeWeaponForm"]
