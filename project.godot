@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 LevelManager="*res://Scripts/LevelManager.cs"
 TransitionScene="*res://Scenes/Menu/transition_scene.tscn"
+GlobalGameVariables="*res://Scripts/GlobalGameVariables.cs"
 
 [dotnet]
 
