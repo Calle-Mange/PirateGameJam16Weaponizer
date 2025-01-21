@@ -27,6 +27,7 @@ namespace PirateGameJam16Weaponizer.Scripts.Interaction
 
         protected override void PerformInteraction(string weaponType)
         {
+            GlobalGameVariables.Instance.PlayerInventory[GlobalGameVariables.Instance.WeaponList.Axe] = true;
             collisionShape.SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
             sprite.Visible = false;
             QueueFree();
