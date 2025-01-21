@@ -16,6 +16,12 @@ config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 <<<<<<<HEADrun/main_scene="res://Scenes/Menu/main_menu.tscn"
 
+[autoload]
+
+LevelManager="*res://Scripts/LevelManager.cs"
+TransitionScene="*res://Scenes/Menu/transition_scene.tscn"
+GlobalGameVariables="*res://Scripts/GlobalGameVariables.cs"
+
 [dotnet]
 
 project/assembly_name="Pirate Game Jam 16 Weaponizer"
