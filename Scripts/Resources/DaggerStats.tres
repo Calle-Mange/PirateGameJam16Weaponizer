@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_10nl6")
-Speed = 200
+Speed = 120
 AttackDamage = 1
 Weight = 1
