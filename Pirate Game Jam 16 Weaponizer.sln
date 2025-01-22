@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pirate Game Jam 16 Weaponizer", "Pirate Game Jam 16 Weaponizer.csproj", "{B67A3EDE-1042-4429-BB97-5B9CE0E90BA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pirate Game Jam 16 Weaponizer", "Pirate Game Jam 16 Weaponizer.csproj", "{A075CD8B-D518-4C25-8002-D5E768AE6493}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,11 +9,11 @@ Global
 	ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B67A3EDE-1042-4429-BB97-5B9CE0E90BA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B67A3EDE-1042-4429-BB97-5B9CE0E90BA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B67A3EDE-1042-4429-BB97-5B9CE0E90BA2}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
-		{B67A3EDE-1042-4429-BB97-5B9CE0E90BA2}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
-		{B67A3EDE-1042-4429-BB97-5B9CE0E90BA2}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
-		{B67A3EDE-1042-4429-BB97-5B9CE0E90BA2}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{A075CD8B-D518-4C25-8002-D5E768AE6493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A075CD8B-D518-4C25-8002-D5E768AE6493}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A075CD8B-D518-4C25-8002-D5E768AE6493}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{A075CD8B-D518-4C25-8002-D5E768AE6493}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{A075CD8B-D518-4C25-8002-D5E768AE6493}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{A075CD8B-D518-4C25-8002-D5E768AE6493}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
 	EndGlobalSection
 EndGlobal
