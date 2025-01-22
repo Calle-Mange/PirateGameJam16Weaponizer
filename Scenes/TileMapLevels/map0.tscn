@@ -177,4 +177,4 @@ position = Vector2(-90, -138)
 position = Vector2(83, -41)
 
 [node name="Door" parent="." instance=ExtResource("5_4rgd7")]
-position = Vector2(-8, -76)
+position = Vector2(8, -76)

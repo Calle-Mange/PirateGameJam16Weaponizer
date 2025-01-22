@@ -22,6 +22,11 @@ public partial class Player : CharacterBody2D
     private AnimationPlayer transitionPlayer;
     private Node transitionScene;
 
+    private Vector2 fallStartPosition;
+
+    private const uint NORMAL_COLLISION_MASK = 2;
+    private const uint NO_COLLISION_MASK = 0;
+
     public override void _Ready()
     {
         _layerFolder = GetNode<Node2D>("../LayerFolder");
@@ -48,24 +53,40 @@ public partial class Player : CharacterBody2D
 
     private void UpdatePlayerZIndex()
     {
-        // Go through layers from top to bottom
+        if (isFalling && fallStartPosition.Y < 0)
+        {
+            ZIndex = -1000;
+            return;
+        }
+
+        Vector2I playerPos = Vector2I.Zero;
+        bool isPositionCached = false;
+
         for (int i = _layerFolder.GetChildCount() - 1; i >= 0; i--)
         {
-            if (_layerFolder.GetChild(i) is TileMapLayer layer)
+            if (_layerFolder.GetChild(i) is not TileMapLayer layer) continue;
+
+            if (!isPositionCached)
             {
-                Vector2I tilePos = layer.LocalToMap(layer.ToLocal(GlobalPosition));
-                
-                // Check surrounding tiles
-                for (int x = -RADIUS; x <= RADIUS; x++)
+                playerPos = layer.LocalToMap(layer.ToLocal(GlobalPosition));
+                isPositionCached = true;
+            }
+
+            // Check center tile first
+            if (layer.GetCellSourceId(playerPos) != -1)
+            {
+                ZIndex = layer.ZIndex + 1;
+                return;
+            }
+
+            // Check adjacent tiles only if center wasn't found
+            Vector2I[] adjacentOffsets = { new(0, 1), new(0, -1), new(1, 0), new(-1, 0) };
+            foreach (var offset in adjacentOffsets)
+            {
+                if (layer.GetCellSourceId(playerPos + offset) != -1)
                 {
-                    for (int y = -RADIUS; y <= RADIUS; y++)
-                    {
-                        if (layer.GetCellSourceId(tilePos + new Vector2I(x, y)) != -1)
-                        {
-                            ZIndex = layer.ZIndex + 1;
-                            return;
-                        }
-                    }
+                    ZIndex = layer.ZIndex + 1;
+                    return;
                 }
             }
         }
@@ -73,6 +94,11 @@ public partial class Player : CharacterBody2D
 
     private bool HasTileBelowPlayer()
     {
+        if (isFalling && fallStartPosition.Y < 0)
+        {
+            return false;
+        }
+
         for (int i = _layerFolder.GetChildCount() - 1; i >= 0; i--)
         {
             if (_layerFolder.GetChild(i) is TileMapLayer layer)
@@ -150,7 +176,12 @@ public partial class Player : CharacterBody2D
             if(!isFalling)
             {
                 isFalling = true;
+                fallStartPosition = GlobalPosition;
                 movementVelocity = Vector2.Zero;
+            }
+
+            if(fallStartPosition.Y < 0){
+                CollisionMask = NO_COLLISION_MASK;
             }
             gravityVelocity += GRAVITY * (float)delta;
 
@@ -162,6 +193,7 @@ public partial class Player : CharacterBody2D
             if(!isFalling)
             {
                 gravityVelocity = 0;
+                CollisionMask = NORMAL_COLLISION_MASK;
             }
         }
     }
@@ -173,7 +205,7 @@ public partial class Player : CharacterBody2D
         Position = new Vector2(0,0);
         isFalling = false;
         movementVelocity = Vector2.Zero;
-
+        CollisionMask = NORMAL_COLLISION_MASK;
         transitionPlayer.Play("fade_in");
     }
 
