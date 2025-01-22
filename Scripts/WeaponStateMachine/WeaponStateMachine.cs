@@ -57,7 +57,7 @@ public partial class WeaponStateMachine : Node
 
 	public void TransitionTo(string state)
 	{
-		if (!States.ContainsKey(state) || CurrentState == States[state])
+		if (!States.ContainsKey(state) || CurrentState == States[state] || !GlobalGameVariables.Instance.PlayerInventory[state])
 		{
 			return;
 		}

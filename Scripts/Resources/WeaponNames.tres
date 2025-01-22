@@ -6,5 +6,5 @@
 script = ExtResource("1_ov747")
 Dagger = "DaggerState"
 Axe = "AxeState"
-Flail = "FlailStatr"
+Flail = "FlailState"
 Gun = "GunState"
