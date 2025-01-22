@@ -206,9 +206,8 @@ public partial class Player : CharacterBody2D
         transitionPlayer.Play("fade_out");
         await ToSignal(transitionPlayer, "animation_finished");
 
-        Position = spawnManager.GetRespawnPosition(GlobalPosition);
+        Position = spawnManager.GetRespawnPosition(fallStartPosition);
 
-        // Position = new Vector2(0,0);
         isFalling = false;
         movementVelocity = Vector2.Zero;
         CollisionMask = NORMAL_COLLISION_MASK;
