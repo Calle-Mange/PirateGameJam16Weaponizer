@@ -26,6 +26,7 @@ public partial class Player : CharacterBody2D
 
     private const uint NORMAL_COLLISION_MASK = 2;
     private const uint NO_COLLISION_MASK = 0;
+    private SpawnManager spawnManager;
 
     public override void _Ready()
     {
@@ -34,6 +35,7 @@ public partial class Player : CharacterBody2D
         SetupInteractionArea();
         transitionScene = GetNode("/root/TransitionScene");
         transitionPlayer = transitionScene.GetNode<AnimationPlayer>("AnimationPlayer"); 
+        spawnManager = GetNode<SpawnManager>("../../SpawnManager");
     }
 
 	private void SetupInteractionArea()
@@ -204,7 +206,9 @@ public partial class Player : CharacterBody2D
         transitionPlayer.Play("fade_out");
         await ToSignal(transitionPlayer, "animation_finished");
 
-        Position = new Vector2(0,0);
+        Position = spawnManager.GetRespawnPosition(GlobalPosition);
+
+        // Position = new Vector2(0,0);
         isFalling = false;
         movementVelocity = Vector2.Zero;
         CollisionMask = NORMAL_COLLISION_MASK;
