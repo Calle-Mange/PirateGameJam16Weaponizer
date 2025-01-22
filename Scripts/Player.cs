@@ -4,29 +4,39 @@ using System.Threading.Tasks;
 
 public partial class Player : CharacterBody2D
 {
-	[Export] public int Speed { get; set; } = 400;
-	public int AttackDamage { get; set; } = 3;
-	public int Weight { get; set; } = 3;
-	private Node2D _layerFolder;
-	private const int RADIUS = 1;
-
-    private string currentweapon; // for testing right now
-    private Area2D interactionArea;
+	#region Constants
+    private const int RADIUS = 1;
     private const float GRAVITY = 980.0f;
-    private TileMapLayer currentLayer;
-    private float gravityVelocity = 0f;
-    private Vector2 movementVelocity;
-    private bool isFalling = false;
-
-    private LevelManager levelManager;
-    private AnimationPlayer transitionPlayer;
-    private Node transitionScene;
-
-    private Vector2 fallStartPosition;
-
     private const uint NORMAL_COLLISION_MASK = 2;
     private const uint NO_COLLISION_MASK = 0;
+    #endregion
+
+    #region Export Properties
+    [Export] public int Speed { get; set; } = 400;
+    [Export] public int AttackDamage { get; set; } = 3;
+    [Export] public int Weight { get; set; } = 3;
+    #endregion
+
+    #region Node References
+    private Node2D _layerFolder;
     private SpawnManager spawnManager;
+    private AnimatedSprite2D animatedSprite;
+    private Area2D interactionArea;
+    private Node transitionScene;
+    private AnimationPlayer transitionPlayer;
+    #endregion
+
+    #region Movement and Physics
+    private Vector2 movementVelocity;
+    private float gravityVelocity = 0f;
+    private bool isFalling = false;
+    private Vector2 fallStartPosition;
+    private TileMapLayer currentLayer;
+    #endregion
+
+    #region Interaction System
+    private string currentweapon; // for testing right now
+    #endregion
 
     public override void _Ready()
     {
@@ -36,6 +46,7 @@ public partial class Player : CharacterBody2D
         transitionScene = GetNode("/root/TransitionScene");
         transitionPlayer = transitionScene.GetNode<AnimationPlayer>("AnimationPlayer"); 
         spawnManager = GetNode<SpawnManager>("../../SpawnManager");
+        animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
     }
 
 	private void SetupInteractionArea()
@@ -223,63 +234,63 @@ public partial class Player : CharacterBody2D
 		if (inputDirection.X == 0 && inputDirection.Y == 0)
 		{
 
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("idle");
+			animatedSprite.Play("idle");
 		}
 
 		// move right
 		else if (inputDirection.X > 0 && inputDirection.Y == 0)
 		{
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_vertical");
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = -90;
+			animatedSprite.Play("move_vertical");
+			animatedSprite.RotationDegrees = -90;
 		}
 
 		// move left
 		else if (inputDirection.X < 0 && inputDirection.Y == 0)
 		{
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_vertical");
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = 90;
+			animatedSprite.Play("move_vertical");
+			animatedSprite.RotationDegrees = 90;
 		}
 
 		// move up
 		else if (inputDirection.X == 0 && inputDirection.Y < 0)
 		{
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_vertical");
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = 180;
+			animatedSprite.Play("move_vertical");
+			animatedSprite.RotationDegrees = 180;
 		}
 
 		// move down
 		else if (inputDirection.X == 0 && inputDirection.Y > 0)
 		{
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_vertical");
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = 0;
+			animatedSprite.Play("move_vertical");
+			animatedSprite.RotationDegrees = 0;
 		}
 
 		// move north west
 		else if (inputDirection.X < 0 && inputDirection.Y < 0)
 		{
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_diagonal");
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = 180;
+			animatedSprite.Play("move_diagonal");
+			animatedSprite.RotationDegrees = 180;
 		}
 
 		// move north east
 		else if (inputDirection.X > 0 && inputDirection.Y < 0)
 		{
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_diagonal");
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = -90;
+			animatedSprite.Play("move_diagonal");
+			animatedSprite.RotationDegrees = -90;
 		}
 
 		// move south west
 		else if (inputDirection.X < 0 && inputDirection.Y > 0)
 		{
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_diagonal");
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = 90;
+			animatedSprite.Play("move_diagonal");
+			animatedSprite.RotationDegrees = 90;
 		}
 
 		// move south east
 		else if (inputDirection.X > 0 && inputDirection.Y > 0)
 		{
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_diagonal");
-			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = 0;
+			animatedSprite.Play("move_diagonal");
+			animatedSprite.RotationDegrees = 0;
 		}
 	}
 
