@@ -217,7 +217,7 @@ public partial class Player : CharacterBody2D
 	public void GetInput()
 	{
 		Vector2 inputDirection = Input.GetVector("move_left", "move_right", "move_up", "move_down");
-		Velocity = inputDirection * Speed;
+		movementVelocity = inputDirection * Speed;
 
 		// idle
 		if (inputDirection.X == 0 && inputDirection.Y == 0)
