@@ -4,10 +4,10 @@ using System.Threading.Tasks;
 
 public partial class Player : CharacterBody2D
 {
-    [Export] public int Speed { get; set; } = 400;
-    public int AttackDamage { get; set; } = 3;
-    public int Weight { get; set; } = 3;
-    private Node2D _layerFolder;
+	[Export] public int Speed { get; set; } = 400;
+	public int AttackDamage { get; set; } = 3;
+	public int Weight { get; set; } = 3;
+	private Node2D _layerFolder;
 	private const int RADIUS = 1;
 
     private string currentweapon; // for testing right now
@@ -36,20 +36,21 @@ public partial class Player : CharacterBody2D
         transitionPlayer = transitionScene.GetNode<AnimationPlayer>("AnimationPlayer"); 
     }
 
-    private void SetupInteractionArea(){
-        interactionArea = new Area2D();
-        var collisionShape = new CollisionShape2D();
-        var circleShape = new CircleShape2D();
-        
-        circleShape.Radius = 10.0f;  // Interaction range
-        collisionShape.Shape = circleShape;
-        
-        interactionArea.CollisionLayer = 0;
-        interactionArea.CollisionMask = 2;   // Detect layer 2 (interactables)
-        
-        interactionArea.AddChild(collisionShape);
-        AddChild(interactionArea);
-    }
+	private void SetupInteractionArea()
+	{
+		interactionArea = new Area2D();
+		var collisionShape = new CollisionShape2D();
+		var circleShape = new CircleShape2D();
+
+		circleShape.Radius = 10.0f;  // Interaction range
+		collisionShape.Shape = circleShape;
+
+		interactionArea.CollisionLayer = 0;
+		interactionArea.CollisionMask = 2;   // Detect layer 2 (interactables)
+
+		interactionArea.AddChild(collisionShape);
+		AddChild(interactionArea);
+	}
 
     private void UpdatePlayerZIndex()
     {
@@ -126,8 +127,8 @@ public partial class Player : CharacterBody2D
         return false;
     }
 
-    // ==========================
-    // Weapon Transformation Logic
+	// ==========================
+	// Weapon Transformation Logic
 
     public void OnChangeWeaponForm(int NewSpeed, int NewAttackDamage, int NewWeight, string CurrentWeapon)
     {
@@ -143,29 +144,30 @@ public partial class Player : CharacterBody2D
         DrawArc(Vector2.Zero, 10.0f, 0, Mathf.Tau, 32, Colors.Yellow, 2.0f);
     }
 
-    private void TryInteraction()
-    {
-       var areas = interactionArea.GetOverlappingAreas();
-        foreach (var area in areas)
-        {
-            if (area is BaseInteractable interactable)
-            {
-                interactable.StartInteraction(currentweapon);
-                
-                break;  // Only interact with the first one found
-            }
-        }
-    }
+	private void TryInteraction()
+	{
+		var areas = interactionArea.GetOverlappingAreas();
+		foreach (var area in areas)
+		{
+			if (area is BaseInteractable interactable)
+			{
+				interactable.StartInteraction(currentweapon);
 
-    // ==========================
-    // Other Inputs
+				break;  // Only interact with the first one found
+			}
+		}
+	}
 
-    public override void _Input(InputEvent @event)
-    {
-        if(@event.IsActionPressed("interact")){
-            TryInteraction();
-        }
-    }
+	// ==========================
+	// Other Inputs
+
+	public override void _Input(InputEvent @event)
+	{
+		if (@event.IsActionPressed("interact"))
+		{
+			TryInteraction();
+		}
+	}
 
     // ==========================
     // Player Movement
@@ -209,15 +211,76 @@ public partial class Player : CharacterBody2D
         transitionPlayer.Play("fade_in");
     }
 
-    public void GetInput()
-    {
-        if(!isFalling){
-            Vector2 inputDirection = Input.GetVector("move_left", "move_right", "move_up", "move_down");
-            movementVelocity = inputDirection * Speed;
-        } else {
-            movementVelocity = Vector2.Zero;
-        }
-    }
+	public void GetInput()
+	{
+		Vector2 inputDirection = Input.GetVector("move_left", "move_right", "move_up", "move_down");
+		Velocity = inputDirection * Speed;
+
+		// idle
+		if (inputDirection.X == 0 && inputDirection.Y == 0)
+		{
+
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("idle");
+		}
+
+		// move right
+		else if (inputDirection.X > 0 && inputDirection.Y == 0)
+		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_vertical");
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = -90;
+		}
+
+		// move left
+		else if (inputDirection.X < 0 && inputDirection.Y == 0)
+		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_vertical");
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = 90;
+		}
+
+		// move up
+		else if (inputDirection.X == 0 && inputDirection.Y < 0)
+		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_vertical");
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = 180;
+		}
+
+		// move down
+		else if (inputDirection.X == 0 && inputDirection.Y > 0)
+		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_vertical");
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = 0;
+		}
+
+		// move north west
+		else if (inputDirection.X < 0 && inputDirection.Y < 0)
+		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_diagonal");
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = 180;
+		}
+
+		// move north east
+		else if (inputDirection.X > 0 && inputDirection.Y < 0)
+		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_diagonal");
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = -90;
+		}
+
+		// move south west
+		else if (inputDirection.X < 0 && inputDirection.Y > 0)
+		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_diagonal");
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = 90;
+		}
+
+		// move south east
+		else if (inputDirection.X > 0 && inputDirection.Y > 0)
+		{
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play("move_diagonal");
+			GetNode<AnimatedSprite2D>("AnimatedSprite2D").RotationDegrees = 0;
+		}
+	}
+
+
 
     public override void _PhysicsProcess(double delta)
     {
@@ -226,6 +289,6 @@ public partial class Player : CharacterBody2D
         Velocity = new Vector2(movementVelocity.X, movementVelocity.Y + gravityVelocity);
         MoveAndSlide();
 		UpdatePlayerZIndex();
-        QueueRedraw();
-    }
+		QueueRedraw();
+	}
 }
