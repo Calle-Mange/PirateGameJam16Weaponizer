@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{A075CD8B-D518-4C25-8002-D5E768AE6493}|Pirate Game Jam 16 Weaponizer.csproj|u:\\git\\pirategamejam16weaponizer\\scripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A075CD8B-D518-4C25-8002-D5E768AE6493}|Pirate Game Jam 16 Weaponizer.csproj|solutionrelative:scripts\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A075CD8B-D518-4C25-8002-D5E768AE6493}|Pirate Game Jam 16 Weaponizer.csproj|u:\\git\\pirategamejam16weaponizer\\scripts\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A075CD8B-D518-4C25-8002-D5E768AE6493}|Pirate Game Jam 16 Weaponizer.csproj|solutionrelative:scripts\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,9 +32,22 @@
               "RelativeDocumentMoniker": "Scripts\\Player.cs",
               "ToolTip": "U:\\Git\\PirateGameJam16Weaponizer\\Scripts\\Player.cs",
               "RelativeToolTip": "Scripts\\Player.cs",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAqwK8AAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAKcAAAAAAAAAAAAcwL0AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-22T17:52:23.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AudioManager.cs",
+              "DocumentMoniker": "U:\\Git\\PirateGameJam16Weaponizer\\Scripts\\AudioManager.cs",
+              "RelativeDocumentMoniker": "Scripts\\AudioManager.cs",
+              "ToolTip": "U:\\Git\\PirateGameJam16Weaponizer\\Scripts\\AudioManager.cs",
+              "RelativeToolTip": "Scripts\\AudioManager.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAwwEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T15:56:40.075Z",
               "EditorCaption": ""
             }
           ]

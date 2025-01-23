@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://kosbjroc1yti"]
+[gd_scene load_steps=40 format=3 uid="uid://kosbjroc1yti"]
 
 [ext_resource type="Texture2D" uid="uid://bchfuyjnw3xt5" path="res://Assets/Graphics/Knife/Knife_idle.png" id="1_l4xuh"]
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_u6kaj"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/WeaponStateMachine/AxeState.cs" id="5_4lv5k"]
 [ext_resource type="Script" path="res://Scripts/WeaponStateMachine/FlailState.cs" id="6_l5bbp"]
 [ext_resource type="Script" path="res://Scripts/WeaponStateMachine/GunState.cs" id="7_s1pj8"]
+[ext_resource type="AudioStream" uid="uid://bjf5l5c7b1vyv" path="res://Assets/Audio/Effects/Falling.wav" id="10_0vv0i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lswd"]
 atlas = ExtResource("1_l4xuh")
@@ -221,6 +222,7 @@ animations = [{
 radius = 2.0
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_mask = 2
 script = ExtResource("1_u6kaj")
 
@@ -256,6 +258,9 @@ script = ExtResource("7_s1pj8")
 [node name="GroundCheck" type="RayCast2D" parent="."]
 position = Vector2(0, 9)
 target_position = Vector2(0, 35)
+
+[node name="FallingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_0vv0i")
 
 [connection signal="SignalPlayerStateChange" from="WeaponStateMachine/DaggerState" to="." method="OnChangeWeaponForm"]
 [connection signal="SignalPlayerStateChange" from="WeaponStateMachine/AxeState" to="." method="OnChangeWeaponForm"]
