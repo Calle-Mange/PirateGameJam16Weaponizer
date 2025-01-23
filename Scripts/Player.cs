@@ -9,10 +9,11 @@ public partial class Player : CharacterBody2D
     private const float GRAVITY = 980.0f;
     private const uint NORMAL_COLLISION_MASK = 2;
     private const uint NO_COLLISION_MASK = 0;
+    private const float SPEED_MULTIPLIER = 0.5f;
     #endregion
 
     #region Export Properties
-    [Export] public int Speed { get; set; } = 400;
+    [Export] public int Speed { get; set; } = 120;
     [Export] public int AttackDamage { get; set; } = 3;
     [Export] public int Weight { get; set; } = 3;
     #endregion
@@ -228,12 +229,26 @@ public partial class Player : CharacterBody2D
 	public void GetInput()
 	{
 		Vector2 inputDirection = Input.GetVector("move_left", "move_right", "move_up", "move_down");
-		movementVelocity = inputDirection * Speed;
+        inputDirection = inputDirection.Normalized();
+
+        Vector2 isoDirection = new Vector2(
+            inputDirection.X + inputDirection.Y,
+            (-inputDirection.X + inputDirection.Y) * 0.5f
+        );
+
+        isoDirection = isoDirection.Normalized();
+    
+        movementVelocity = isoDirection * Speed;
+
+        if (inputDirection == Vector2.Zero)
+        {
+            animatedSprite.Play("idle");
+            return;
+        }
 
 		// idle
 		if (inputDirection.X == 0 && inputDirection.Y == 0)
 		{
-
 			animatedSprite.Play("idle");
 		}
 
@@ -241,60 +256,58 @@ public partial class Player : CharacterBody2D
 		else if (inputDirection.X > 0 && inputDirection.Y == 0)
 		{
 			animatedSprite.Play("move_vertical");
-			animatedSprite.RotationDegrees = -90;
+			animatedSprite.RotationDegrees = -120;
 		}
 
 		// move left
 		else if (inputDirection.X < 0 && inputDirection.Y == 0)
 		{
 			animatedSprite.Play("move_vertical");
-			animatedSprite.RotationDegrees = 90;
+			animatedSprite.RotationDegrees = 60;
 		}
 
 		// move up
 		else if (inputDirection.X == 0 && inputDirection.Y < 0)
 		{
 			animatedSprite.Play("move_vertical");
-			animatedSprite.RotationDegrees = 180;
+			animatedSprite.RotationDegrees = 125;
 		}
 
 		// move down
 		else if (inputDirection.X == 0 && inputDirection.Y > 0)
 		{
 			animatedSprite.Play("move_vertical");
-			animatedSprite.RotationDegrees = 0;
+			animatedSprite.RotationDegrees = -60;
 		}
 
 		// move north west
 		else if (inputDirection.X < 0 && inputDirection.Y < 0)
 		{
 			animatedSprite.Play("move_diagonal");
-			animatedSprite.RotationDegrees = 180;
+			animatedSprite.RotationDegrees = 90;
 		}
 
 		// move north east
 		else if (inputDirection.X > 0 && inputDirection.Y < 0)
 		{
 			animatedSprite.Play("move_diagonal");
-			animatedSprite.RotationDegrees = -90;
+			animatedSprite.RotationDegrees = 180;
 		}
 
 		// move south west
 		else if (inputDirection.X < 0 && inputDirection.Y > 0)
 		{
 			animatedSprite.Play("move_diagonal");
-			animatedSprite.RotationDegrees = 90;
+			animatedSprite.RotationDegrees = 0;
 		}
 
 		// move south east
 		else if (inputDirection.X > 0 && inputDirection.Y > 0)
 		{
 			animatedSprite.Play("move_diagonal");
-			animatedSprite.RotationDegrees = 0;
+			animatedSprite.RotationDegrees = -90;
 		}
 	}
-
-
 
     public override void _PhysicsProcess(double delta)
     {
