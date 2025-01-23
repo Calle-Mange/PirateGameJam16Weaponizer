@@ -29,6 +29,7 @@ public partial class AxeState : State
         Speed = WeaponStats.Speed;
         AttackDamage = WeaponStats.AttackDamage;
         Weight = WeaponStats.Weight;
+        AnimationSet = GD.Load<SpriteFrames>("res://Assets/Graphics/WeaponAnimationSets/player_axe_animations.tres");
     }
 
     public override void StateProcess(double delta)

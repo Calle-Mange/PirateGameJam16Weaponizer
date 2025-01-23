@@ -144,12 +144,13 @@ public partial class Player : CharacterBody2D
 	// ==========================
 	// Weapon Transformation Logic
 
-	public void OnChangeWeaponForm(int NewSpeed, int NewAttackDamage, int NewWeight, string CurrentWeapon)
+	public void OnChangeWeaponForm(int NewSpeed, int NewAttackDamage, int NewWeight, string CurrentWeapon, SpriteFrames AnimationSet)
 	{
 		Speed = NewSpeed;
 		AttackDamage = NewAttackDamage;
 		Weight = NewWeight;
 		currentweapon = CurrentWeapon;
+		animatedSprite.SpriteFrames = AnimationSet;
 	}
 
 	public override void _Draw()

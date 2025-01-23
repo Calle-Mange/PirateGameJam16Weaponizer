@@ -30,6 +30,7 @@ public partial class DaggerState : State
         Speed = WeaponStats.Speed;
         AttackDamage = WeaponStats.AttackDamage;
         Weight = WeaponStats.Weight;
+        AnimationSet = GD.Load<SpriteFrames>("res://Assets/Graphics/WeaponAnimationSets/player_knife_animations.tres");
     }
 
     public override void StateProcess(double delta)
