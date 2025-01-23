@@ -2,7 +2,9 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://d3iqutlnd68a"
+
+uid="uid://b48a56b6lg0xi"
+
 path="res://.godot/imported/axe_chopping.wav-208eda0c6e3d720826fd4f9b1bb35fb5.sample"
 
 [deps]
