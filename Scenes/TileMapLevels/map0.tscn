@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://bd25rva2s0ql5"]
+[gd_scene load_steps=11 format=4 uid="uid://bd25rva2s0ql5"]
 
 [ext_resource type="Texture2D" uid="uid://dpvvil1wf8w10" path="res://Assets/Graphics/WouldBuilding/isometric-sandbox-sheet.png" id="1_2lmj5"]
+[ext_resource type="PackedScene" uid="uid://dr5rays4j7jya" path="res://Scenes/AudioManager.tscn" id="1_ac4fv"]
 [ext_resource type="PackedScene" uid="uid://kosbjroc1yti" path="res://Scenes/player.tscn" id="2_vx1gh"]
 [ext_resource type="PackedScene" uid="uid://g0ovqenjyebf" path="res://Scenes/EnvironmentItems/rope.tscn" id="3_v5ftb"]
 [ext_resource type="PackedScene" uid="uid://c36cu2o6mjxak" path="res://Scenes/EnvironmentItems/Unlockables/Axe.tscn" id="4_87ums"]
-[ext_resource type="PackedScene" uid="uid://s2ksa4uoxxlj" path="res://Scenes/EnvironmentItems/door.tscn" id="5_4rgd7"]
+[ext_resource type="PackedScene" path="res://Scenes/EnvironmentItems/door.tscn" id="5_4rgd7"]
 [ext_resource type="Script" path="res://Scripts/SpawnPoint.cs" id="6_2xbco"]
 [ext_resource type="Script" path="res://Scripts/SpawnManager.cs" id="7_n42e1"]
 
@@ -134,6 +135,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wqhv3")
 
 [node name="main" type="Node2D"]
+
+[node name="AudioManager" parent="." instance=ExtResource("1_ac4fv")]
 
 [node name="IsometricLevel" type="Node2D" parent="."]
 y_sort_enabled = true
