@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgb5ekvpkdb"]
+
+[ext_resource type="Script" path="res://Scripts/SpawnManager.cs" id="1_j73ek"]
+
+[node name="SpawnManager" type="Node"]
+script = ExtResource("1_j73ek")
