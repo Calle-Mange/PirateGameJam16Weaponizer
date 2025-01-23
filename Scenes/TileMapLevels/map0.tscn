@@ -168,7 +168,6 @@ y_sort_origin = 3
 
 [node name="Player" parent="IsometricLevel" instance=ExtResource("2_vx1gh")]
 position = Vector2(19, -57)
-Speed = 2
 
 [node name="Interactables" type="Node2D" parent="IsometricLevel"]
 

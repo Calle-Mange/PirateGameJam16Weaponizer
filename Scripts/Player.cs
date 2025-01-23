@@ -249,7 +249,6 @@ public partial class Player : CharacterBody2D
 		// idle
 		if (inputDirection.X == 0 && inputDirection.Y == 0)
 		{
-
 			animatedSprite.Play("idle");
 		}
 
@@ -257,56 +256,56 @@ public partial class Player : CharacterBody2D
 		else if (inputDirection.X > 0 && inputDirection.Y == 0)
 		{
 			animatedSprite.Play("move_vertical");
-			animatedSprite.RotationDegrees = -90;
+			animatedSprite.RotationDegrees = -120;
 		}
 
 		// move left
 		else if (inputDirection.X < 0 && inputDirection.Y == 0)
 		{
 			animatedSprite.Play("move_vertical");
-			animatedSprite.RotationDegrees = 90;
+			animatedSprite.RotationDegrees = 60;
 		}
 
 		// move up
 		else if (inputDirection.X == 0 && inputDirection.Y < 0)
 		{
 			animatedSprite.Play("move_vertical");
-			animatedSprite.RotationDegrees = 180;
+			animatedSprite.RotationDegrees = 125;
 		}
 
 		// move down
 		else if (inputDirection.X == 0 && inputDirection.Y > 0)
 		{
 			animatedSprite.Play("move_vertical");
-			animatedSprite.RotationDegrees = 0;
+			animatedSprite.RotationDegrees = -60;
 		}
 
 		// move north west
 		else if (inputDirection.X < 0 && inputDirection.Y < 0)
 		{
 			animatedSprite.Play("move_diagonal");
-			animatedSprite.RotationDegrees = 180;
+			animatedSprite.RotationDegrees = 90;
 		}
 
 		// move north east
 		else if (inputDirection.X > 0 && inputDirection.Y < 0)
 		{
 			animatedSprite.Play("move_diagonal");
-			animatedSprite.RotationDegrees = -90;
+			animatedSprite.RotationDegrees = 180;
 		}
 
 		// move south west
 		else if (inputDirection.X < 0 && inputDirection.Y > 0)
 		{
 			animatedSprite.Play("move_diagonal");
-			animatedSprite.RotationDegrees = 90;
+			animatedSprite.RotationDegrees = 0;
 		}
 
 		// move south east
 		else if (inputDirection.X > 0 && inputDirection.Y > 0)
 		{
 			animatedSprite.Play("move_diagonal");
-			animatedSprite.RotationDegrees = 0;
+			animatedSprite.RotationDegrees = -90;
 		}
 	}
 
