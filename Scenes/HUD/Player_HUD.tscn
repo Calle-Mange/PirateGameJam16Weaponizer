@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1xqkt4kv2uk8"]
+
+[ext_resource type="Script" path="res://Scripts/HUD/PlayerHud.cs" id="1_83v6k"]
+[ext_resource type="Texture2D" uid="uid://dons0yjnec1d" path="res://Assets/Graphics/Heart/heart.png" id="1_wyaxi"]
+[ext_resource type="Texture2D" uid="uid://dt522i5ixqsxi" path="res://Assets/Graphics/HUD/knife_icon.png" id="2_6j6vk"]
+[ext_resource type="Texture2D" uid="uid://bbjn0dkhui8n" path="res://Assets/Graphics/HUD/axe_icon.png" id="3_qw164"]
+
+[node name="PlayerHud" type="CanvasLayer" node_paths=PackedStringArray("HeartIconsArray", "WeaponIconsArray")]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+follow_viewport_enabled = true
+script = ExtResource("1_83v6k")
+HeartIconsArray = [NodePath("MarginContainer/HBoxContainer/Heart1"), NodePath("MarginContainer/HBoxContainer/Heart2"), NodePath("MarginContainer/HBoxContainer/Heart3"), NodePath("MarginContainer/HBoxContainer/Heart4"), NodePath("MarginContainer/HBoxContainer/Heart5")]
+WeaponIconsArray = [NodePath("MarginContainer2/HBoxContainer/MarginContainer/DaggerIcon"), NodePath("MarginContainer2/HBoxContainer/MarginContainer2/AxeIcon")]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 6.0
+offset_right = 62.0
+offset_bottom = 32.0
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(-10, 10)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Heart1" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_wyaxi")
+stretch_mode = 4
+
+[node name="Heart2" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_wyaxi")
+stretch_mode = 4
+
+[node name="Heart3" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_wyaxi")
+stretch_mode = 4
+
+[node name="Heart4" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_wyaxi")
+stretch_mode = 4
+
+[node name="Heart5" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_wyaxi")
+stretch_mode = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+offset_right = 68.0
+offset_bottom = 16.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(10, 30)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="DaggerIcon" type="TextureRect" parent="MarginContainer2/HBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_6j6vk")
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="AxeIcon" type="TextureRect" parent="MarginContainer2/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("3_qw164")
