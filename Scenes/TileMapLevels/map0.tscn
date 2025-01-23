@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://bd25rva2s0ql5"]
+[gd_scene load_steps=9 format=4 uid="uid://bd25rva2s0ql5"]
 
 [ext_resource type="Texture2D" uid="uid://dpvvil1wf8w10" path="res://Assets/Graphics/WouldBuilding/isometric-sandbox-sheet.png" id="1_2lmj5"]
 [ext_resource type="PackedScene" uid="uid://kosbjroc1yti" path="res://Scenes/player.tscn" id="2_vx1gh"]
 [ext_resource type="PackedScene" uid="uid://g0ovqenjyebf" path="res://Scenes/EnvironmentItems/rope.tscn" id="3_v5ftb"]
 [ext_resource type="PackedScene" uid="uid://c36cu2o6mjxak" path="res://Scenes/EnvironmentItems/Unlockables/Axe.tscn" id="4_87ums"]
 [ext_resource type="PackedScene" uid="uid://s2ksa4uoxxlj" path="res://Scenes/EnvironmentItems/door.tscn" id="5_4rgd7"]
+[ext_resource type="PackedScene" uid="uid://b1xqkt4kv2uk8" path="res://Scenes/HUD/Player_HUD.tscn" id="6_jfsgy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wqhv3"]
 texture = ExtResource("1_2lmj5")
@@ -132,6 +133,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wqhv3")
 
 [node name="main" type="Node2D"]
+
+[node name="PlayerHud" parent="." instance=ExtResource("6_jfsgy")]
 
 [node name="IsometricLevel" type="Node2D" parent="."]
 y_sort_enabled = true
