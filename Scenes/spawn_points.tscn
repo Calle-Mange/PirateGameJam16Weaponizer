@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbu4ifdokkvnn"]
+
+[ext_resource type="Script" path="res://Scripts/SpawnPoint.cs" id="1_72dxg"]
+
+[node name="SpawnPoints" type="Node"]
+
+[node name="spawnpoint_1" type="Node2D" parent="."]
+position = Vector2(-179, -97)
+script = ExtResource("1_72dxg")
+AreaName = "white"
+
+[node name="spawnpoint_2" type="Node2D" parent="."]
+position = Vector2(123, -154)
+script = ExtResource("1_72dxg")
+AreaName = "orange"
+
+[node name="spawnpoint_3" type="Node2D" parent="."]
+position = Vector2(115, -51)
+script = ExtResource("1_72dxg")
+AreaName = "orange2"
