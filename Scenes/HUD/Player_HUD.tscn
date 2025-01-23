@@ -8,7 +8,6 @@
 [node name="PlayerHud" type="CanvasLayer" node_paths=PackedStringArray("HeartIconsArray", "WeaponIconsArray")]
 scale = Vector2(3, 3)
 transform = Transform2D(3, 0, 0, 3, 0, 0)
-follow_viewport_enabled = true
 script = ExtResource("1_83v6k")
 HeartIconsArray = [NodePath("MarginContainer/HBoxContainer/Heart1"), NodePath("MarginContainer/HBoxContainer/Heart2"), NodePath("MarginContainer/HBoxContainer/Heart3"), NodePath("MarginContainer/HBoxContainer/Heart4"), NodePath("MarginContainer/HBoxContainer/Heart5")]
 WeaponIconsArray = [NodePath("MarginContainer2/HBoxContainer/MarginContainer/DaggerIcon"), NodePath("MarginContainer2/HBoxContainer/MarginContainer2/AxeIcon")]
