@@ -49,17 +49,13 @@ texture = ExtResource("1_wyaxi")
 stretch_mode = 4
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -468.0
 offset_right = 68.0
-offset_bottom = -436.0
-grow_vertical = 0
+offset_bottom = 16.0
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(10, 30)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/HBoxContainer"]

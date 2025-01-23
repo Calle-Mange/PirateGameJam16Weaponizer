@@ -4,69 +4,58 @@ using System.Collections.Generic;
 
 public partial class PlayerHud : CanvasLayer
 {
-	[Export] Godot.Collections.Array<TextureRect> HeartIconsArray;
-	[Export] Godot.Collections.Array<TextureRect> WeaponIconsArray;
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-		GlobalGameVariables.Instance.PlayerHealth = HeartIconsArray.Count;
+    [Export] Godot.Collections.Array<TextureRect> HeartIconsArray;
+    [Export] Godot.Collections.Array<TextureRect> WeaponIconsArray;
+    // Called when the node enters the scene tree for the first time.
+    public override void _Ready()
+    {
+        GlobalGameVariables.Instance.PlayerHealth = HeartIconsArray.Count;
+        GD.Print(WeaponIconsArray.Count);
 
-		for (int i = 0; i < WeaponIconsArray.Count; i++)
-		{
-			if (i != 0)
-			{
-				WeaponIconsArray[i].Visible = false;
-			}
-		}
+        for (int i = 1; i <= WeaponIconsArray.Count - 1; i++)
+        {
+            WeaponIconsArray[i].Visible = false;
+        }
+    }
 
-	}
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
+    public override void _Process(double delta)
+    {
+        UpdateHeartIcons();
+        UpdateWeaponIcons();
+    }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+    public void UpdateHeartIcons()
+    {
+        int healthIndex = GlobalGameVariables.Instance.PlayerHealth;
 
-	}
-
-	public void UpdateHeartIcons()
-	{
-		int healthIndex = GlobalGameVariables.Instance.PlayerHealth;
-
-		for (int i = 0; i < HeartIconsArray.Count; i++)
-		{
-            if ( healthIndex <= 0)
-			{
-
-			}
+        for (int i = 0; i < HeartIconsArray.Count; i++)
+        {
+            if (healthIndex <= 0)
             {
-                
+                foreach (TextureRect heart in HeartIconsArray) 
+                { 
+                    heart.Visible = false; 
+                }
             }
+
             if (i > (healthIndex - 1))
-			{
-				HeartIconsArray[i].Visible = false;
-			}
+            {
+                HeartIconsArray[i].Visible = false;
+            }
 
-			if (i < (healthIndex - 1))
-			{
-				HeartIconsArray[i].Visible = true;
-			}
-		}
-	}
+            if (i < (healthIndex - 1))
+            {
+                HeartIconsArray[i].Visible = true;
+            }
+        }
+    }
 
-	public void UpdateWeaponIcons()
-	{
-		if (GlobalGameVariables.Instance.AxeUnlocked)
-		{
-			WeaponIconsArray[1].Visible = true;
-		}
-
-		if (GlobalGameVariables.Instance.FlailUnlocked)
-		{
-			WeaponIconsArray[2].Visible = true;
-		}
-
-		if (GlobalGameVariables.Instance.GunUnlocked)
-		{
-			WeaponIconsArray[3].Visible = true;
-		}
-	}
+    public void UpdateWeaponIcons()
+    {
+        if (GlobalGameVariables.Instance.PlayerInventory[GlobalGameVariables.Instance.WeaponList.Axe])
+        {
+            WeaponIconsArray[1].Visible = true;
+        }
+    }
 }

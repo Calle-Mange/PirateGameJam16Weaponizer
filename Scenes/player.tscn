@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://kosbjroc1yti"]
+[gd_scene load_steps=27 format=3 uid="uid://kosbjroc1yti"]
 
 [ext_resource type="Texture2D" uid="uid://bchfuyjnw3xt5" path="res://Assets/Graphics/Knife/Knife_idle.png" id="1_l4xuh"]
 [ext_resource type="Script" path="res://Scripts/Player.cs" id="1_u6kaj"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/WeaponStateMachine/AxeState.cs" id="5_4lv5k"]
 [ext_resource type="Script" path="res://Scripts/WeaponStateMachine/FlailState.cs" id="6_l5bbp"]
 [ext_resource type="Script" path="res://Scripts/WeaponStateMachine/GunState.cs" id="7_s1pj8"]
+[ext_resource type="PackedScene" uid="uid://b1xqkt4kv2uk8" path="res://Scenes/HUD/Player_HUD.tscn" id="9_33tvr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lswd"]
 atlas = ExtResource("1_l4xuh")
@@ -166,6 +167,9 @@ script = ExtResource("7_s1pj8")
 [node name="GroundCheck" type="RayCast2D" parent="."]
 position = Vector2(0, 9)
 target_position = Vector2(0, 35)
+
+[node name="PlayerHud" parent="." instance=ExtResource("9_33tvr")]
+follow_viewport_enabled = false
 
 [connection signal="SignalPlayerStateChange" from="WeaponStateMachine/DaggerState" to="." method="OnChangeWeaponForm"]
 [connection signal="SignalPlayerStateChange" from="WeaponStateMachine/AxeState" to="." method="OnChangeWeaponForm"]
