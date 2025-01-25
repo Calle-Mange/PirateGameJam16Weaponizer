@@ -74,6 +74,7 @@ public partial class Player : CharacterBody2D
 
 	private void UpdatePlayerZIndex()
 	{
+        if (_layerFolder == null) return;
 		if (isFalling && fallStartPosition.Y < 0)
 		{
 			ZIndex = -1000;
@@ -195,6 +196,8 @@ public partial class Player : CharacterBody2D
 
 	private void HandleGravity(double delta)
 	{
+        if(_layerFolder == null || spawnManager == null) return;
+
 		if (!HasTileBelowPlayer())
 		{
 			if (!isFalling)

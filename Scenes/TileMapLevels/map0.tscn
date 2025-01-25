@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bd25rva2s0ql5"]
+[gd_scene load_steps=15 format=4 uid="uid://bd25rva2s0ql5"]
 
 [ext_resource type="Texture2D" uid="uid://dpvvil1wf8w10" path="res://Assets/Graphics/WouldBuilding/isometric-sandbox-sheet.png" id="1_2lmj5"]
 [ext_resource type="Texture2D" uid="uid://d2hskdl8ndsad" path="res://Assets/Graphics/WouldBuilding/Background.png" id="1_263e0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://g0ovqenjyebf" path="res://Scenes/EnvironmentItems/rope.tscn" id="3_v5ftb"]
 [ext_resource type="PackedScene" uid="uid://c36cu2o6mjxak" path="res://Scenes/EnvironmentItems/Unlockables/Axe.tscn" id="4_87ums"]
 [ext_resource type="PackedScene" uid="uid://s2ksa4uoxxlj" path="res://Scenes/EnvironmentItems/door.tscn" id="5_4rgd7"]
+[ext_resource type="PackedScene" uid="uid://btcbpdf2e1lfa" path="res://Scenes/tunnel_wall.tscn" id="5_oorag"]
 [ext_resource type="PackedScene" uid="uid://cbu4ifdokkvnn" path="res://Scenes/spawn_points.tscn" id="6_d5rbj"]
 [ext_resource type="PackedScene" uid="uid://bgb5ekvpkdb" path="res://Scenes/spawn_manager.tscn" id="7_fwa1x"]
 [ext_resource type="PackedScene" path="res://Scenes/AudioManager.tscn" id="8_wrxs5"]
@@ -202,9 +203,15 @@ position = Vector2(19, -57)
 z_index = 1000
 position = Vector2(-90, -138)
 
-[node name="TunnelFolder" type="Node" parent="IsometricLevel/Interactables"]
+[node name="TunnelWall" parent="IsometricLevel/Interactables" instance=ExtResource("5_oorag")]
+z_index = 200
+y_sort_enabled = true
+position = Vector2(-15, -129)
 
-[node name="Tunnel1" type="Node2D" parent="IsometricLevel/Interactables/TunnelFolder"]
+[node name="ExitNodeFolder" type="Node" parent="IsometricLevel"]
+
+[node name="Tunnel1_Exit" type="Node2D" parent="IsometricLevel/ExitNodeFolder"]
+position = Vector2(-179, -123)
 
 [node name="Axe" parent="." instance=ExtResource("4_87ums")]
 position = Vector2(83, -41)
@@ -217,7 +224,3 @@ position = Vector2(8, -76)
 [node name="SpawnManager" parent="." instance=ExtResource("7_fwa1x")]
 
 [node name="AudioManager" parent="." instance=ExtResource("8_wrxs5")]
-
-[node name="ExitNodeFolder" type="Node" parent="."]
-
-[node name="Tunnel1_ Exit" type="Node2D" parent="ExitNodeFolder"]
