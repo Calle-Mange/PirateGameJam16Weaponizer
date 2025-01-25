@@ -165,7 +165,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"break_door_1",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -179,7 +179,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"break_door_2",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -196,12 +196,10 @@ animations = [{
 }],
 "loop": true,
 "name": &"break_door_3",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_bot2e")
 animation = &"break_door_3"
-autoplay = "Hel"
-frame = 1
-frame_progress = 0.661539
+frame_progress = 0.0776095
