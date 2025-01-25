@@ -1,0 +1,207 @@
+[gd_scene load_steps=25 format=3 uid="uid://djvkb51pgebdg"]
+
+[ext_resource type="Texture2D" uid="uid://c4j57tbvudpbe" path="res://Assets/Graphics/WouldBuilding/Breaking_door.png" id="1_jud6n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrucs"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wvwo"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8pw2"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi8eh"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aavjg"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ten7q"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bxjm"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qs2d1"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oreww"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20slf"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g23ub"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ucvm"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7tw1"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtjat"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0c63"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj5ec"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8jgl"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5246r"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgnkv"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8mll"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lehv1"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba6e8"]
+atlas = ExtResource("1_jud6n")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bot2e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrucs")
+}],
+"loop": true,
+"name": &"Door",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wvwo")
+}],
+"loop": true,
+"name": &"Door_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8pw2")
+}],
+"loop": true,
+"name": &"Door_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi8eh")
+}],
+"loop": true,
+"name": &"Door_broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aavjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ten7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bxjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qs2d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oreww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20slf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g23ub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ucvm")
+}],
+"loop": true,
+"name": &"Hel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7tw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtjat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0c63")
+}],
+"loop": true,
+"name": &"break_door_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bj5ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8jgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5246r")
+}],
+"loop": true,
+"name": &"break_door_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgnkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8mll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lehv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ba6e8")
+}],
+"loop": true,
+"name": &"break_door_3",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_bot2e")
+animation = &"break_door_3"
+autoplay = "Hel"
+frame = 1
+frame_progress = 0.661539
