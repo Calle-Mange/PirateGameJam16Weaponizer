@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public partial class PlayerHud : CanvasLayer
 {
-    [Export] Godot.Collections.Array<TextureRect> HeartIconsArray;
-    [Export] Godot.Collections.Array<TextureRect> WeaponIconsArray;
+    [Export] public Godot.Collections.Array<TextureRect> HeartIconsArray;
+    [Export] public Godot.Collections.Array<TextureRect> WeaponIconsArray;
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {

@@ -346,6 +346,7 @@ public partial class Player : CharacterBody2D
 	}
     public override void _PhysicsProcess(double delta)
     {
+		if (TutorialOverlay.IsTutorialActive) return;
         GetInput();
         HandleGravity(delta);
         Velocity = new Vector2(movementVelocity.X, movementVelocity.Y + gravityVelocity);
