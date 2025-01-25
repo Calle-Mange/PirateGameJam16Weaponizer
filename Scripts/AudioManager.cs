@@ -32,7 +32,6 @@ public partial class AudioManager : Node
 
 		if (dir == null)
 		{
-			GD.Print("Failed to load sound directory: " + path);
 			return;
 		}
 
@@ -43,7 +42,6 @@ public partial class AudioManager : Node
 				continue;
 			}
 
-			GD.Print(path + file);
 			string audioName = file.Split(".")[0];
 			_audioLib.Add(audioName, GD.Load<AudioStream>(path + file));
 		}
@@ -53,7 +51,6 @@ public partial class AudioManager : Node
 	{
 		if (!_audioLib.ContainsKey(soundName))
 		{
-			GD.Print("Sound not found: " + soundName);
 			return;
 		}
 		foreach (var audioPlayer in _audioSteamPlayers)
