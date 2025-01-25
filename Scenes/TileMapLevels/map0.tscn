@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://kosbjroc1yti" path="res://Scenes/player.tscn" id="2_vx1gh"]
 [ext_resource type="PackedScene" uid="uid://g0ovqenjyebf" path="res://Scenes/EnvironmentItems/rope.tscn" id="3_v5ftb"]
 [ext_resource type="PackedScene" uid="uid://c36cu2o6mjxak" path="res://Scenes/EnvironmentItems/Unlockables/Axe.tscn" id="4_87ums"]
-[ext_resource type="PackedScene" path="res://Scenes/EnvironmentItems/door.tscn" id="5_4rgd7"]
+[ext_resource type="PackedScene" uid="uid://s2ksa4uoxxlj" path="res://Scenes/EnvironmentItems/door.tscn" id="5_4rgd7"]
 [ext_resource type="PackedScene" uid="uid://cbu4ifdokkvnn" path="res://Scenes/spawn_points.tscn" id="6_d5rbj"]
 [ext_resource type="PackedScene" uid="uid://bgb5ekvpkdb" path="res://Scenes/spawn_manager.tscn" id="7_fwa1x"]
-[ext_resource type="PackedScene" uid="uid://dr5rays4j7jya" path="res://Scenes/AudioManager.tscn" id="8_wrxs5"]
+[ext_resource type="PackedScene" path="res://Scenes/AudioManager.tscn" id="8_wrxs5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c0ljl"]
 texture = ExtResource("1_263e0")

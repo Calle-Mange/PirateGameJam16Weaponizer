@@ -25,6 +25,7 @@ public partial class Player : CharacterBody2D
     private Area2D interactionArea;
     private Node transitionScene;
     private AnimationPlayer transitionPlayer;
+	private Timer hurtTimer;
     #endregion
 
     #region Movement and Physics
@@ -37,6 +38,10 @@ public partial class Player : CharacterBody2D
 
     #region Interaction System
     private string currentweapon; // for testing right now
+	#endregion
+
+	#region HUD
+	private bool Damageable = true;
     #endregion
 
     public override void _Ready()
@@ -48,6 +53,7 @@ public partial class Player : CharacterBody2D
         transitionPlayer = transitionScene.GetNode<AnimationPlayer>("AnimationPlayer"); 
         spawnManager = GetNode<SpawnManager>("../../SpawnManager");
         animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		hurtTimer = GetNode<Timer>("HurtTimer");
     }
 
 	private void SetupInteractionArea()
@@ -223,15 +229,34 @@ public partial class Player : CharacterBody2D
 	private async void Respawn()
 	{
 		transitionPlayer.Play("fade_out");
-		await ToSignal(transitionPlayer, "animation_finished");
+        await ToSignal(transitionPlayer, "animation_finished");
 
 		Position = spawnManager.GetRespawnPosition(fallStartPosition);
 
+		TakeDamage();
+
 		isFalling = false;
-		movementVelocity = Vector2.Zero;
+        movementVelocity = Vector2.Zero;
 		CollisionMask = NORMAL_COLLISION_MASK;
 		transitionPlayer.Play("fade_in");
-		AudioManager.Instance.PlaySound("respawning");
+        AudioManager.Instance.PlaySound("respawning");
+	}
+
+	private void OnHurtTimerTimeout()
+	{
+		Damageable = true;
+	}
+
+	private void TakeDamage()
+	{
+		if (Damageable)
+		{
+            GlobalGameVariables.Instance.PlayerHealth--;
+            Damageable = false;
+			hurtTimer.Start(3);
+        }
+
+
 	}
 
 	public void GetInput()
