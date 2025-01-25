@@ -28,6 +28,18 @@ public partial class LevelManager : Node
         }
 
 		transitionPlayer.Play("fade_in");
+
+        if(scenePath.EndsWith("map0.tscn")){
+            await ToSignal(GetTree(), "process_frame");
+            ShowTutorial();
+        }
 	}
+
+    private void ShowTutorial()
+    {
+        var tutorialScene = ResourceLoader.Load<PackedScene>("res://Scenes/tutorial_overlay.tscn");
+        var tutorial = tutorialScene.Instantiate<TutorialOverlay>();
+        GetTree().Root.AddChild(tutorial);
+    }
 }
 	
