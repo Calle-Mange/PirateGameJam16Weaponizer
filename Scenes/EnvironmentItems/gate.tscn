@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk3jeycvsbtn5"]
+
+[ext_resource type="Script" path="res://Scripts/Interaction/GateInteractable.cs" id="1_vljug"]
+[ext_resource type="Texture2D" uid="uid://bsrxsrexnl2q" path="res://Assets/Graphics/WouldBuilding/gate.png" id="2_dq8ve"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvftw"]
+size = Vector2(22.3914, 17.2509)
+
+[node name="Gate" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_vljug")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_dq8ve")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.42957, -0.93444)
+rotation = 0.349066
+shape = SubResource("RectangleShape2D_jvftw")
