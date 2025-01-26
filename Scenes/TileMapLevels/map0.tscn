@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bgb5ekvpkdb" path="res://Scenes/spawn_manager.tscn" id="7_fwa1x"]
 [ext_resource type="PackedScene" path="res://Scenes/AudioManager.tscn" id="8_wrxs5"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c0ljl"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4otgy"]
 texture = ExtResource("1_263e0")
 texture_region_size = Vector2i(150, 150)
 0:0/next_alternative_id = 2
@@ -25,7 +25,7 @@ texture_region_size = Vector2i(150, 150)
 
 [sub_resource type="TileSet" id="TileSet_holxl"]
 tile_size = Vector2i(150, 150)
-sources/0 = SubResource("TileSetAtlasSource_c0ljl")
+sources/0 = SubResource("TileSetAtlasSource_4otgy")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wqhv3"]
 texture = ExtResource("1_2lmj5")
