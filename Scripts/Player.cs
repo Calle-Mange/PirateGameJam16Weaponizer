@@ -229,7 +229,7 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
-	private async void Respawn()
+	public async void Respawn()
 	{
 		transitionPlayer.Play("fade_out");
         await ToSignal(transitionPlayer, "animation_finished");

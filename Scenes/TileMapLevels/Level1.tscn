@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c2yhgtl8uaa4p"]
+[gd_scene load_steps=10 format=4 uid="uid://blbcsondxq2x"]
 
 [ext_resource type="Texture2D" uid="uid://bq4bqd5es30t1" path="res://Assets/Graphics/WouldBuilding/isometric-sandbox-sheet-basics.png" id="1_eya2h"]
 [ext_resource type="PackedScene" uid="uid://kosbjroc1yti" path="res://Scenes/player.tscn" id="1_vuqau"]
@@ -194,6 +194,7 @@ tile_set = SubResource("TileSet_ch2e6")
 [node name="Layer3" type="TileMapLayer" parent="IsometricLevel/LayerFolder"]
 z_index = 300
 y_sort_enabled = true
+tile_map_data = PackedByteArray("AADc//D/AAAAAAYAAADc/+//AAAAAAYAAADc/+7/AAAAAAYAAADc/+3/AAAAAAYAAADc/+z/AAAAAAYAAADc/+v/AAAAAAYAAADc/+r/AAAAAAYAAADc/+n/AAAAAAYAAADc/+j/AAAAAAYAAADc/+f/AAAAAAYAAADc/+b/AAAAAAYAAADc/+X/AAAAAAYAAADc/+T/AAAAAAYAAADd//D/AAAAAAYAAADe//D/AAAAAAYAAADf//D/AAAAAAYAAADg//D/AAAAAAYAAADh//D/AAAAAAYAAADi//D/AAAAAAYAAADj//D/AAAAAAYAAADk//D/AAAAAAYAAADl//D/AAAAAAYAAADl/+//AAAAAAYAAADl/+7/AAAAAAYAAADl/+3/AAAAAAYAAADl/+z/AAAAAAYAAADl/+j/AAAAAAYAAADl/+f/AAAAAAYAAADl/+b/AAAAAAYAAADl/+X/AAAAAAYAAADl/+T/AAAAAAYAAADd/+T/AAAAAAYAAADe/+T/AAAAAAYAAADf/+T/AAAAAAYAAADg/+T/AAAAAAYAAADh/+T/AAAAAAYAAADi/+T/AAAAAAYAAADj/+T/AAAAAAYAAADk/+T/AAAAAAYAAAA=")
 tile_set = SubResource("TileSet_ch2e6")
 
 [node name="Player" parent="IsometricLevel" instance=ExtResource("1_vuqau")]
