@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhxjpomjj1i4a"]
+
+[ext_resource type="Script" path="res://Scripts/TutorialOverlay.cs" id="1_skese"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p58xo"]
+bg_color = Color(1, 1, 1, 0.101961)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 0, 1)
+shadow_color = Color(1, 1, 0, 0.498039)
+
+[sub_resource type="SystemFont" id="SystemFont_abbid"]
+subpixel_positioning = 0
+
+[sub_resource type="SystemFont" id="SystemFont_v0ywq"]
+subpixel_positioning = 0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1f5ae"]
+border_color = Color(1, 1, 0, 1)
+
+[node name="TutorialOverlay" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_skese")
+
+[node name="HighlightPanel" type="Panel" parent="."]
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 300.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_p58xo")
+
+[node name="TutorialText" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -17.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.940472, 0.753504, 0.232983, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("SystemFont_abbid")
+theme_override_font_sizes/font_size = 24
+
+[node name="NextButton" type="Button" parent="."]
+offset_left = -23.0
+offset_top = 41.0
+offset_right = 22.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_v0ywq")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/hover = SubResource("StyleBoxFlat_1f5ae")
+text = "Next"

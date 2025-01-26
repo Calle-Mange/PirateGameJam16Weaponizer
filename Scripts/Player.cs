@@ -54,6 +54,7 @@ public partial class Player : CharacterBody2D
         spawnManager = GetNode<SpawnManager>("../../SpawnManager");
         animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		hurtTimer = GetNode<Timer>("HurtTimer");
+		AddToGroup("Player");
     }
 
 	private void SetupInteractionArea()
@@ -74,6 +75,7 @@ public partial class Player : CharacterBody2D
 
 	private void UpdatePlayerZIndex()
 	{
+        if (_layerFolder == null) return;
 		if (isFalling && fallStartPosition.Y < 0)
 		{
 			ZIndex = -1000;
@@ -195,6 +197,8 @@ public partial class Player : CharacterBody2D
 
 	private void HandleGravity(double delta)
 	{
+        if(_layerFolder == null || spawnManager == null) return;
+
 		if (!HasTileBelowPlayer())
 		{
 			if (!isFalling)
@@ -247,7 +251,7 @@ public partial class Player : CharacterBody2D
 		Damageable = true;
 	}
 
-	private void TakeDamage()
+	public void TakeDamage()
 	{
 		if (Damageable)
 		{
@@ -343,6 +347,7 @@ public partial class Player : CharacterBody2D
 	}
     public override void _PhysicsProcess(double delta)
     {
+		if (TutorialOverlay.IsTutorialActive) return;
         GetInput();
         HandleGravity(delta);
         Velocity = new Vector2(movementVelocity.X, movementVelocity.Y + gravityVelocity);

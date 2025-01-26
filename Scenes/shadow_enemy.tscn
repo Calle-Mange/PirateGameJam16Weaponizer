@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://ouof306rk3i5"]
+
+[ext_resource type="Script" path="res://Scripts/Interaction/ShadowEnemyInteractable.cs" id="1_v3uxg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7u0bv"]
+radius = 20.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x7ae4"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 1, 1)
+emission_shape = 1
+emission_sphere_radius = 0.01
+spread = 20.0
+initial_velocity_max = 5.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.2
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 9.99998
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color = Color(0.168627, 0.0392157, 0.227451, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ahdrq"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 20.0
+initial_velocity_max = 10.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 0.4
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 20.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+color = Color(0.290196, 0.168627, 0.34902, 1)
+
+[node name="ShadowEnemy" type="Area2D"]
+script = ExtResource("1_v3uxg")
+FloatSpeed = null
+FloatRadius = null
+AllowedWeapons = null
+RequiresSpecificWeapon = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7u0bv")
+
+[node name="CoreParticles" type="GPUParticles2D" parent="."]
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_x7ae4")
+speed_scale = 2.0
+explosiveness = 0.1
+
+[node name="OuterParticles" type="GPUParticles2D" parent="."]
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_ahdrq")

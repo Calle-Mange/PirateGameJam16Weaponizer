@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2rupg1ev2xqe"
-path="res://.godot/imported/knife-tunnel-animation.png-bd9e528ffc61975adc09896bcc284526.ctex"
+uid="uid://po3olngopxws"
+path="res://.godot/imported/hazard_sign-1.png-ca56e29e9823e71434208e4f6b86a170.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Graphics/WouldBuilding/knife-tunnel-animation.png"
-dest_files=["res://.godot/imported/knife-tunnel-animation.png-bd9e528ffc61975adc09896bcc284526.ctex"]
+source_file="res://Assets/Graphics/WouldBuilding/hazard_sign-1.png"
+dest_files=["res://.godot/imported/hazard_sign-1.png-ca56e29e9823e71434208e4f6b86a170.ctex"]
 
 [params]
 
