@@ -1,38 +1,43 @@
 using Godot;
-using System;
 
 public partial class GateInteractable : StaticBody2D
 {
 	private bool IsOpen = false;
-	private Transform2D startTransform;
-	private Transform2D endTransform;
+    private Vector2 startPosition;
+    private Vector2 endPosition;
+    private CollisionShape2D collisionShape;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		startTransform = Transform;
-		endTransform.Y = startTransform.Y - new Vector2(0, -50);
+        startPosition = Position;
+        endPosition = new Vector2(Position.X, Position.Y - 32);
+        collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-	}
-
-	public void OnOpenGate(double delta)
-	{
-		if (Transform.Y != endTransform.Y)
-		{
-            Position = Position.MoveToward(endTransform.Y, (float)delta);
+        if (IsOpen)
+        {
+            Position = endPosition;
+            collisionShape.Disabled = true;
         }
 
-	}
-
-	public void OnCloseGate(double delta)
-	{
-		if (Transform.Y != startTransform.Y)
-		{
-            Position = Position.MoveToward(startTransform.Y, (float)delta);
+        if (!IsOpen)
+        {
+            Position = startPosition;
+            collisionShape.Disabled = false;
         }
-	}
+    }
+
+    private void OnOpenGate()
+    {
+        IsOpen = true;
+    }
+
+    private void OnCloseGate()
+    {
+        IsOpen = false;
+    }
 }

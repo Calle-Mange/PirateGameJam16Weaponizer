@@ -229,3 +229,6 @@ position = Vector2(-79, -64)
 
 [node name="Gate_1" parent="." instance=ExtResource("11_id0m0")]
 position = Vector2(42, -69)
+
+[connection signal="PressurePlateActive" from="Pressure Plate_1" to="Gate_1" method="OnOpenGate"]
+[connection signal="PressurePlateInactive" from="Pressure Plate_1" to="Gate_1" method="OnCloseGate"]
