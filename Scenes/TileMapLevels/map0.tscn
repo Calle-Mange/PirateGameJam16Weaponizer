@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://s2ksa4uoxxlj" path="res://Scenes/EnvironmentItems/door.tscn" id="5_4rgd7"]
 [ext_resource type="PackedScene" uid="uid://btcbpdf2e1lfa" path="res://Scenes/tunnel_wall.tscn" id="5_oorag"]
 [ext_resource type="PackedScene" uid="uid://cbu4ifdokkvnn" path="res://Scenes/spawn_points.tscn" id="6_d5rbj"]
-[ext_resource type="PackedScene" path="res://Scenes/EnvironmentItems/HazardSign.tscn" id="7_5u0hs"]
+[ext_resource type="PackedScene" uid="uid://dhje0inujoekn" path="res://Scenes/EnvironmentItems/HazardSign.tscn" id="7_5u0hs"]
 [ext_resource type="PackedScene" uid="uid://bgb5ekvpkdb" path="res://Scenes/spawn_manager.tscn" id="7_fwa1x"]
 [ext_resource type="PackedScene" path="res://Scenes/AudioManager.tscn" id="8_wrxs5"]
 [ext_resource type="PackedScene" uid="uid://il455u6gycvv" path="res://Scenes/EnvironmentItems/WaterArea.tscn" id="11_sx0sy"]

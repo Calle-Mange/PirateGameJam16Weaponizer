@@ -54,6 +54,7 @@ public partial class Player : CharacterBody2D
         spawnManager = GetNode<SpawnManager>("../../SpawnManager");
         animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		hurtTimer = GetNode<Timer>("HurtTimer");
+		AddToGroup("Player");
     }
 
 	private void SetupInteractionArea()
@@ -229,7 +230,7 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
-	public async void Respawn()
+	private async void Respawn()
 	{
 		transitionPlayer.Play("fade_out");
         await ToSignal(transitionPlayer, "animation_finished");
@@ -250,7 +251,7 @@ public partial class Player : CharacterBody2D
 		Damageable = true;
 	}
 
-	private void TakeDamage()
+	public void TakeDamage()
 	{
 		if (Damageable)
 		{

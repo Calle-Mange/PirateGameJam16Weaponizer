@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dhje0inujoekn"]
 
-[ext_resource type="Texture2D" path="res://Assets/Graphics/WouldBuilding/hazard_sign-1.png" id="1_an85a"]
+[ext_resource type="Texture2D" uid="uid://po3olngopxws" path="res://Assets/Graphics/WouldBuilding/hazard_sign-1.png" id="1_an85a"]
 
 [node name="HazardSign" type="StaticBody2D"]
 
