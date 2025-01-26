@@ -143,7 +143,6 @@ sprite_frames = SubResource("SpriteFrames_avipi")
 animation = &"go_through_tunnel"
 frame = 15
 frame_progress = 1.0
-flip_h = true
 
 [node name="WallCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qyv6n")
