@@ -139,12 +139,11 @@ script = ExtResource("1_jvwd4")
 [node name="Wall" type="StaticBody2D" parent="."]
 
 [node name="WallSprite" type="AnimatedSprite2D" parent="Wall"]
-position = Vector2(-137, 13)
 sprite_frames = SubResource("SpriteFrames_avipi")
 animation = &"go_through_tunnel"
 frame = 15
 frame_progress = 1.0
+flip_h = true
 
 [node name="WallCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-136, 17.5)
 shape = SubResource("RectangleShape2D_qyv6n")
