@@ -11,7 +11,7 @@ public partial class SpawnManager : Node
     {
 		spawnPointContainer = GetNode("../SpawnPoints");
 		layerFolder = GetNode<Node2D>("../IsometricLevel/LayerFolder");
-    }
+	}
 
 	public Vector2 GetRespawnPosition(Vector2 playerPosition){
 		var children = spawnPointContainer.GetChildren();
@@ -36,6 +36,11 @@ public partial class SpawnManager : Node
     }
 
     return closest.GlobalPosition;
+	}
+
+    public Vector2 GetInitalRespawnPosition() {
+		var initialSpawnPoint = (SpawnPoint)spawnPointContainer.GetChildren()[0];
+		return initialSpawnPoint.GlobalPosition;
 	}
 
 	private int GetCurrentLayer(Vector2 position){
