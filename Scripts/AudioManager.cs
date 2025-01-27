@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 public partial class AudioManager : Node
 {
-
 	private static AudioManager _audioManager;
 	private List<AudioStreamPlayer> _audioSteamPlayers = new List<AudioStreamPlayer>();
+	private List<AudioStreamPlayer2D> _spatialPlayers = new List<AudioStreamPlayer2D>();
 	private Dictionary<string, AudioStream> _audioLib = new Dictionary<string, AudioStream>();
 
 	public static AudioManager Instance
@@ -64,6 +64,24 @@ public partial class AudioManager : Node
 		}
 	}
 
+	public void PlaySoundAt(string soundName, Vector2 position, float range)
+    {
+        if (!_audioLib.ContainsKey(soundName)) return;
+
+        foreach (var player in _spatialPlayers)
+        {
+            if (!player.Playing)
+            {
+                player.Stream = _audioLib[soundName];
+                player.GlobalPosition = position;
+                player.MaxDistance = range;
+                player.Play();
+                return;
+            }
+        }
+    }
+
+
 	public void CreateAudioPlayer()
 	{
 		for (int i = 0; i < 5; i++) // gor med yield sen
@@ -72,5 +90,12 @@ public partial class AudioManager : Node
 			AddChild(audioPlayer);
 			_audioSteamPlayers.Add(audioPlayer);
 		}
+
+		for (int i = 0; i < 3; i++)
+        {
+            var spatialPlayer = new AudioStreamPlayer2D();
+            AddChild(spatialPlayer);
+            _spatialPlayers.Add(spatialPlayer);
+        }
 	}
 }
