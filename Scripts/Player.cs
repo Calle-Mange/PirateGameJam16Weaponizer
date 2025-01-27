@@ -34,6 +34,8 @@ public partial class Player : CharacterBody2D
     private bool isFalling = false;
     private Vector2 fallStartPosition;
     private TileMapLayer currentLayer;
+	private Vector2 externalForce = Vector2.Zero;
+	private float externalForceDrag = 0.95f;
     #endregion
 
     #region Interaction System
@@ -345,14 +347,25 @@ public partial class Player : CharacterBody2D
 			animatedSprite.RotationDegrees = -90;
 		}
 	}
+
+	public void AddExternalForce(Vector2 force)
+    {
+        externalForce += force;
+    }
     public override void _PhysicsProcess(double delta)
     {
 		if (TutorialOverlay.IsTutorialActive) return;
         GetInput();
         HandleGravity(delta);
-        Velocity = new Vector2(movementVelocity.X, movementVelocity.Y + gravityVelocity);
-        MoveAndSlide();
+        Velocity = new Vector2(movementVelocity.X + externalForce.X, movementVelocity.Y + gravityVelocity + externalForce.Y);
+		externalForce *= externalForceDrag;
+		
+		if (externalForce.Length() < 0.01f)
+        {
+            externalForce = Vector2.Zero;
+        }
 
+        MoveAndSlide();
 		UpdatePlayerZIndex();
 		QueueRedraw();
 	}

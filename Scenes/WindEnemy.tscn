@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhbairi01no4x"]
+
+[ext_resource type="Script" path="res://Scripts/WindEnemy.cs" id="1_lfane"]
+[ext_resource type="Texture2D" uid="uid://cw0jf4q1wrqo8" path="res://Assets/Graphics/WouldBuilding/windmill_static.png" id="1_yrdjw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d54t5"]
+size = Vector2(15, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c61g"]
+size = Vector2(20.0768, 50.9359)
+
+[node name="WindEnemy" type="StaticBody2D"]
+script = ExtResource("1_lfane")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yrdjw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.5, 9)
+shape = SubResource("RectangleShape2D_d54t5")
+
+[node name="WindArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WindArea"]
+position = Vector2(-21, 24)
+rotation = 0.871642
+shape = SubResource("RectangleShape2D_7c61g")
+
+[node name="WindTimer" type="Timer" parent="."]
+
+[node name="DurationTimer" type="Timer" parent="."]
+
+[node name="WindParticles" type="CPUParticles2D" parent="."]
+z_index = 300
+local_coords = true

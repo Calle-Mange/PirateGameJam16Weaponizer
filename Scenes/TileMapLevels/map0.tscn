@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bd25rva2s0ql5"]
+[gd_scene load_steps=18 format=4 uid="uid://bd25rva2s0ql5"]
 
 [ext_resource type="Texture2D" uid="uid://dpvvil1wf8w10" path="res://Assets/Graphics/WouldBuilding/isometric-sandbox-sheet.png" id="1_2lmj5"]
 [ext_resource type="Texture2D" uid="uid://d2hskdl8ndsad" path="res://Assets/Graphics/WouldBuilding/Background.png" id="1_263e0"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bgb5ekvpkdb" path="res://Scenes/spawn_manager.tscn" id="7_fwa1x"]
 [ext_resource type="PackedScene" path="res://Scenes/AudioManager.tscn" id="8_wrxs5"]
 [ext_resource type="PackedScene" uid="uid://il455u6gycvv" path="res://Scenes/EnvironmentItems/WaterArea.tscn" id="11_sx0sy"]
+[ext_resource type="PackedScene" uid="uid://dhbairi01no4x" path="res://Scenes/WindEnemy.tscn" id="13_gyx45"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4otgy"]
 texture = ExtResource("1_263e0")
@@ -235,6 +236,10 @@ position = Vector2(-139, -231)
 
 [node name="Tunnel1_Exit" type="Node2D" parent="IsometricLevel/ExitNodeFolder"]
 position = Vector2(-179, -123)
+
+[node name="WindEnemy" parent="IsometricLevel" instance=ExtResource("13_gyx45")]
+z_index = 300
+position = Vector2(176, -212)
 
 [node name="Axe" parent="." instance=ExtResource("4_87ums")]
 position = Vector2(83, -41)
