@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Reflection;
 using System.Threading.Tasks;
 
 public partial class Player : CharacterBody2D
@@ -243,7 +244,23 @@ public partial class Player : CharacterBody2D
         movementVelocity = Vector2.Zero;
 		CollisionMask = NORMAL_COLLISION_MASK;
 		transitionPlayer.Play("fade_in");
-        AudioManager.Instance.PlaySound("respawning");
+	}
+
+	private async void LevelReset() {
+
+		transitionPlayer.Play("fade_out");
+		await ToSignal(transitionPlayer, "animation_finished");
+
+		Position = spawnManager.GetInitalRespawnPosition();
+
+		GD.Print(GlobalGameVariables.Instance.PlayerHealth);
+		Position = spawnManager.GetInitalRespawnPosition();
+		GlobalGameVariables.Instance.PlayerHealth = 5;
+
+		isFalling = false;
+		movementVelocity = Vector2.Zero;
+		CollisionMask = NORMAL_COLLISION_MASK;
+		transitionPlayer.Play("fade_in");
 	}
 
 	private void OnHurtTimerTimeout()
@@ -255,12 +272,33 @@ public partial class Player : CharacterBody2D
 	{
 		if (Damageable)
 		{
-            GlobalGameVariables.Instance.PlayerHealth--;
-            Damageable = false;
-			hurtTimer.Start(3);
-        }
+			AudioManager.Instance.PlaySound("taking_damage");
+			GlobalGameVariables.Instance.PlayerHealth--;
+			Damageable = false;
+			hurtTimer.Start(2);
+			SetSpriteInvinsibility(true);
 
+			if (GlobalGameVariables.Instance.PlayerHealth == 0)
+			{
+				LevelReset();
+			}
+		}
+	}
 
+	public void SetSpriteInvinsibility(bool isInvnsible)
+	{
+		if (isInvnsible)
+		{
+			var modulate = animatedSprite.Modulate;
+			modulate.A = 0.5f;
+			animatedSprite.Modulate = modulate;
+		}
+		else
+		{
+			var modulate = animatedSprite.Modulate;
+			modulate.A = 1.0f;
+			animatedSprite.Modulate = modulate;
+		}	
 	}
 
 	public void GetInput()
@@ -272,6 +310,11 @@ public partial class Player : CharacterBody2D
             inputDirection.X + inputDirection.Y,
             (-inputDirection.X + inputDirection.Y) * 0.5f
         );
+
+		if (Damageable)
+		{
+			SetSpriteInvinsibility(false);
+		}
 
         isoDirection = isoDirection.Normalized();
     
