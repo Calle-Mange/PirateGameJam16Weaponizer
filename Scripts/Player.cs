@@ -40,6 +40,8 @@ public partial class Player : CharacterBody2D
 
     #region Interaction System
     private string currentweapon; // for testing right now
+	private BaseInteractable currentInteractable;
+	private Label interactionPrompt;
 	#endregion
 
 	#region HUD
@@ -63,16 +65,47 @@ public partial class Player : CharacterBody2D
 	{
 		interactionArea = new Area2D();
 		var collisionShape = new CollisionShape2D();
-		var circleShape = new CircleShape2D();
-
-		circleShape.Radius = 10.0f;  // Interaction range
-		collisionShape.Shape = circleShape;
+        var circleShape = new CircleShape2D
+        {
+            Radius = 10.0f  // Interaction range
+        };
+        collisionShape.Shape = circleShape;
 
 		interactionArea.CollisionLayer = 0;
 		interactionArea.CollisionMask = 2;   // Detect layer 2 (interactables)
 
-		interactionArea.AddChild(collisionShape);
-		AddChild(interactionArea);
+        interactionPrompt = new Label
+        {
+            Text = "[F]",
+            Position = new Vector2(0, -40),
+            Scale = new Vector2(1, 1),
+            Modulate = Colors.White,
+            HorizontalAlignment = HorizontalAlignment.Center,
+            ZIndex = 1000,
+            YSortEnabled = false
+        };
+
+        interactionArea.AreaEntered += (area) => 
+    	{
+        	if (area is BaseInteractable interactable)
+        	{
+            	currentInteractable = interactable;
+            	interactionPrompt.Visible = interactable.CanInteract(currentweapon);
+        	}
+    	};
+
+    	interactionArea.AreaExited += (area) => 
+    	{
+        	if (area is BaseInteractable)
+        	{
+				currentInteractable = null;
+            	interactionPrompt.Visible = false;
+        	}
+    	};
+
+			interactionArea.AddChild(collisionShape);
+			interactionArea.AddChild(interactionPrompt);
+			AddChild(interactionArea);
 	}
 
 	private void UpdatePlayerZIndex()
@@ -161,6 +194,11 @@ public partial class Player : CharacterBody2D
 		Weight = NewWeight;
 		currentweapon = CurrentWeapon;
 		animatedSprite.SpriteFrames = AnimationSet;
+
+		if (currentInteractable != null)
+        {
+            interactionPrompt.Visible = currentInteractable.CanInteract(currentweapon);
+        }
 	}
 
 	public override void _Draw()
