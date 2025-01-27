@@ -252,3 +252,5 @@ position = Vector2(8, -76)
 [node name="SpawnManager" parent="." instance=ExtResource("7_fwa1x")]
 
 [node name="AudioManager" parent="." instance=ExtResource("8_wrxs5")]
+
+[editable path="IsometricLevel/Player"]

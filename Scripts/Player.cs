@@ -75,6 +75,9 @@ public partial class Player : CharacterBody2D
 		interactionArea.CollisionLayer = 0;
 		interactionArea.CollisionMask = 2;   // Detect layer 2 (interactables)
 
+		GD.Print($"Interaction area collision layer: {interactionArea.CollisionLayer}");
+		GD.Print($"Interaction area collision mask: {interactionArea.CollisionMask}");
+
         interactionPrompt = new Label
         {
             Text = "[F]",
@@ -83,11 +86,15 @@ public partial class Player : CharacterBody2D
             Modulate = Colors.White,
             HorizontalAlignment = HorizontalAlignment.Center,
             ZIndex = 1000,
-            YSortEnabled = false
+            YSortEnabled = false,
+			Visible = false
         };
+
+		GD.Print("Initial prompt visibility: " + interactionPrompt.Visible);
 
         interactionArea.AreaEntered += (area) => 
     	{
+			GD.Print($"Area entered: {area.Name}");
         	if (area is BaseInteractable interactable)
         	{
             	currentInteractable = interactable;
@@ -97,6 +104,7 @@ public partial class Player : CharacterBody2D
 
     	interactionArea.AreaExited += (area) => 
     	{
+			GD.Print($"Area exited: {area.Name}");
         	if (area is BaseInteractable)
         	{
 				currentInteractable = null;
