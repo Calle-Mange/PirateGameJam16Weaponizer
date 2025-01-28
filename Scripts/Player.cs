@@ -319,7 +319,9 @@ public partial class Player : CharacterBody2D
 	{
 		if (Damageable)
 		{
-			AudioManager.Instance.PlaySound("taking_damage");
+			if(!isFalling){
+				AudioManager.Instance.PlaySound("taking_damage");
+			}
 			GlobalGameVariables.Instance.PlayerHealth--;
 			Damageable = false;
 			hurtTimer.Start(2);
