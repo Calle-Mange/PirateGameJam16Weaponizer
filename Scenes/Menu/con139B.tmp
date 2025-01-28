@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3m648qwasfko"]
+
+[ext_resource type="Script" path="res://Scripts/ContinueMenue/continue_menu.gd" id="1_7y3t5"]
+[ext_resource type="Texture2D" uid="uid://dboiiebp6yqwo" path="res://UI/9fnpyttnvx001.png" id="1_qchq0"]
+[ext_resource type="Theme" uid="uid://b6ulurd8ylar4" path="res://UI/Theme/ContinueScreenTheme.tres" id="2_urpaq"]
+
+[node name="ContinueMenu" type="CanvasLayer"]
+script = ExtResource("1_7y3t5")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qchq0")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -79.0
+offset_bottom = -79.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_urpaq")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_urpaq")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Node2D" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/Node2D"]
+layout_mode = 2
+text = "Yes
+"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/Node2D"]
+layout_mode = 2
+text = "No..
+"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/Node2D/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/Node2D/ExitButton" to="." method="_on_exit_button_pressed"]
