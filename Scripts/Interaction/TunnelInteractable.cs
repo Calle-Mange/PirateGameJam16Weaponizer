@@ -14,30 +14,29 @@ public partial class TunnelInteractable : BaseInteractable
     public override void _Ready()
     {
         base._Ready();
-		AllowedWeapons = new[]{WeaponNamesResource.Dagger};
-		RequiresSpecificWeapon = true;
+
 		CollisionLayer = 2;
 		CollisionMask = 0;
 
-		exitNode = GetNode<Node2D>("../../ExitNodeFolder/" + TunnelID + "_Exit");
-		player = GetNode<Player>("../../Player");
-		wallSprite = GetNode<AnimatedSprite2D>("Wall/WallSprite");
-		camera = player.GetNode<Camera2D>("Camera2D");
+		exitNode = GetNode<Node2D>("../../../ExitNodeFolder/" + TunnelID + "_Exit");
+    	player = GetNode<Player>("../../../Player");
+    	wallSprite = GetNode<AnimatedSprite2D>("../Wall/WallSprite");
 
-		if(exitNode == null){
-			GD.Print($"No Exit node found for tunnel {TunnelID}");
-			return;
-		}
+    	if (exitNode == null)
+    	{
+        	return;
+    	}
+    	if (player == null)
+    	{
+        	return;
+    	}
+    	if (wallSprite != null)
+    	{
+        	wallSprite.AnimationFinished += OnAnimationFinished;
+    	}
 
-		if (player == null){
-			GD.Print("Player node not found");
-			return;
-		}
-
-		if (wallSprite != null)
-        {
-            wallSprite.AnimationFinished += OnAnimationFinished;
-        }
+		AllowedWeapons = new[]{WeaponNamesResource.Dagger};
+		RequiresSpecificWeapon = true;
     }
 
     private void OnAnimationFinished()
@@ -61,7 +60,7 @@ public partial class TunnelInteractable : BaseInteractable
 
     private void TeleportPlayer()
     {
-		var targetPos = exitNode.Position;
+		var targetPos = exitNode.GlobalPosition;
         player.GlobalPosition = targetPos;
 		if(camera != null){
 			camera.PositionSmoothingEnabled = true;

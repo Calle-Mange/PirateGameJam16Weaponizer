@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=4 uid="uid://blbcsondxq2x"]
 
-[ext_resource type="TileSet" uid="uid://2o4pxb6laikq" path="res://Assets/Graphics/WouldBuilding/Level1.tres" id="1_s7spt"]
+[ext_resource type="TileSet" uid="uid://djycxengplujk" path="res://Assets/Graphics/WouldBuilding/Level1.tres" id="1_s7spt"]
 [ext_resource type="PackedScene" uid="uid://kosbjroc1yti" path="res://Scenes/player.tscn" id="1_vuqau"]
 [ext_resource type="Texture2D" uid="uid://d2hskdl8ndsad" path="res://Assets/Graphics/WouldBuilding/Background.png" id="2_uwnur"]
 [ext_resource type="PackedScene" uid="uid://s2ksa4uoxxlj" path="res://Scenes/EnvironmentItems/door.tscn" id="4_hmrtw"]
 [ext_resource type="PackedScene" uid="uid://btcbpdf2e1lfa" path="res://Scenes/tunnel_wall.tscn" id="4_kgwvu"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bvckg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wgwhd"]
 texture = ExtResource("2_uwnur")
 texture_region_size = Vector2i(150, 150)
 0:0/next_alternative_id = 2
@@ -20,7 +20,7 @@ texture_region_size = Vector2i(150, 150)
 
 [sub_resource type="TileSet" id="TileSet_8ptfo"]
 tile_size = Vector2i(150, 150)
-sources/0 = SubResource("TileSetAtlasSource_bvckg")
+sources/0 = SubResource("TileSetAtlasSource_wgwhd")
 
 [node name="Level1" type="Node2D"]
 

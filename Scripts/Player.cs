@@ -8,7 +8,7 @@ public partial class Player : CharacterBody2D
 	#region Constants
     private const int RADIUS = 1;
     private const float GRAVITY = 980.0f;
-    private const uint NORMAL_COLLISION_MASK = 2;
+    private const uint NORMAL_COLLISION_MASK = 2 | 3;
     private const uint NO_COLLISION_MASK = 0;
     private const float SPEED_MULTIPLIER = 0.5f;
     #endregion
@@ -59,6 +59,7 @@ public partial class Player : CharacterBody2D
         spawnManager = GetNode<SpawnManager>("../../SpawnManager");
         animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		hurtTimer = GetNode<Timer>("HurtTimer");
+
 		AddToGroup("Player");
     }
 
@@ -83,7 +84,8 @@ public partial class Player : CharacterBody2D
             Modulate = Colors.White,
             HorizontalAlignment = HorizontalAlignment.Center,
             ZIndex = 1000,
-            YSortEnabled = false
+            YSortEnabled = false,
+			Visible = false
         };
 
         interactionArea.AreaEntered += (area) => 
@@ -114,7 +116,7 @@ public partial class Player : CharacterBody2D
         if (_layerFolder == null) return;
 		if (isFalling && fallStartPosition.Y < 0)
 		{
-			ZIndex = -1000;
+			ZIndex = -15;
 			return;
 		}
 
@@ -158,26 +160,31 @@ public partial class Player : CharacterBody2D
 			return false;
 		}
 
+		Vector2 checkPosition = GlobalPosition + new Vector2(0, 5);
+
 		for (int i = _layerFolder.GetChildCount() - 1; i >= 0; i--)
 		{
 			if (_layerFolder.GetChild(i) is TileMapLayer layer)
 			{
-				Vector2I centerTile = layer.LocalToMap(layer.ToLocal(GlobalPosition));
+				Vector2I centerTile = layer.LocalToMap(layer.ToLocal(checkPosition));
 				Vector2I[] checkPositions = new[]
 				{
 					centerTile,                        // Center
-                    centerTile + new Vector2I(0, 1),  // Right
-                    centerTile + new Vector2I(0, -1), // Left
-                    centerTile + new Vector2I(1, 0),  // Down
-                    centerTile + new Vector2I(-1, 0)  // Up
+                    centerTile + new Vector2I(0, 1),  // Front
+                    centerTile + new Vector2I(-1, 0), // Left
+                    centerTile + new Vector2I(1, 0),  // Right
                 };
 
 				foreach (var pos in checkPositions)
 				{
 					if (layer.GetCellSourceId(pos) != -1)
 					{
-						currentLayer = layer;
-						return true;
+						Vector2 tileWorldPos = layer.MapToLocal(pos);
+						if (GlobalPosition.Y <= tileWorldPos.Y)
+                    	{
+                        	currentLayer = layer;
+                        	return true;
+                    	}
 					}
 				}
 			}
@@ -438,6 +445,7 @@ public partial class Player : CharacterBody2D
 		if (TutorialOverlay.IsTutorialActive) return;
         GetInput();
         HandleGravity(delta);
+
         Velocity = new Vector2(movementVelocity.X + externalForce.X, movementVelocity.Y + gravityVelocity + externalForce.Y);
 		externalForce *= externalForceDrag;
 		

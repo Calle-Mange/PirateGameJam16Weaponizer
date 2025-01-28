@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://mgr6880616nn"]
+
+[ext_resource type="Script" path="res://Scripts/Interaction/DoorInteractable.cs" id="1_sr4mn"]
+[ext_resource type="Texture2D" uid="uid://bq4bqd5es30t1" path="res://Assets/Graphics/WouldBuilding/isometric-sandbox-sheet-basics.png" id="2_re7de"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydtp3"]
+atlas = ExtResource("2_re7de")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sbnfa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ydtp3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lw1xv"]
+radius = 18.868
+
+[node name="Door" type="Area2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_sr4mn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sbnfa")
+frame_progress = 0.340059
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lw1xv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_lw1xv")
