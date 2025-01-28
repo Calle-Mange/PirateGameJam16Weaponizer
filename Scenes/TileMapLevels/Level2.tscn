@@ -1,12 +1,19 @@
-[gd_scene load_steps=10 format=4 uid="uid://bhcls8s7a4auj"]
+[gd_scene load_steps=17 format=4 uid="uid://bhcls8s7a4auj"]
 
 [ext_resource type="TileSet" uid="uid://djycxengplujk" path="res://Assets/Graphics/WouldBuilding/Level1.tres" id="1_4eo32"]
+[ext_resource type="PackedScene" uid="uid://dhje0inujoekn" path="res://Scenes/EnvironmentItems/HazardSign.tscn" id="2_68skw"]
 [ext_resource type="PackedScene" uid="uid://kosbjroc1yti" path="res://Scenes/player.tscn" id="2_j5r25"]
 [ext_resource type="Texture2D" uid="uid://d2hskdl8ndsad" path="res://Assets/Graphics/WouldBuilding/Background.png" id="3_fr4xu"]
+[ext_resource type="PackedScene" uid="uid://dhbairi01no4x" path="res://Scenes/WindEnemy.tscn" id="3_qxbry"]
 [ext_resource type="PackedScene" uid="uid://b1xqkt4kv2uk8" path="res://Scenes/HUD/Player_HUD.tscn" id="4_7njse"]
+[ext_resource type="PackedScene" uid="uid://il455u6gycvv" path="res://Scenes/EnvironmentItems/WaterArea.tscn" id="4_s8y45"]
 [ext_resource type="PackedScene" uid="uid://bgb5ekvpkdb" path="res://Scenes/spawn_manager.tscn" id="5_gp3i0"]
+[ext_resource type="PackedScene" uid="uid://dquhsgs5us1uk" path="res://Scenes/tunnel_wall2.tscn" id="5_p5sx3"]
 [ext_resource type="Script" path="res://Scripts/SpawnPoint.cs" id="6_b0xjc"]
+[ext_resource type="PackedScene" uid="uid://s2ksa4uoxxlj" path="res://Scenes/EnvironmentItems/door.tscn" id="6_vlxws"]
 [ext_resource type="PackedScene" path="res://Scenes/AudioManager.tscn" id="7_lkcin"]
+[ext_resource type="PackedScene" uid="uid://mgr6880616nn" path="res://Scenes/EnvironmentItems/door2.tscn" id="8_p50tv"]
+[ext_resource type="PackedScene" uid="uid://c36cu2o6mjxak" path="res://Scenes/EnvironmentItems/Unlockables/Axe.tscn" id="10_ygpa1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hr4w2"]
 texture = ExtResource("3_fr4xu")
@@ -32,8 +39,23 @@ sources/0 = SubResource("TileSetAtlasSource_hr4w2")
 
 [node name="Layer0" type="TileMapLayer" parent="IsometricLevel/LayerFolder"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD7//7/AAAAAAAAAAD7////AAAAAAAAAAD7/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAAAAAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD9//7/AAAAAAAAAAD9////AAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAAAAAD+//7/AAAAAAAAAAD+////AAAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD///7/AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAAAAP7/AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAP7/AAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAACAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAD7/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD7//7/AAAAAAAAAAD7////AAAAAAAAAAD7/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAAAAAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD9//7/AAAAAAAAAAD9////AAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAAAAAD+//7/AAAAAAAAAAD+////AAAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD///7/AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAAAAP7/AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAP7/AAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAACAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAD7/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAYABAABAAMAAAAAAAYABAAAAAMAAAAAAAYABAD//wMAAAAAAAYABAD+/wMAAAAAAAYABAD9/wMAAAAAAAYABAD8/wMAAAAAAAYABAD7/wMAAAAAAAYABAD7//3/AAAAAAYABAD8//3/AAAAAAYABAD9//3/AAAAAAYABAD+//3/AAAAAAYABAD///3/AAAAAAYABAAAAP3/AAAAAAYABAABAP3/AAAAAAYABAACAP3/AAAAAAYABAADAP3/AAAAAAYABAADAP7/AAAAAAYABAADAP//AAAAAAYABAADAAAAAAAAAAYABAADAAEAAAAAAAYABAADAAIAAAAAAAYABAADAAMAAAAAAAYABAD6//T/AAAAAAMAAAD6//P/AAAAAAMAAAD6//L/AAAAAAMAAAD7//T/AAAAAAMAAAD7//P/AAAAAAMAAAD7//L/AAAAAAMAAAD6//H/AAAAAAMAAAD6//D/AAAAAAMAAAD6//X/AAAAAAMAAAD6//b/AAAAAAMAAAD7//f/AAAAAAMAAAD7/+//AAAAAAMAAAD8/+//AAAAAAMAAAD9/+//AAAAAAMAAAD8//f/AAAAAAMAAAD9//f/AAAAAAMAAAD7//b/AAAAAAMAAAD7//X/AAAAAAMAAAD7//H/AAAAAAMAAAD7//D/AAAAAAMAAAD+//f/AAAAAAMAAAD///f/AAAAAAMAAAAAAPf/AAAAAAMAAAABAPb/AAAAAAMAAAD+/+//AAAAAAMAAAD//+//AAAAAAMAAAAAAO//AAAAAAMAAAABAPD/AAAAAAMAAAABAPH/AAAAAAMAAAABAPL/AAAAAAMAAAABAPP/AAAAAAMAAAABAPT/AAAAAAMAAAABAPX/AAAAAAMAAAAAAPb/AAAAAAMAAAAAAPX/AAAAAAMAAAAAAPT/AAAAAAMAAAAAAPP/AAAAAAMAAAAAAPL/AAAAAAMAAAAAAPH/AAAAAAMAAAAAAPD/AAAAAAMAAAD8//b/AAAAAAMAAAD9//b/AAAAAAMAAAD+//b/AAAAAAMAAAD///b/AAAAAAMAAAD8//D/AAAAAAMAAAD9//D/AAAAAAMAAAD+//D/AAAAAAMAAAD///D/AAAAAAMAAAACAPb/AAAAAAMAAAACAPX/AAAAAAMAAAACAPD/AAAAAAMAAAACAPH/AAAAAAMAAAD9/+7/AAAAAAMAAAD8/+7/AAAAAAMAAAA=")
 tile_set = ExtResource("1_4eo32")
+
+[node name="Layer1" type="TileMapLayer" parent="IsometricLevel/LayerFolder"]
+z_index = 100
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD6/wEAAAACAAAAAAD6/wAAAAACAAAAAAD6//7/AAACAAAAAAD6//3/AAACAAAAAAD5/wEAAAAAAAAAAAD5/wAAAAAAAAAAAAD5////AAAAAAAAAAD5//7/AAAAAAAAAAD5//3/AAAAAAAAAAD6////AAAAAAAAAwD4/wEAAAAAAAAAAAD4/wAAAAAAAAAAAAD4////AAAAAAAAAAD4//7/AAAAAAAAAAD4//3/AAAAAAAAAAD3/wEAAAAAAAAAAAD3/wAAAAAAAAAAAAD3////AAAAAAAAAAD3//7/AAAAAAAAAAD3//3/AAAAAAAAAAD2/wEAAAAAAAAAAAD2/wAAAAAAAAAAAAD2////AAAAAAAAAAD2//7/AAAAAAAAAAD2//3/AAAAAAAAAAD1/wAAAAAAAAAAAAD1////AAAAAAAAAAD1//7/AAAAAAAAAAD1//3/AAAAAAAAAAD0////AAAAAAAAAAD0//7/AAAAAAAAAAD0//3/AAAAAAAAAAD0//z/AAAAAAAAAAD1//z/AAAAAAAAAAD0//v/AAAAAAAAAAD1//v/AAAAAAAAAAD1//r/AAAAAAAAAAD0//r/AAAAAAAAAAD2//z/AAAAAAAAAAD2//v/AAAAAAAAAAD2//r/AAAAAAAAAAD3//z/AAAAAAAAAAD3//v/AAAAAAAAAAD3//r/AAAAAAAAAAD2//n/AAAAAAYABAD3//n/AAAAAAYABAD0//n/AAAAAAYABAD3//j/AAAAAAYABAD2//j/AAAAAAYABAD1//j/AAAAAAYABAD0//j/AAAAAAYABAD0//P/AAAAAAMAAAD1//P/AAAAAAMAAAD2//P/AAAAAAMAAAD3//P/AAAAAAMAAAD0//L/AAAAAAMAAAD1//L/AAAAAAMAAAD2//L/AAAAAAMAAAD3//L/AAAAAAMAAAD0//H/AAAAAAMAAAD1//H/AAAAAAMAAAD2//H/AAAAAAMAAAD3//H/AAAAAAMAAAD4//P/AAACAAMAAQD4//H/AAACAAMAAgD4//L/AAACAAMAAAA=")
+tile_set = ExtResource("1_4eo32")
+
+[node name="Layer2" type="TileMapLayer" parent="IsometricLevel/LayerFolder"]
+z_index = 200
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD5//7/AAAFAAEAAQD0//b/AAAAAAAAAwD0//X/AAAAAAAAAwD0//T/AAAAAAAAAwD0//f/AAAAAAAAAwA=")
+tile_set = ExtResource("1_4eo32")
+
+[node name="HazardSign" parent="IsometricLevel/LayerFolder" instance=ExtResource("2_68skw")]
+position = Vector2(59, -34)
 
 [node name="Player" parent="IsometricLevel" instance=ExtResource("2_j5r25")]
 
@@ -42,20 +64,161 @@ HeartIconsArray = [NodePath("../../../PlayerHud/MarginContainer/HBoxContainer/He
 WeaponIconsArray = [NodePath("../../../PlayerHud/MarginContainer2/HBoxContainer/MarginContainer/DaggerIcon"), NodePath("../../../PlayerHud/MarginContainer2/HBoxContainer/MarginContainer2/AxeIcon")]
 
 [node name="LayerBackground" type="TileMapLayer" parent="IsometricLevel"]
-visible = false
-z_index = -16
+z_index = -20
 use_parent_material = true
+position = Vector2(-7, -12)
 tile_map_data = PackedByteArray("AAAAAP//AAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////AAAAAAAAAAD8//3/AAAAAAAAAAD9//3/AAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAACAP3/AAAAAAAAAAADAP3/AAAAAAAAAAADAP7/AAAAAAAAAAACAP7/AAAAAAAAAAABAP7/AAAAAAAAAAAAAP7/AAAAAAAAAAD///7/AAAAAAAAAAD+//7/AAAAAAAAAAD9//7/AAAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAAAAAD9////AAAAAAAAAAD+////AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAADAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAAAAAAAAAAD+/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAAAAAACAAUAAAAAAAAAAAABAAUAAAAAAAAAAAAAAAUAAAAAAAAAAAD//wUAAAAAAAAAAAD+/wUAAAAAAAAAAAD9/wUAAAAAAAAAAAD8/wUAAAAAAAAAAAD8/wQAAAAAAAAAAAD8/wMAAAAAAAAAAAD9/wMAAAAAAAAAAAD+/wMAAAAAAAAAAAD//wMAAAAAAAAAAAAAAAMAAAAAAAAAAAABAAMAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAD//wQAAAAAAAAAAAD+/wQAAAAAAAAAAAD9/wQAAAAAAAAAAAD8/wYAAAAAAAAAAAD9/wYAAAAAAAAAAAD+/wYAAAAAAAAAAAD//wYAAAAAAAAAAAAAAAYAAAAAAAAAAAABAAYAAAAAAAAAAAACAAYAAAAAAAAAAAADAAYAAAAAAAAAAAADAAcAAAAAAAAAAAADAAgAAAAAAAAAAAADAAkAAAAAAAAAAAADAAoAAAAAAAAAAAACAAoAAAAAAAAAAAACAAsAAAAAAAAAAAADAAsAAAAAAAAAAAABAAsAAAAAAAAAAAAAAAsAAAAAAAAAAAD//wsAAAAAAAAAAAD+/wsAAAAAAAAAAAD9/wsAAAAAAAAAAAD8/wsAAAAAAAAAAAD8/woAAAAAAAAAAAD8/wkAAAAAAAAAAAD8/wgAAAAAAAAAAAD8/wcAAAAAAAAAAAD9/wcAAAAAAAAAAAD+/wcAAAAAAAAAAAD//wcAAAAAAAAAAAAAAAcAAAAAAAAAAAABAAcAAAAAAAAAAAACAAcAAAAAAAAAAAACAAgAAAAAAAAAAAACAAkAAAAAAAAAAAABAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAD9/wgAAAAAAAAAAAD+/wgAAAAAAAAAAAD//wgAAAAAAAAAAAD//wkAAAAAAAAAAAD+/wkAAAAAAAAAAAD9/wkAAAAAAAAAAAD9/woAAAAAAAAAAAD+/woAAAAAAAAAAAD//woAAAAAAAAAAAAAAAoAAAAAAAAAAAABAAoAAAAAAAAAAAABAAkAAAAAAAAAAAAAAAkAAAAAAAAAAAD8/wwAAAAAAAAAAAD9/wwAAAAAAAAAAAD+/wwAAAAAAAAAAAD//wwAAAAAAAAAAAAAAAwAAAAAAAAAAAABAAwAAAAAAAAAAAACAAwAAAAAAAAAAAADAAwAAAAAAAAAAAADAA0AAAAAAAAAAAACAA0AAAAAAAAAAAABAA0AAAAAAAAAAAAAAA0AAAAAAAAAAAD//w0AAAAAAAAAAAD+/w0AAAAAAAAAAAD9/w0AAAAAAAAAAAD8/w0AAAAAAAAAAAD8/w4AAAAAAAAAAAD8/w8AAAAAAAAAAAD8/xAAAAAAAAAAAAD9/xAAAAAAAAAAAAD9/xEAAAAAAAAAAAD+/xEAAAAAAAAAAAD//xEAAAAAAAAAAAAAABEAAAAAAAAAAAAAABAAAAAAAAAAAAABABAAAAAAAAAAAAACABAAAAAAAAAAAAACAA8AAAAAAAAAAAACAA4AAAAAAAAAAAADAA4AAAAAAAAAAAABAA4AAAAAAAAAAAAAAA4AAAAAAAAAAAD//w4AAAAAAAAAAAD+/w4AAAAAAAAAAAD9/w4AAAAAAAAAAAD8/xEAAAAAAAAAAAABABEAAAAAAAAAAAACABEAAAAAAAAAAAADABEAAAAAAAAAAAADABAAAAAAAAAAAAADAA8AAAAAAAAAAAABAA8AAAAAAAAAAAAAAA8AAAAAAAAAAAD//w8AAAAAAAAAAAD+/w8AAAAAAAAAAAD9/w8AAAAAAAAAAAD+/xAAAAAAAAAAAAD//xAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_uosft")
 
+[node name="Interactables" type="Node2D" parent="IsometricLevel"]
+
+[node name="TunnelWall" parent="IsometricLevel/Interactables" instance=ExtResource("5_p5sx3")]
+z_index = 200
+position = Vector2(-56, -141)
+
+[node name="Door" parent="IsometricLevel/Interactables" instance=ExtResource("6_vlxws")]
+position = Vector2(222, -63)
+
+[node name="Door2" parent="IsometricLevel/Interactables" instance=ExtResource("6_vlxws")]
+position = Vector2(304, -104)
+
+[node name="Axe" parent="IsometricLevel/Interactables" instance=ExtResource("10_ygpa1")]
+position = Vector2(-16, -28)
+
+[node name="Door3" parent="IsometricLevel/Interactables" instance=ExtResource("8_p50tv")]
+position = Vector2(248, -172)
+
+[node name="EnvironmentAssets" type="Node2D" parent="IsometricLevel"]
+
+[node name="WaterHazards" type="Node2D" parent="IsometricLevel/EnvironmentAssets"]
+
+[node name="WaterArea" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(-132, -27)
+
+[node name="WaterArea27" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+z_index = 200
+position = Vector2(-52, -148)
+
+[node name="WaterArea28" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+z_index = 200
+position = Vector2(-35, -142)
+
+[node name="WaterArea29" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+z_index = 200
+position = Vector2(-22, -148)
+
+[node name="WaterArea30" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+z_index = 200
+position = Vector2(-34, -156)
+
+[node name="WaterArea31" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+z_index = 190
+position = Vector2(-83, -164)
+
+[node name="WaterArea32" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+z_index = 190
+position = Vector2(-69, -172)
+
+[node name="WaterArea25" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+z_index = -1
+position = Vector2(-128, 36)
+rotation = -1.65981
+skew = -0.420624
+
+[node name="WaterArea24" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(-101, -15)
+rotation = 1.5708
+skew = 0.0296706
+
+[node name="WaterArea2" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(-114, -19)
+
+[node name="WaterArea3" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(-98, -11)
+
+[node name="WaterArea4" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(-83, -3)
+
+[node name="WaterArea5" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(-68, 5)
+
+[node name="WaterArea6" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(-52, 13)
+
+[node name="WaterArea7" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(-34, 21)
+
+[node name="WaterArea8" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(-17, 30)
+
+[node name="WaterArea9" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(1, 36)
+
+[node name="WaterArea10" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(13, 29)
+
+[node name="WaterArea26" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(6, 80)
+rotation = -1.39277
+skew = 0.31765
+
+[node name="WaterArea11" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(28, 22)
+
+[node name="WaterArea12" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(44, 15)
+
+[node name="WaterArea13" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(55, 7)
+
+[node name="WaterArea14" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(72, 0)
+
+[node name="WaterArea15" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(85, -10)
+
+[node name="WaterArea16" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(81, -20)
+
+[node name="WaterArea17" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(68, -25)
+
+[node name="WaterArea18" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(53, -33)
+
+[node name="WaterArea19" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(36, -42)
+
+[node name="WaterArea20" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(19, -50)
+
+[node name="WaterArea21" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(0, -59)
+
+[node name="WaterArea22" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(-16, -68)
+
+[node name="WaterArea23" parent="IsometricLevel/EnvironmentAssets/WaterHazards" instance=ExtResource("4_s8y45")]
+position = Vector2(-35, -76)
+
+[node name="WindEnemy" parent="IsometricLevel/EnvironmentAssets" instance=ExtResource("3_qxbry")]
+z_index = 200
+position = Vector2(59, -214)
+
+[node name="ExitNodeFolder" type="Node" parent="IsometricLevel"]
+
+[node name="Tunnel1_Exit" type="Node2D" parent="IsometricLevel/ExitNodeFolder"]
+position = Vector2(45, -191)
+
 [node name="PlayerHud" parent="." instance=ExtResource("4_7njse")]
+visible = false
 
 [node name="SpawnManager" parent="." instance=ExtResource("5_gp3i0")]
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 
 [node name="spawnpoint_1" type="Node2D" parent="SpawnPoints"]
-position = Vector2(-17, -25)
+position = Vector2(15, 6)
 script = ExtResource("6_b0xjc")
 AreaName = "white"
 

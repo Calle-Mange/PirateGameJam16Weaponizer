@@ -19,7 +19,7 @@ collision_mask = 6
 script = ExtResource("1_u6kaj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(2.2, 2.2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_xo74y")

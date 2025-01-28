@@ -1,6 +1,21 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://djycxengplujk"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://djycxengplujk"]
 
 [ext_resource type="Texture2D" uid="uid://bq4bqd5es30t1" path="res://Assets/Graphics/WouldBuilding/isometric-sandbox-sheet-basics.png" id="1_li4ni"]
+
+[sub_resource type="Shader" id="Shader_d6b2g"]
+code = "shader_type canvas_item;
+
+uniform float darkness : hint_range(0.0, 2.0) = 2.0;
+
+void fragment() {
+    vec4 color = texture(TEXTURE, UV);
+    color.rgb *= (1.0 - darkness);
+    COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f3j7d"]
+shader = SubResource("Shader_d6b2g")
+shader_parameter/darkness = 0.914
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uegeu"]
 texture = ExtResource("1_li4ni")
@@ -198,7 +213,7 @@ texture_region_size = Vector2i(32, 32)
 5:5/1 = 1
 5:5/1/texture_origin = Vector2i(0, -8)
 5:5/1/physics_layer_0/polygon_0/points = PackedVector2Array(-8.25, 12.25, 8, 20, 15, 16.25, 16, 0, 7.6, 4.2, -7.5, -4.25)
-0:6/next_alternative_id = 4
+0:6/next_alternative_id = 5
 0:6/0 = 0
 0:6/0/texture_origin = Vector2i(0, -8)
 0:6/1 = 1
@@ -210,6 +225,9 @@ texture_region_size = Vector2i(32, 32)
 0:6/3 = 3
 0:6/3/texture_origin = Vector2i(0, -8)
 0:6/3/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, 16, 0, 16, 16.75, 0, 23.75)
+0:6/4 = 4
+0:6/4/texture_origin = Vector2i(0, -8)
+0:6/4/material = SubResource("ShaderMaterial_f3j7d")
 1:6/0 = 0
 1:6/0/texture_origin = Vector2i(0, -8)
 1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.25, 17, -0.25, 22.75, 14.75, 16.5, 15.25, 8, -0.25, 15.75, -15.75, 7.5)
@@ -305,5 +323,6 @@ tile_shape = 1
 tile_layout = 5
 tile_offset_axis = 1
 tile_size = Vector2i(32, 16)
-physics_layer_0/collision_layer = 4
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_uegeu")
