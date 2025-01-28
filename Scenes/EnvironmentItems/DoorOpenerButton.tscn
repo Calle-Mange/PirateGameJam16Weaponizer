@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cft06jfcfqe6w"]
+
+[ext_resource type="Script" path="res://Scripts/DoorOpenButton.cs" id="1_h5tag"]
+[ext_resource type="Texture2D" uid="uid://ce1qcbiw54b3b" path="res://Assets/Graphics/WouldBuilding/unpressed_sprite.png" id="1_jal7o"]
+[ext_resource type="Texture2D" uid="uid://bxvcc32w38vii" path="res://Assets/Graphics/WouldBuilding/pressed_sprite.png" id="2_5g558"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_itmc7"]
+
+[node name="DoorOpenerButton" type="Node2D"]
+script = ExtResource("1_h5tag")
+
+[node name="unpressed_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_jal7o")
+
+[node name="pressed_sprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_5g558")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Button"]]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_itmc7")

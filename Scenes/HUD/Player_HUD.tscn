@@ -5,12 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://dt522i5ixqsxi" path="res://Assets/Graphics/HUD/knife_icon.png" id="2_6j6vk"]
 [ext_resource type="Texture2D" uid="uid://bbjn0dkhui8n" path="res://Assets/Graphics/HUD/axe_icon.png" id="3_qw164"]
 
-[node name="PlayerHud" type="CanvasLayer" node_paths=PackedStringArray("HeartIconsArray", "WeaponIconsArray")]
+[node name="PlayerHud" type="CanvasLayer"]
 scale = Vector2(3, 3)
 transform = Transform2D(3, 0, 0, 3, 0, 0)
 script = ExtResource("1_83v6k")
-HeartIconsArray = [NodePath("MarginContainer/HBoxContainer/Heart1"), NodePath("MarginContainer/HBoxContainer/Heart2"), NodePath("MarginContainer/HBoxContainer/Heart3"), NodePath("MarginContainer/HBoxContainer/Heart4"), NodePath("MarginContainer/HBoxContainer/Heart5")]
-WeaponIconsArray = [NodePath("MarginContainer2/HBoxContainer/MarginContainer/DaggerIcon"), NodePath("MarginContainer2/HBoxContainer/MarginContainer2/AxeIcon")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_left = 6.0
@@ -61,7 +59,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 
-[node name="DaggerIcon" type="TextureRect" parent="MarginContainer2/HBoxContainer/MarginContainer"]
+[node name="weaponIcon0" type="TextureRect" parent="MarginContainer2/HBoxContainer/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("2_6j6vk")
 
@@ -69,6 +67,6 @@ texture = ExtResource("2_6j6vk")
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 
-[node name="AxeIcon" type="TextureRect" parent="MarginContainer2/HBoxContainer/MarginContainer2"]
+[node name="weaponIcon1" type="TextureRect" parent="MarginContainer2/HBoxContainer/MarginContainer2"]
 layout_mode = 2
 texture = ExtResource("3_qw164")

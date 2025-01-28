@@ -1,0 +1,139 @@
+[gd_scene load_steps=16 format=3 uid="uid://57007xmk3vuw"]
+
+[ext_resource type="Texture2D" uid="uid://bv6t2ovpnm6lj" path="res://Assets/Graphics/Knife/KnifeCutting.png" id="1_gcf0e"]
+[ext_resource type="Script" path="res://Scripts/CutAnimation.cs" id="2_knqfm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgj41"]
+atlas = ExtResource("1_gcf0e")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iorb"]
+atlas = ExtResource("1_gcf0e")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p51xh"]
+atlas = ExtResource("1_gcf0e")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts5h1"]
+atlas = ExtResource("1_gcf0e")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l2h5"]
+atlas = ExtResource("1_gcf0e")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlqhy"]
+atlas = ExtResource("1_gcf0e")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6tbg"]
+atlas = ExtResource("1_gcf0e")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe8h7"]
+atlas = ExtResource("1_gcf0e")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jfyh"]
+atlas = ExtResource("1_gcf0e")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i74fw"]
+atlas = ExtResource("1_gcf0e")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rb3a"]
+atlas = ExtResource("1_gcf0e")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g2k7"]
+atlas = ExtResource("1_gcf0e")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ogfbh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgj41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iorb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p51xh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts5h1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l2h5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlqhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6tbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe8h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jfyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i74fw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rb3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g2k7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgj41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iorb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p51xh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts5h1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l2h5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlqhy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6tbg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe8h7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jfyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i74fw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rb3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g2k7")
+}],
+"loop": false,
+"name": &"cut",
+"speed": 30.0
+}]
+
+[node name="DaggerCut" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ogfbh")
+animation = &"cut"
+frame = 23
+frame_progress = 1.0
+script = ExtResource("2_knqfm")

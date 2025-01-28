@@ -307,7 +307,6 @@ public partial class Player : CharacterBody2D
 
 		Position = spawnManager.GetInitalRespawnPosition();
 
-		GD.Print(GlobalGameVariables.Instance.PlayerHealth);
 		Position = spawnManager.GetInitalRespawnPosition();
 		GlobalGameVariables.Instance.PlayerHealth = 5;
 
@@ -324,12 +323,14 @@ public partial class Player : CharacterBody2D
 
 	public void TakeDamage()
 	{
+		
 		if (Damageable)
 		{
 			if(!isFalling){
 				AudioManager.Instance.PlaySound("taking_damage");
 			}
 			GlobalGameVariables.Instance.PlayerHealth--;
+			
 			Damageable = false;
 			hurtTimer.Start(2);
 			SetSpriteInvinsibility(true);
