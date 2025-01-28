@@ -329,7 +329,7 @@ public partial class Player : CharacterBody2D
 
 			if (GlobalGameVariables.Instance.PlayerHealth == 0)
 			{
-				LevelReset();
+				GetTree().ChangeSceneToFile("res://Scenes/Menu/continue_menu.tscn");
 			}
 		}
 	}
