@@ -1,20 +1,117 @@
-[gd_scene load_steps=6 format=3 uid="uid://s2ksa4uoxxlj"]
+[gd_scene load_steps=17 format=3 uid="uid://s2ksa4uoxxlj"]
 
 [ext_resource type="Script" path="res://Scripts/Interaction/DoorInteractable.cs" id="1_ii503"]
-[ext_resource type="Texture2D" uid="uid://bq4bqd5es30t1" path="res://Assets/Graphics/WouldBuilding/isometric-sandbox-sheet-basics.png" id="2_yx2bc"]
+[ext_resource type="Texture2D" uid="uid://c4j57tbvudpbe" path="res://Assets/Graphics/WouldBuilding/Breaking_door.png" id="2_r25uv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ydtp3"]
-atlas = ExtResource("2_yx2bc")
-region = Rect2(128, 128, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ic0xy"]
+atlas = ExtResource("2_r25uv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd2gc"]
+atlas = ExtResource("2_r25uv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b55e6"]
+atlas = ExtResource("2_r25uv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adgm3"]
+atlas = ExtResource("2_r25uv")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s2am"]
+atlas = ExtResource("2_r25uv")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1wnc"]
+atlas = ExtResource("2_r25uv")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o8ucv"]
+atlas = ExtResource("2_r25uv")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eg2k"]
+atlas = ExtResource("2_r25uv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efp8k"]
+atlas = ExtResource("2_r25uv")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxnig"]
+atlas = ExtResource("2_r25uv")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6q20"]
+atlas = ExtResource("2_r25uv")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3r055"]
+atlas = ExtResource("2_r25uv")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sbnfa"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ydtp3")
+"texture": SubResource("AtlasTexture_ic0xy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd2gc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b55e6")
+}],
+"loop": false,
+"name": &"break_door_one",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adgm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s2am")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1wnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o8ucv")
+}],
+"loop": false,
+"name": &"break_door_three",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eg2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efp8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxnig")
+}],
+"loop": false,
+"name": &"break_door_two",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6q20")
 }],
 "loop": true,
-"name": &"default",
+"name": &"broken_door",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3r055")
+}],
+"loop": true,
+"name": &"idle_door",
 "speed": 5.0
 }]
 
@@ -28,7 +125,7 @@ script = ExtResource("1_ii503")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sbnfa")
-frame_progress = 0.340059
+animation = &"break_door_two"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_lw1xv")
@@ -38,3 +135,5 @@ collision_layer = 2
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("CircleShape2D_lw1xv")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="OnAnimationFinished"]
