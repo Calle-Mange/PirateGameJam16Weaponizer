@@ -103,6 +103,8 @@ gun_transform={
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Interactable"
+2d_physics/layer_4="Weight"
+2d_physics/layer_5="Button"
 
 [rendering]
 

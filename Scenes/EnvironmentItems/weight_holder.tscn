@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://b3m6tja536iua"]
+
+[ext_resource type="Texture2D" uid="uid://davx4mnhidt5g" path="res://Assets/Graphics/WouldBuilding/long_rope.png" id="1_rbfnv"]
+[ext_resource type="Script" path="res://Scripts/Weight.cs" id="2_4nxm0"]
+[ext_resource type="Texture2D" uid="uid://u87cdap7oed7" path="res://Assets/Graphics/WouldBuilding/weight.png" id="2_owyf8"]
+[ext_resource type="Texture2D" uid="uid://c7n0yqsabqto0" path="res://Assets/Graphics/WouldBuilding/holder.png" id="3_70wxy"]
+[ext_resource type="Script" path="res://Scripts/Interaction/RopeInteractable.cs" id="4_b8x4r"]
+[ext_resource type="PackedScene" uid="uid://57007xmk3vuw" path="res://Scenes/EnvironmentItems/dagger_cut.tscn" id="6_qs4b1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e66vm"]
+size = Vector2(19, 18)
+
+[sub_resource type="Animation" id="Animation_3l2rw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weight:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xfccd"]
+resource_name = "weight_fall"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("weight:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-7, 21)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ah33"]
+_data = {
+"RESET": SubResource("Animation_3l2rw"),
+"weight_fall": SubResource("Animation_xfccd")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dmiwu"]
+radius = 16.5252
+height = 33.0503
+
+[node name="WeightHolder" type="StaticBody2D"]
+
+[node name="with_rope_sprite" type="Sprite2D" parent="."]
+position = Vector2(52, 138)
+texture = ExtResource("1_rbfnv")
+
+[node name="weight" type="Node2D" parent="."]
+script = ExtResource("2_4nxm0")
+
+[node name="weight_sprite" type="Sprite2D" parent="weight"]
+position = Vector2(-6, -8)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_owyf8")
+
+[node name="Area2D" type="Area2D" parent="weight"]
+collision_layer = 8
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="weight/Area2D"]
+position = Vector2(-5.5, -6)
+shape = SubResource("RectangleShape2D_e66vm")
+
+[node name="no_rope_sprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_70wxy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5ah33")
+}
+
+[node name="rope" type="Area2D" parent="."]
+script = ExtResource("4_b8x4r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rope"]
+position = Vector2(69, 19)
+rotation = -1.39619
+scale = Vector2(0.427668, 1)
+shape = SubResource("CapsuleShape2D_dmiwu")
+
+[node name="DaggerCut" parent="." instance=ExtResource("6_qs4b1")]
+z_index = 200

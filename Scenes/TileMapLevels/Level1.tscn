@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://njxis6825qgu"]
+[gd_scene load_steps=15 format=4 uid="uid://blbcsondxq2x"]
 
 [ext_resource type="Script" path="res://Scripts/SpawnManager.cs" id="1_nha6d"]
 [ext_resource type="TileSet" uid="uid://djycxengplujk" path="res://Assets/Graphics/WouldBuilding/Level1.tres" id="1_s7spt"]
@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://b1xqkt4kv2uk8" path="res://Scenes/HUD/Player_HUD.tscn" id="3_ltg06"]
 [ext_resource type="PackedScene" uid="uid://bk3jeycvsbtn5" path="res://Scenes/EnvironmentItems/gate.tscn" id="5_01f70"]
 [ext_resource type="PackedScene" uid="uid://bd32ewwvcp0ur" path="res://Scenes/EnvironmentItems/pressure_plate.tscn" id="6_dn7mi"]
-[ext_resource type="PackedScene" uid="uid://c0j4hie87re85" path="res://Scenes/EnvironmentItems/box.tscn" id="7_wt4kt"]
+[ext_resource type="PackedScene" path="res://Scenes/EnvironmentItems/box.tscn" id="7_wt4kt"]
 [ext_resource type="PackedScene" uid="uid://dhbairi01no4x" path="res://Scenes/WindEnemy.tscn" id="9_3e53k"]
 [ext_resource type="PackedScene" uid="uid://bgb5ekvpkdb" path="res://Scenes/spawn_manager.tscn" id="11_fulbm"]
 [ext_resource type="Script" path="res://Scripts/SpawnPoint.cs" id="12_tvj0n"]
-[ext_resource type="PackedScene" uid="uid://dr5rays4j7jya" path="res://Scenes/AudioManager.tscn" id="13_ttfnq"]
+[ext_resource type="PackedScene" uid="uid://8sccs8l2o6k6" path="res://Scenes/AudioManager.tscn" id="13_ttfnq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hr4w2"]
 texture = ExtResource("2_uwnur")
@@ -29,7 +29,7 @@ texture_region_size = Vector2i(150, 150)
 tile_size = Vector2i(150, 150)
 sources/0 = SubResource("TileSetAtlasSource_hr4w2")
 
-[node name="main" type="Node2D"]
+[node name="main2" type="Node2D"]
 script = ExtResource("1_nha6d")
 
 [node name="IsometricLevel" type="Node2D" parent="."]
