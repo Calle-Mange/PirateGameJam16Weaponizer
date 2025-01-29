@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://bd25rva2s0ql5"]
+[gd_scene load_steps=21 format=4 uid="uid://bd25rva2s0ql5"]
 
 [ext_resource type="Texture2D" uid="uid://dpvvil1wf8w10" path="res://Assets/Graphics/WouldBuilding/isometric-sandbox-sheet.png" id="1_2lmj5"]
 [ext_resource type="Texture2D" uid="uid://d2hskdl8ndsad" path="res://Assets/Graphics/WouldBuilding/Background.png" id="1_263e0"]
@@ -10,9 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://cbu4ifdokkvnn" path="res://Scenes/spawn_points.tscn" id="6_d5rbj"]
 [ext_resource type="PackedScene" uid="uid://dhje0inujoekn" path="res://Scenes/EnvironmentItems/HazardSign.tscn" id="7_5u0hs"]
 [ext_resource type="PackedScene" uid="uid://bgb5ekvpkdb" path="res://Scenes/spawn_manager.tscn" id="7_fwa1x"]
-[ext_resource type="PackedScene" path="res://Scenes/AudioManager.tscn" id="8_wrxs5"]
+[ext_resource type="PackedScene" uid="uid://dr5rays4j7jya" path="res://Scenes/AudioManager.tscn" id="8_wrxs5"]
 [ext_resource type="PackedScene" uid="uid://il455u6gycvv" path="res://Scenes/EnvironmentItems/WaterArea.tscn" id="11_sx0sy"]
 [ext_resource type="PackedScene" uid="uid://dhbairi01no4x" path="res://Scenes/WindEnemy.tscn" id="13_gyx45"]
+[ext_resource type="PackedScene" uid="uid://c0j4hie87re85" path="res://Scenes/EnvironmentItems/box.tscn" id="14_70kyp"]
+[ext_resource type="PackedScene" uid="uid://bd32ewwvcp0ur" path="res://Scenes/EnvironmentItems/pressure_plate.tscn" id="15_puyyo"]
+[ext_resource type="PackedScene" uid="uid://bk3jeycvsbtn5" path="res://Scenes/EnvironmentItems/gate.tscn" id="16_1gjkk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4otgy"]
 texture = ExtResource("1_263e0")
@@ -252,5 +255,17 @@ position = Vector2(8, -76)
 [node name="SpawnManager" parent="." instance=ExtResource("7_fwa1x")]
 
 [node name="AudioManager" parent="." instance=ExtResource("8_wrxs5")]
+
+[node name="Box" parent="." instance=ExtResource("14_70kyp")]
+position = Vector2(-107, -49)
+
+[node name="Pressure Plate" parent="." instance=ExtResource("15_puyyo")]
+position = Vector2(-107, -53)
+
+[node name="Gate" parent="." instance=ExtResource("16_1gjkk")]
+position = Vector2(48, -71)
+
+[connection signal="PressurePlateActive" from="Pressure Plate" to="Gate" method="OnOpenGate"]
+[connection signal="PressurePlateInactive" from="Pressure Plate" to="Gate" method="OnCloseGate"]
 
 [editable path="IsometricLevel/Player"]

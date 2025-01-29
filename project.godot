@@ -29,6 +29,7 @@ project/assembly_name="Pirate Game Jam 16 Weaponizer"
 [global_group]
 
 Player="Group containing the player character"
+Box=""
 
 [input]
 

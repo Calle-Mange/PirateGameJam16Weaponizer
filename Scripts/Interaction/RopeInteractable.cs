@@ -20,7 +20,8 @@ public partial class RopeInteractable : BaseInteractable
 		sprite = GetNode<Sprite2D>("Sprite2D");
         collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
 	}
-	protected override void PerformInteraction(string weaponType){
+	protected override void PerformInteraction(string weaponType, Vector2 interactionDirection)
+	{
 		animationPlayer.Play("cut_rope");
 	}
 

@@ -23,7 +23,7 @@ public partial class DoorInteractable : BaseInteractable
         body2D = GetNode<StaticBody2D>("StaticBody2D");
     }
 
-    protected override void PerformInteraction(string weaponType)
+    protected override void PerformInteraction(string weaponType, Vector2 interactionDirection)
     {
         collisionShape.SetDeferred(CollisionShape2D.PropertyName.Disabled, true);
         body2D.SetDeferred("disabled", true);

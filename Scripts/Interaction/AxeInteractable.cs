@@ -25,7 +25,7 @@ namespace PirateGameJam16Weaponizer.Scripts.Interaction
             collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
         }
 
-        protected override void PerformInteraction(string weaponType)
+        protected override void PerformInteraction(string weaponType, Vector2 interactionDirection)
         {
             GlobalGameVariables.Instance.PlayerInventory[GlobalGameVariables.Instance.WeaponList.Axe] = true;
             collisionShape.SetDeferred(CollisionShape2D.PropertyName.Disabled, true);

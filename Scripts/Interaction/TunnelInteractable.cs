@@ -46,7 +46,7 @@ public partial class TunnelInteractable : BaseInteractable
     }
 
 
-    protected override void PerformInteraction(string weaponType)
+    protected override void PerformInteraction(string weaponType, Vector2 interactionDirection)
     {
         if (exitNode == null) return;
 

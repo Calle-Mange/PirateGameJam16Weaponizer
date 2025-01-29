@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0j4hie87re85"]
+
+[ext_resource type="Script" path="res://Scripts/Interaction/BoxInteractable.cs" id="1_1acqk"]
+[ext_resource type="Texture2D" uid="uid://cc5tjrpog21by" path="res://Assets/Graphics/WouldBuilding/box.png" id="1_d5da2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_paibb"]
+radius = 22.1416
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pitex"]
+radius = 22.0
+
+[node name="Box" type="Area2D" groups=["Box", "Player"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_1acqk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 100
+texture = ExtResource("1_d5da2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Box"]]
+position = Vector2(0, 0.5)
+shape = SubResource("CircleShape2D_paibb")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="Body2D" type="CharacterBody2D" parent="." groups=["Box", "Player"]]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body2D"]
+shape = SubResource("CircleShape2D_pitex")
+
+[connection signal="timeout" from="Timer" to="." method="OnStopMovement"]
