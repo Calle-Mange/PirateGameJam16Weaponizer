@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://c88xef1g4g7ka"
-path="res://.godot/imported/rope_cutting.wav-714cee70eb258cc25a2e594a8c8f6991.sample"
+path="res://.godot/imported/rope_cutting.wav-765518e372f632aa773b86a904a72518.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/Effects/rope_cutting.wav"
-dest_files=["res://.godot/imported/rope_cutting.wav-714cee70eb258cc25a2e594a8c8f6991.sample"]
+source_file="res://Assets/Audio/SFX/rope_cutting.wav"
+dest_files=["res://.godot/imported/rope_cutting.wav-765518e372f632aa773b86a904a72518.sample"]
 
 [params]
 

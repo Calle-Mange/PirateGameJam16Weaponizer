@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://14wbcxtmemmi"
-path="res://.godot/imported/ljudeffekter.wav-e5f6daab1e7d587902891406f7b5bf0d.sample"
+path="res://.godot/imported/ljudeffekter.wav-484f3311dc330fd0b44d470e5fc84de5.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/Effects/ljudeffekter.wav"
-dest_files=["res://.godot/imported/ljudeffekter.wav-e5f6daab1e7d587902891406f7b5bf0d.sample"]
+source_file="res://Assets/Audio/SFX/ljudeffekter.wav"
+dest_files=["res://.godot/imported/ljudeffekter.wav-484f3311dc330fd0b44d470e5fc84de5.sample"]
 
 [params]
 

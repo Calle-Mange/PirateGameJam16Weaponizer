@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://drxswjcfxunhc"
-path="res://.godot/imported/wind_blow.wav-4558ec3785be217b8015bc7c6dc7b088.sample"
+path="res://.godot/imported/wind_blow.wav-fa133ec382e5f8dc73b10be9e8655e05.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/Effects/wind_blow.wav"
-dest_files=["res://.godot/imported/wind_blow.wav-4558ec3785be217b8015bc7c6dc7b088.sample"]
+source_file="res://Assets/Audio/Spatial/wind_blow.wav"
+dest_files=["res://.godot/imported/wind_blow.wav-fa133ec382e5f8dc73b10be9e8655e05.sample"]
 
 [params]
 

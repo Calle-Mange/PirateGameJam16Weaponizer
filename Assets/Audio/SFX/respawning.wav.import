@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b43noypmj4qb1"
-path="res://.godot/imported/respawning.wav-fd749b4a51d48ea6488fc2cc51deb050.sample"
+path="res://.godot/imported/respawning.wav-e9a89b12f5afbe4e08612537fa31091d.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/Effects/respawning.wav"
-dest_files=["res://.godot/imported/respawning.wav-fd749b4a51d48ea6488fc2cc51deb050.sample"]
+source_file="res://Assets/Audio/SFX/respawning.wav"
+dest_files=["res://.godot/imported/respawning.wav-e9a89b12f5afbe4e08612537fa31091d.sample"]
 
 [params]
 
