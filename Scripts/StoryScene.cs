@@ -7,7 +7,7 @@ public partial class StoryScene : Node
 		"I was once known as the greatest blacksmith in the realm… Crafting weapons for all who sought my work.",
 		"But my rival couldn’t accept my choice to serve all sides of the great war. In his jealousy he cursed me…",
 		"Now I am bound to become the very weapons I once forged. Trapped in this battlefield echo.",
-		"My only hope lies in reaching his (house? land? tower? basement?) using the scattered weapons of war to break his curse."
+		"My only hope lies in reaching his tower using the scattered weapons of war to break his curse."
 	};
 
 	private Label storyLabel;
@@ -15,10 +15,13 @@ public partial class StoryScene : Node
 	private int currentTextIndex = 0;
 	private int currentCharIndex = 0;
 
+	private LevelManager levelManager;
+
     public override void _Ready()
     {
 		storyLabel = GetNode<Label>("Control/Label");
 		storyLabel.Text = "";
+		levelManager = GetNode<LevelManager>("/root/LevelManager");
 		StartStorySequence();
     }
 
@@ -31,8 +34,7 @@ public partial class StoryScene : Node
 			await FadeOutText();
 		}
 
-		var levelManager = GetNode<LevelManager>("/root/LevelManager");
-		levelManager.ChangeSceneToFile("res://Scenes/TileMapLevels/map0.tscn");
+		levelManager.StartFirstLevel();
 	}
 
 	private async Task TypeWriterEffect(string text){
