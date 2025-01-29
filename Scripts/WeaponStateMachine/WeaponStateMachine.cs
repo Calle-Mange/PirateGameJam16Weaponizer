@@ -61,7 +61,7 @@ public partial class WeaponStateMachine : Node
 		{
 			return;
 		}
-
+		AudioManager.Instance.PlaySound("switch_wpn");
 		CurrentState.Exit();
 		CurrentState = States[state];
 		CurrentState.Enter();

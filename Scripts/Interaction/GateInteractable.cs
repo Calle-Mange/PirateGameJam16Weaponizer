@@ -3,6 +3,7 @@ using Godot;
 public partial class GateInteractable : StaticBody2D
 {
 	private bool IsOpen = false;
+    private bool playSound = true;
     private Vector2 startPosition;
     private Vector2 endPosition;
     private CollisionShape2D collisionShape;
@@ -22,22 +23,32 @@ public partial class GateInteractable : StaticBody2D
         {
             Position = endPosition;
             collisionShape.Disabled = true;
+            if (playSound)
+            {
+                playSound = false;
+				AudioManager.Instance.PlaySound("open_gate");
+			}
         }
 
         if (!IsOpen)
         {
-            Position = startPosition;
+			if (!playSound)
+			{
+				playSound = true;
+				AudioManager.Instance.PlaySound("open_gate");
+			}
+			Position = startPosition;
             collisionShape.Disabled = false;
         }
     }
 
     private void OnOpenGate()
     {
-        IsOpen = true;
+		IsOpen = true;
     }
 
     private void OnCloseGate()
     {
-        IsOpen = false;
+		IsOpen = false;
     }
 }

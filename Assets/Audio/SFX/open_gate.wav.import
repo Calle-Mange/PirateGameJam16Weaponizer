@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://djius71c83dth"
-path="res://.godot/imported/falling.wav-21b408be9c64df825337acd8e4648805.sample"
+uid="uid://bnoym4s8s5ov7"
+path="res://.godot/imported/open_gate.wav-93cbd4593ebfbc1f732e2ed14b7349e9.sample"
 
 [deps]
 
-source_file="res://Assets/Audio/SFX/falling.wav"
-dest_files=["res://.godot/imported/falling.wav-21b408be9c64df825337acd8e4648805.sample"]
+source_file="res://Assets/Audio/SFX/open_gate.wav"
+dest_files=["res://.godot/imported/open_gate.wav-93cbd4593ebfbc1f732e2ed14b7349e9.sample"]
 
 [params]
 

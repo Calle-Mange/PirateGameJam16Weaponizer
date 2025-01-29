@@ -63,7 +63,7 @@ public partial class Player : CharacterBody2D
 		LiftingBox = false;
 
 		AddToGroup("Player");
-    }
+	}
 
 	private void SetupInteractionArea()
 	{
@@ -261,7 +261,7 @@ public partial class Player : CharacterBody2D
 				isFalling = true;
 				fallStartPosition = GlobalPosition;
 				movementVelocity = Vector2.Zero;
-				AudioManager.Instance.PlaySound("Falling");
+				AudioManager.Instance.PlaySound("falling");
 			}
 
 			if (fallStartPosition.Y < 0)
@@ -327,7 +327,7 @@ public partial class Player : CharacterBody2D
 		if (Damageable)
 		{
 			if(!isFalling){
-				AudioManager.Instance.PlaySound("taking_damage");
+				AudioManager.Instance.PlaySound("taking_dmg");
 			}
 			GlobalGameVariables.Instance.PlayerHealth--;
 			
