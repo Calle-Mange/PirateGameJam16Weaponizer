@@ -290,9 +290,6 @@ position = Vector2(59, -214)
 [node name="Tunnel1_Exit" type="Node2D" parent="IsometricLevel/ExitNodeFolder"]
 position = Vector2(45, -191)
 
-[node name="Door" parent="IsometricLevel" instance=ExtResource("6_vlxws")]
-position = Vector2(-47, -9)
-
 [node name="PlayerHud" parent="." instance=ExtResource("4_7njse")]
 visible = false
 script = null
