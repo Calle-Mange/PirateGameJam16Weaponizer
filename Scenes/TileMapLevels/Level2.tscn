@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://dquhsgs5us1uk" path="res://Scenes/tunnel_wall2.tscn" id="5_p5sx3"]
 [ext_resource type="Script" path="res://Scripts/SpawnPoint.cs" id="6_b0xjc"]
 [ext_resource type="PackedScene" uid="uid://s2ksa4uoxxlj" path="res://Scenes/EnvironmentItems/door.tscn" id="6_vlxws"]
-[ext_resource type="PackedScene" uid="uid://8sccs8l2o6k6" path="res://Scenes/AudioManager.tscn" id="7_lkcin"]
-[ext_resource type="PackedScene" uid="uid://b3m6tja536iua" path="res://Scenes/EnvironmentItems/weight_holder.tscn" id="9_u4tbu"]
+[ext_resource type="PackedScene" uid="uid://dr5rays4j7jya" path="res://Scenes/AudioManager.tscn" id="7_lkcin"]
+[ext_resource type="PackedScene" path="res://Scenes/EnvironmentItems/weight_holder.tscn" id="9_u4tbu"]
 [ext_resource type="Texture2D" uid="uid://bq4bqd5es30t1" path="res://Assets/Graphics/WouldBuilding/isometric-sandbox-sheet-basics.png" id="10_hvi6s"]
-[ext_resource type="PackedScene" uid="uid://cft06jfcfqe6w" path="res://Scenes/EnvironmentItems/DoorOpenerButton.tscn" id="10_poiku"]
+[ext_resource type="PackedScene" path="res://Scenes/EnvironmentItems/DoorOpenerButton.tscn" id="10_poiku"]
 [ext_resource type="PackedScene" uid="uid://c36cu2o6mjxak" path="res://Scenes/EnvironmentItems/Unlockables/Axe.tscn" id="10_ygpa1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hr4w2"]
@@ -289,6 +289,9 @@ position = Vector2(59, -214)
 
 [node name="Tunnel1_Exit" type="Node2D" parent="IsometricLevel/ExitNodeFolder"]
 position = Vector2(45, -191)
+
+[node name="Door" parent="IsometricLevel" instance=ExtResource("6_vlxws")]
+position = Vector2(-47, -9)
 
 [node name="PlayerHud" parent="." instance=ExtResource("4_7njse")]
 visible = false

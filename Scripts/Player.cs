@@ -43,7 +43,7 @@ public partial class Player : CharacterBody2D
     private string currentweapon; // for testing right now
 	private BaseInteractable currentInteractable;
 	private Label interactionPrompt;
-	private bool LiftingBox;
+	private bool AxeInteracting;
 	#endregion
 
 	#region HUD
@@ -59,13 +59,14 @@ public partial class Player : CharacterBody2D
         transitionPlayer = transitionScene.GetNode<AnimationPlayer>("AnimationPlayer"); 
         spawnManager = GetNode<SpawnManager>("../../SpawnManager");
         animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		animatedSprite.AnimationFinished += OnAxeInteractionFinished;
 		hurtTimer = GetNode<Timer>("HurtTimer");
-		LiftingBox = false;
+		AxeInteracting = false;
 
 		AddToGroup("Player");
     }
 
-	private void SetupInteractionArea()
+    private void SetupInteractionArea()
 	{
 		interactionArea = new Area2D();
 		var collisionShape = new CollisionShape2D();
@@ -223,13 +224,14 @@ public partial class Player : CharacterBody2D
 		foreach (var area in areas)
 		{
 			if (area is BaseInteractable interactable)
-			{
-                if (interactable.IsInGroup("Box") && !LiftingBox)
-                {
-                    LiftingBox = true;
-                }
-                
+			{   
 				interactable.StartInteraction(currentweapon, Position);
+
+				if (currentweapon == GlobalGameVariables.Instance.WeaponList.Axe)
+				{
+					AxeInteracting = true;
+					animatedSprite.Play("interact_blow");
+				}
 
 				break;  // Only interact with the first one found
 			}
@@ -377,17 +379,10 @@ public partial class Player : CharacterBody2D
     
         movementVelocity = isoDirection * Speed;
 
-        if (inputDirection == Vector2.Zero)
+        if (inputDirection == Vector2.Zero && !AxeInteracting)
         {
             animatedSprite.Play("idle");
-            return;
         }
-
-		// idle
-		if (inputDirection.X == 0 && inputDirection.Y == 0)
-		{
-			animatedSprite.Play("idle");
-		}
 
 		// move right
 		else if (inputDirection.X > 0 && inputDirection.Y == 0)
@@ -446,7 +441,12 @@ public partial class Player : CharacterBody2D
 		}
 	}
 
-	public void AddExternalForce(Vector2 force)
+    private void OnAxeInteractionFinished()
+    {
+		AxeInteracting = false;
+    }
+
+    public void AddExternalForce(Vector2 force)
     {
         externalForce += force;
     }
