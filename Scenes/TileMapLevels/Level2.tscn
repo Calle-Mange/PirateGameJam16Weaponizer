@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://djycxengplujk" path="res://Assets/Graphics/WouldBuilding/Level1.tres" id="1_4eo32"]
 [ext_resource type="PackedScene" uid="uid://dhje0inujoekn" path="res://Scenes/EnvironmentItems/HazardSign.tscn" id="2_68skw"]
-[ext_resource type="PackedScene" uid="uid://kosbjroc1yti" path="res://Scenes/player.tscn" id="2_j5r25"]
+[ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="2_j5r25"]
 [ext_resource type="PackedScene" uid="uid://rv1k6dom2j6y" path="res://Scenes/TileMapLevels/LevelExit.tscn" id="3_7ig0y"]
 [ext_resource type="Texture2D" uid="uid://d2hskdl8ndsad" path="res://Assets/Graphics/WouldBuilding/Background.png" id="3_fr4xu"]
 [ext_resource type="PackedScene" uid="uid://dhbairi01no4x" path="res://Scenes/WindEnemy.tscn" id="3_qxbry"]
@@ -12,10 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://dquhsgs5us1uk" path="res://Scenes/tunnel_wall2.tscn" id="5_p5sx3"]
 [ext_resource type="Script" path="res://Scripts/SpawnPoint.cs" id="6_b0xjc"]
 [ext_resource type="PackedScene" uid="uid://s2ksa4uoxxlj" path="res://Scenes/EnvironmentItems/door.tscn" id="6_vlxws"]
-[ext_resource type="PackedScene" uid="uid://dr5rays4j7jya" path="res://Scenes/AudioManager.tscn" id="7_lkcin"]
-[ext_resource type="PackedScene" path="res://Scenes/EnvironmentItems/weight_holder.tscn" id="9_u4tbu"]
+[ext_resource type="PackedScene" uid="uid://8sccs8l2o6k6" path="res://Scenes/AudioManager.tscn" id="7_lkcin"]
+[ext_resource type="PackedScene" uid="uid://b3m6tja536iua" path="res://Scenes/EnvironmentItems/weight_holder.tscn" id="9_u4tbu"]
 [ext_resource type="Texture2D" uid="uid://bq4bqd5es30t1" path="res://Assets/Graphics/WouldBuilding/isometric-sandbox-sheet-basics.png" id="10_hvi6s"]
-[ext_resource type="PackedScene" path="res://Scenes/EnvironmentItems/DoorOpenerButton.tscn" id="10_poiku"]
+[ext_resource type="PackedScene" uid="uid://cft06jfcfqe6w" path="res://Scenes/EnvironmentItems/DoorOpenerButton.tscn" id="10_poiku"]
 [ext_resource type="PackedScene" uid="uid://c36cu2o6mjxak" path="res://Scenes/EnvironmentItems/Unlockables/Axe.tscn" id="10_ygpa1"]
 [ext_resource type="PackedScene" uid="uid://b12nnnb4mqsg0" path="res://Scenes/EnvironmentItems/fire_flies.tscn" id="17_hcbwt"]
 
@@ -118,6 +118,8 @@ position = Vector2(59, -34)
 [node name="LevelExit" parent="IsometricLevel/LayerFolder" instance=ExtResource("3_7ig0y")]
 z_index = 300
 position = Vector2(210, -308)
+rotation = -0.711632
+scale = Vector2(5.12, 2.28)
 
 [node name="Player" parent="IsometricLevel" instance=ExtResource("2_j5r25")]
 position = Vector2(22, 5)
