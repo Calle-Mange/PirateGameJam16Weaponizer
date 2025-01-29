@@ -31,14 +31,14 @@ public abstract partial class BaseInteractable : Area2D, IInteractable
 		return Array.Exists(AllowedWeapons, weapon => weapon == weaponType);
 	}
 
-	public void StartInteraction(string weaponType){
+	public void StartInteraction(string weaponType, Vector2 interactionDirection){
 		if(CanInteract(weaponType)){
 			EmitSignal(SignalName.InteractionStarted);
-			PerformInteraction(weaponType);
+			PerformInteraction(weaponType, interactionDirection);
 		} else {
 			EmitSignal(SignalName.InteractionFailed);
 		}
 	}
 
-	protected abstract void PerformInteraction(string weaponType);
+	protected abstract void PerformInteraction(string weaponType, Vector2 interactionDirection);
 }

@@ -35,10 +35,11 @@ public partial class PressurePlateInteractable : Area2D
 		}
 
 		var OverlappingBodies = GetOverlappingBodies();
+		GD.Print(OverlappingBodies);
 
-		foreach (PhysicsBody2D body in OverlappingBodies)
+		foreach (var body in OverlappingBodies)
 		{
-			if (body.IsInGroup("Player") || body.IsInGroup("Moveable"))
+			if (body.IsInGroup("Player") || body.IsInGroup("Box"))
 			{
 				IsActive = true;
 				EmitSignal(SignalName.PressurePlateActive);

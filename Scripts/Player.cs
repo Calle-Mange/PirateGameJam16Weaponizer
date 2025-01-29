@@ -43,6 +43,7 @@ public partial class Player : CharacterBody2D
     private string currentweapon; // for testing right now
 	private BaseInteractable currentInteractable;
 	private Label interactionPrompt;
+	private bool LiftingBox;
 	#endregion
 
 	#region HUD
@@ -59,6 +60,7 @@ public partial class Player : CharacterBody2D
         spawnManager = GetNode<SpawnManager>("../../SpawnManager");
         animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		hurtTimer = GetNode<Timer>("HurtTimer");
+		LiftingBox = false;
 
 		AddToGroup("Player");
     }
@@ -222,7 +224,12 @@ public partial class Player : CharacterBody2D
 		{
 			if (area is BaseInteractable interactable)
 			{
-				interactable.StartInteraction(currentweapon);
+                if (interactable.IsInGroup("Box") && !LiftingBox)
+                {
+                    LiftingBox = true;
+                }
+                
+				interactable.StartInteraction(currentweapon, Position);
 
 				break;  // Only interact with the first one found
 			}
