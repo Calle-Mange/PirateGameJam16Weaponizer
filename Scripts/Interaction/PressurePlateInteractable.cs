@@ -35,7 +35,6 @@ public partial class PressurePlateInteractable : Area2D
 		}
 
 		var OverlappingBodies = GetOverlappingBodies();
-		GD.Print(OverlappingBodies);
 
 		foreach (var body in OverlappingBodies)
 		{

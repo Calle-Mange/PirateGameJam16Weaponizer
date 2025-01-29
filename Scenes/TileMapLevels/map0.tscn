@@ -5,14 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://kosbjroc1yti" path="res://Scenes/player.tscn" id="2_vx1gh"]
 [ext_resource type="PackedScene" uid="uid://g0ovqenjyebf" path="res://Scenes/EnvironmentItems/rope.tscn" id="3_v5ftb"]
 [ext_resource type="PackedScene" uid="uid://c36cu2o6mjxak" path="res://Scenes/EnvironmentItems/Unlockables/Axe.tscn" id="4_87ums"]
-[ext_resource type="PackedScene" path="res://Scenes/EnvironmentItems/door.tscn" id="5_4rgd7"]
+[ext_resource type="PackedScene" uid="uid://s2ksa4uoxxlj" path="res://Scenes/EnvironmentItems/door.tscn" id="5_4rgd7"]
 [ext_resource type="PackedScene" uid="uid://btcbpdf2e1lfa" path="res://Scenes/tunnel_wall.tscn" id="5_oorag"]
 [ext_resource type="PackedScene" uid="uid://cbu4ifdokkvnn" path="res://Scenes/spawn_points.tscn" id="6_d5rbj"]
 [ext_resource type="PackedScene" uid="uid://dhje0inujoekn" path="res://Scenes/EnvironmentItems/HazardSign.tscn" id="7_5u0hs"]
 [ext_resource type="PackedScene" uid="uid://bgb5ekvpkdb" path="res://Scenes/spawn_manager.tscn" id="7_fwa1x"]
 [ext_resource type="PackedScene" uid="uid://dr5rays4j7jya" path="res://Scenes/AudioManager.tscn" id="8_wrxs5"]
 [ext_resource type="PackedScene" uid="uid://il455u6gycvv" path="res://Scenes/EnvironmentItems/WaterArea.tscn" id="11_sx0sy"]
-[ext_resource type="PackedScene" path="res://Scenes/WindEnemy.tscn" id="13_gyx45"]
+[ext_resource type="PackedScene" uid="uid://dhbairi01no4x" path="res://Scenes/WindEnemy.tscn" id="13_gyx45"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4otgy"]
 texture = ExtResource("1_263e0")

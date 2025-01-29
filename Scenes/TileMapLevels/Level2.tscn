@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dquhsgs5us1uk" path="res://Scenes/tunnel_wall2.tscn" id="5_p5sx3"]
 [ext_resource type="Script" path="res://Scripts/SpawnPoint.cs" id="6_b0xjc"]
 [ext_resource type="PackedScene" uid="uid://s2ksa4uoxxlj" path="res://Scenes/EnvironmentItems/door.tscn" id="6_vlxws"]
-[ext_resource type="PackedScene" path="res://Scenes/AudioManager.tscn" id="7_lkcin"]
+[ext_resource type="PackedScene" uid="uid://dr5rays4j7jya" path="res://Scenes/AudioManager.tscn" id="7_lkcin"]
 [ext_resource type="PackedScene" uid="uid://mgr6880616nn" path="res://Scenes/EnvironmentItems/door2.tscn" id="8_p50tv"]
 [ext_resource type="PackedScene" uid="uid://c36cu2o6mjxak" path="res://Scenes/EnvironmentItems/Unlockables/Axe.tscn" id="10_ygpa1"]
 

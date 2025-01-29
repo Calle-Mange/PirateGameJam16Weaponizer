@@ -9,7 +9,6 @@ public partial class BoxInteractable : BaseInteractable
 	private Vector2 StartPosition;
 	private Vector2 PushDirection;
 	private Timer MoveTimer;
-    private Node2D _layerFolder;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -20,7 +19,6 @@ public partial class BoxInteractable : BaseInteractable
 		StartPosition = Position;
 		PushDirection = Vector2.Zero;
 		MoveTimer = GetNode<Timer>("Timer");
-        _layerFolder = GetNode<Node2D>("../LayerFolder");
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
