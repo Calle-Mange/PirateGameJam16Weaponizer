@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b12nnnb4mqsg0"]
+
+[ext_resource type="Script" path="res://Scripts/Fireflies.cs" id="1_hkabh"]
+
+[node name="FireFlies" type="CPUParticles2D"]
+script = ExtResource("1_hkabh")

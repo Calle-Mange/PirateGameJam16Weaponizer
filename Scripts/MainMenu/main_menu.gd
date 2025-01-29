@@ -34,7 +34,7 @@ func set_current_selector(_currentSelector) -> void:
 
 func select_current_option(_currentSelector) -> void:
 	if _currentSelector == 0:
-		level_manager.ChangeSceneToFile("res://Scenes/Menu/story_scene.tscn")
+		level_manager.StartNewGame()
 		# get_parent().add_child(map0Scene.instantiate())
 		queue_free()
 		

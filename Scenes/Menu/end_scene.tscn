@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4he7t2ki5q7d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q56nk"]
+font_size = 34
+
+[node name="Level4" type="Node"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 151.0
+offset_right = 1095.0
+offset_bottom = 449.0
+text = "Thank you for playing ReForged. We had a blast developing this prototype for the Pirate Game Jam 16! We really appreciate it and hope your pillows always will be cold on both sides <3"
+label_settings = SubResource("LabelSettings_q56nk")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
