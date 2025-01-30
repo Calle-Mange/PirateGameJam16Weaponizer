@@ -3,6 +3,12 @@ extends MarginContainer
 var startSelector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/StartSelector
 @onready
 var exitSelector = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer/ExitSelector
+@onready
+var audioStreamPlayer = $AudioStreamPlayer2D
+@onready
+var startSound = preload("res://Assets/Audio/Effects/game_start.wav")
+@onready
+var selectSound = preload("res://Assets/Audio/Effects/menu_select.wav")
 var currentSelector = 0
 
 @onready var level_manager = $"/root/LevelManager"
@@ -31,10 +37,15 @@ func set_current_selector(_currentSelector) -> void:
 		startSelector.text = ">"
 	elif _currentSelector == 1:
 		exitSelector.text = ">"
+	audioStreamPlayer.stream = selectSound
+	audioStreamPlayer.play()
 
 func select_current_option(_currentSelector) -> void:
 	if _currentSelector == 0:
 		level_manager.StartNewGame()
+		audioStreamPlayer.stream = startSound
+		audioStreamPlayer.play()
+		await(audioStreamPlayer.finished)
 		# get_parent().add_child(map0Scene.instantiate())
 		queue_free()
 		

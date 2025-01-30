@@ -17,6 +17,7 @@ public partial class CutAnimation : AnimatedSprite2D
     {
         Visible = true;
         Play("cut");
+        AudioManager.Instance.PlaySound("rope_cutting");
     }
 
     private void OnAnimationFinished()

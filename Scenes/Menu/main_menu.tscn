@@ -71,3 +71,5 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Exit
 "
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

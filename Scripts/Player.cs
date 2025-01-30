@@ -444,6 +444,7 @@ public partial class Player : CharacterBody2D
     private void OnAxeInteractionFinished()
     {
 		AxeInteracting = false;
+		AudioManager.Instance.PlaySound("axe_chopping");
     }
 
     public void AddExternalForce(Vector2 force)
