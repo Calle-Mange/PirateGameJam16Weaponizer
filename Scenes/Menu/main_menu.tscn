@@ -30,7 +30,7 @@ layout_mode = 2
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Resmithed
+text = "ReForged
 "
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]

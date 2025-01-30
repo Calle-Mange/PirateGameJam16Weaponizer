@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func _on_continue_button_pressed() -> void:
 	print("continue pressed")
-	level_manager.RestartCurrentLevel()
+	level_manager.StartFirstLevel()
 
 
 func _on_exit_button_pressed() -> void:
@@ -52,7 +52,7 @@ func set_current_selector(_currentSelector) -> void:
 		
 func select_current_option(_currentSelector) -> void:
 	if _currentSelector == 0:
-		level_manager.RestartCurrentLevel()
+		level_manager.StartFirstLevel()
 		queue_free()
 		
 	elif _currentSelector == 1:
