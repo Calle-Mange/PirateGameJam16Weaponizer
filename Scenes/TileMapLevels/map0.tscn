@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bgb5ekvpkdb" path="res://Scenes/spawn_manager.tscn" id="7_fwa1x"]
 [ext_resource type="PackedScene" uid="uid://8sccs8l2o6k6" path="res://Scenes/AudioManager.tscn" id="8_wrxs5"]
 [ext_resource type="PackedScene" uid="uid://il455u6gycvv" path="res://Scenes/EnvironmentItems/WaterArea.tscn" id="11_sx0sy"]
-[ext_resource type="PackedScene" uid="uid://dhbairi01no4x" path="res://Scenes/WindEnemy.tscn" id="13_gyx45"]
+[ext_resource type="PackedScene" path="res://Scenes/WindEnemy.tscn" id="13_gyx45"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4otgy"]
 texture = ExtResource("1_263e0")
@@ -157,6 +157,8 @@ sources/0 = SubResource("TileSetAtlasSource_wqhv3")
 
 [node name="main2" type="Node2D"]
 
+[node name="AudioManager" parent="." instance=ExtResource("8_wrxs5")]
+
 [node name="TileMap" type="Node" parent="."]
 
 [node name="Layer0" type="TileMapLayer" parent="TileMap"]
@@ -250,7 +252,5 @@ position = Vector2(8, -76)
 [node name="SpawnPoints" parent="." instance=ExtResource("6_d5rbj")]
 
 [node name="SpawnManager" parent="." instance=ExtResource("7_fwa1x")]
-
-[node name="AudioManager" parent="." instance=ExtResource("8_wrxs5")]
 
 [editable path="IsometricLevel/Player"]
