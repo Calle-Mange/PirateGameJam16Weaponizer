@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/WeaponStateMachine/FlailState.cs" id="6_l5bbp"]
 [ext_resource type="Script" path="res://Scripts/WeaponStateMachine/GunState.cs" id="7_s1pj8"]
 [ext_resource type="PackedScene" uid="uid://b1xqkt4kv2uk8" path="res://Scenes/HUD/Player_HUD.tscn" id="9_33tvr"]
-[ext_resource type="AudioStream" uid="uid://c1g2arrx3u286" path="res://Assets/Audio/Effects/Falling.wav" id="10_0vv0i"]
+[ext_resource type="AudioStream" uid="uid://djius71c83dth" path="res://Assets/Audio/SFX/Falling.wav" id="10_0vv0i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_urhvf"]
 radius = 2.0

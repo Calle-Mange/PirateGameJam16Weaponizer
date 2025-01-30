@@ -54,7 +54,8 @@ public partial class RopeInteractable : BaseInteractable
     private void StartWeightFall()
     {
         animationPlayer.Play("weight_fall");
-    }
+		AudioManager.Instance.PlaySound("weight_drop");
+	}
 
 	private void OnAnimationFinished(StringName animationName){
 		if (animationName == "weight_fall"){

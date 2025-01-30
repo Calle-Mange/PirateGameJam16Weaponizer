@@ -28,7 +28,8 @@ public partial class DoorOpenButton : Node2D
         
         if (levelAnimationPlayer != null)
         {
-            levelAnimationPlayer.Play("move_down_tiles");
+			AudioManager.Instance.PlaySound("floor_switch");
+			levelAnimationPlayer.Play("move_down_tiles");
         }
     }
 }

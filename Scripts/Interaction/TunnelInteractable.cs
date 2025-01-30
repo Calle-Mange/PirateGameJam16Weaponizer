@@ -53,6 +53,7 @@ public partial class TunnelInteractable : BaseInteractable
 		if(wallSprite != null){
 			player.Visible = false;
 			wallSprite.Play("go_through_tunnel");
+			AudioManager.Instance.PlaySound("enter_tunnle");
 		} else {
 			TeleportPlayer();
 		}

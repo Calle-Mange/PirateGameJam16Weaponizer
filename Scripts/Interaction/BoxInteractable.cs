@@ -31,7 +31,7 @@ public partial class BoxInteractable : BaseInteractable
     {
 		if (IsMoving)
 		{
-            Position += (PushDirection * PushSpeed) * (float)delta;
+			Position += (PushDirection * PushSpeed) * (float)delta;
         }
     }
 
@@ -39,6 +39,7 @@ public partial class BoxInteractable : BaseInteractable
     {
 		PushDirection = interactionDirection.DirectionTo(Position);
 		IsMoving = true;
+		AudioManager.Instance.PlaySound("moving_box");
 		MoveTimer.Start();
     }
 

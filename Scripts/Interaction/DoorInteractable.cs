@@ -54,17 +54,20 @@ public partial class DoorInteractable : BaseInteractable
     {
         if (Health == 3)
         {
-            sprite.Play("break_door_one");
+			AudioManager.Instance.PlaySound("Axing_door");
+			sprite.Play("break_door_one");
         }
 
         if (Health == 2)
         {
-            sprite.Play("break_door_two");
+			AudioManager.Instance.PlaySound("Axing_door");
+			sprite.Play("break_door_two");
         }
 
         if (Health == 1)
         {
-            sprite.Play("break_door_three");
+			AudioManager.Instance.PlaySound("breaking_door");
+			sprite.Play("break_door_three");
         }
 
         Health--;
