@@ -213,12 +213,6 @@ public partial class Player : CharacterBody2D
         }
 	}
 
-	public override void _Draw()
-	{
-		// Draw a circle representing the interaction range for debugging
-		DrawArc(Vector2.Zero, 10.0f, 0, Mathf.Tau, 32, Colors.Yellow, 2.0f);
-	}
-
 	private void TryInteraction()
 	{
 		var areas = interactionArea.GetOverlappingAreas();
