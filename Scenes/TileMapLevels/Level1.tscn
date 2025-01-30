@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/SpawnManager.cs" id="1_nha6d"]
 [ext_resource type="TileSet" uid="uid://djycxengplujk" path="res://Assets/Graphics/WouldBuilding/Level1.tres" id="1_s7spt"]
-[ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="1_vuqau"]
+[ext_resource type="PackedScene" uid="uid://kosbjroc1yti" path="res://Scenes/player.tscn" id="1_vuqau"]
 [ext_resource type="Texture2D" uid="uid://d2hskdl8ndsad" path="res://Assets/Graphics/WouldBuilding/Background.png" id="2_uwnur"]
 [ext_resource type="PackedScene" uid="uid://b1xqkt4kv2uk8" path="res://Scenes/HUD/Player_HUD.tscn" id="3_ltg06"]
 [ext_resource type="PackedScene" uid="uid://bk3jeycvsbtn5" path="res://Scenes/EnvironmentItems/gate.tscn" id="5_01f70"]

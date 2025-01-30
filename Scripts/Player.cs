@@ -62,7 +62,7 @@ public partial class Player : CharacterBody2D
 		animatedSprite.AnimationFinished += OnAxeInteractionFinished;
 		hurtTimer = GetNode<Timer>("HurtTimer");
 		AxeInteracting = false;
-
+		AudioManager.Instance.PlaySound("MedivalStress");
 		AddToGroup("Player");
 	}
 
@@ -204,8 +204,10 @@ public partial class Player : CharacterBody2D
 		AttackDamage = NewAttackDamage;
 		Weight = NewWeight;
 		currentweapon = CurrentWeapon;
-		animatedSprite.SpriteFrames = AnimationSet;
-
+		if (animatedSprite != null)
+		{
+			animatedSprite.SpriteFrames = AnimationSet;
+		}
 		if (currentInteractable != null)
         {
             interactionPrompt.Visible = currentInteractable.CanInteract(currentweapon);
@@ -263,7 +265,7 @@ public partial class Player : CharacterBody2D
 				isFalling = true;
 				fallStartPosition = GlobalPosition;
 				movementVelocity = Vector2.Zero;
-				AudioManager.Instance.PlaySound("falling");
+				AudioManager.Instance.PlaySound("Falling");
 			}
 
 			if (fallStartPosition.Y < 0)
