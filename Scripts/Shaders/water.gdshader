@@ -11,14 +11,14 @@ float random(vec2 uv) {
 
 void fragment() {
     vec2 uv = UV * 2.0 - 1.0;
-    
+
     // Rounded/elliptical mask
     float ellipse = 1.0 - smoothstep(0.5, 1.0, length(vec2(uv.x, uv.y * 2.0)));
-    
+
     float time = TIME * wave_speed;
     float bubbles = sin(uv.x * 20.0 + time * 2.0) * sin(uv.y * 20.0 + time) * bubble_intensity;
     float swirl = sin(uv.x * 8.0 + uv.y * 8.0 + time) * 0.02;
-    
+
     // Rising bubbles
     float rising_bubbles = 0.0;
     for(float i = 0.0; i < 3.0; i++) {
@@ -28,11 +28,11 @@ void fragment() {
         );
         rising_bubbles += smoothstep(0.05, 0.0, length(uv - bubble_pos));
     }
-    
+
     vec2 distorted_uv = uv;
     distorted_uv.x += swirl + bubbles;
     distorted_uv.y += swirl + bubbles;
-    
+
     COLOR = mix(toxic_color, bubble_color, bubbles * 5.0 + rising_bubbles);
     COLOR.a *= ellipse;
 }
