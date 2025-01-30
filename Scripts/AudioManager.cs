@@ -44,6 +44,7 @@ public partial class AudioManager : Node
 		}
 
 		CreateAudioPlayers();
+		
 	}
 
 	public void InitSounds(string path)
@@ -108,10 +109,17 @@ public partial class AudioManager : Node
 		{
 			return;
 		}
-		foreach (var audioPlayer in _audioSteamPlayers)
-		{
+
+		foreach (var audioPlayer in _audioSteamPlayers.ToArray()){
+			if (audioPlayer == null || !IsInstanceValid(audioPlayer))
+        	{
+            	_audioSteamPlayers.Remove(audioPlayer);
+            	continue;
+        	}
+
 			if (!audioPlayer.Playing)
 			{
+				
 				audioPlayer.Stream = _audioLib[soundName].Item1;
 				RouteAudioPlayerToBus(audioPlayer, _audioLib[soundName].Item2);
 				audioPlayer.Play();
@@ -122,36 +130,88 @@ public partial class AudioManager : Node
 
 	public void PlaySoundAt(string soundName, Vector2 position, float range)
     {
-        if (!_audioLib.ContainsKey(soundName)) return;
+        if (!_audioLib.ContainsKey(soundName)){
+			return;
+		}
 
-        foreach (var player in _spatialPlayers)
-        {
-            if (!player.Playing)
-            {
+		foreach (var player in _spatialPlayers.ToArray()){
+			if (player == null || !IsInstanceValid(player))
+        	{
+            _spatialPlayers.Remove(player);
+            continue;
+        	}
+
+        	if (!player.Playing)
+        	{
                 player.Stream = _audioLib[soundName].Item1;
-				player.Bus = "Spatial";
-				player.GlobalPosition = position;
+                player.Bus = "Spatial";
+                player.GlobalPosition = position;
                 player.MaxDistance = range;
                 player.Play();
                 return;
-            }
-        }
+        	}
+		}
+
     }
 
 	public void CreateAudioPlayers()
 	{
-		for (int i = 0; i < 5; i++)
-		{
-			var audioPlayer = new AudioStreamPlayer();
-			AddChild(audioPlayer);
-			_audioSteamPlayers.Add(audioPlayer);
-		}
+        foreach (var player in _audioSteamPlayers)
+        {
+         	if (player != null && IsInstanceValid(player))
+            {
+                player.QueueFree();
+            }
+        }
+        foreach (var player in _spatialPlayers)
+        {
+            if (player != null && IsInstanceValid(player))
+            {
+                player.QueueFree();
+            }
+        }
 
-		for (int i = 0; i < 3; i++)
+        _audioSteamPlayers.Clear();
+        _spatialPlayers.Clear();
+
+        for (int i = 0; i < 5; i++)
+        {
+            var audioPlayer = new AudioStreamPlayer();
+            AddChild(audioPlayer);
+            _audioSteamPlayers.Add(audioPlayer);
+        }
+
+        for (int i = 0; i < 3; i++)
         {
             var spatialPlayer = new AudioStreamPlayer2D();
             AddChild(spatialPlayer);
             _spatialPlayers.Add(spatialPlayer);
         }
+    }
+
+	public override void _ExitTree()
+	{
+    	if (_audioManager == this)
+    	{
+        	foreach (var player in _audioSteamPlayers)
+        	{
+            	if (player != null && IsInstanceValid(player))
+            	{
+                	player.QueueFree();
+           		}
+        	}
+        	foreach (var player in _spatialPlayers)
+        	{
+            	if (player != null && IsInstanceValid(player))
+            	{
+                	player.QueueFree();
+            	}
+        	}
+        	_audioSteamPlayers.Clear();
+        	_spatialPlayers.Clear();
+        	_audioLib.Clear();
+        	_audioManager = null;
+    	}
+    	base._ExitTree();
 	}
 }

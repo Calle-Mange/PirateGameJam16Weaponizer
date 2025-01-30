@@ -22,12 +22,14 @@ public partial class LevelManager : Node
 
     public void StartNewGame()
     {
-        ChangeSceneToFile(storyPath);
+		AudioManager.Instance.PlaySound("MedivalStress");
+		ChangeSceneToFile(storyPath);
     }
 
     public void StartFirstLevel()
     {
         // Called from the story scene when it's finished
+
         currentLevel = 1;
         ChangeSceneToFile(levelPaths[0]);
     }
@@ -36,7 +38,7 @@ public partial class LevelManager : Node
     {
         transitionScene = GetNode("/root/TransitionScene");
         transitionPlayer = transitionScene.GetNode<AnimationPlayer>("AnimationPlayer");
-    }
+	}
 
     public void GoToNextLevel()
     {
@@ -47,7 +49,6 @@ public partial class LevelManager : Node
         }
         else
         {
-            GD.Print("Game Completed!");
             ChangeSceneToFile(endScenePath);
         }
     }

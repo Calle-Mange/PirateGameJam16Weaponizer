@@ -6,7 +6,7 @@ public partial class Fireflies : CpuParticles2D
 	public override void _Ready()
     {
         Emitting = true;
-        Amount = 50;
+        Amount = 80;
         Lifetime = 5.0f;
         
         Direction = Vector2.Up;
@@ -15,7 +15,7 @@ public partial class Fireflies : CpuParticles2D
         InitialVelocityMin = 20.0f;
         InitialVelocityMax = 20.0f;
         
-        Modulate = new Color(0.9f, 1.0f, 0.3f, 0.7f);
+        Modulate = new Color(0.9f, 1.0f, 0.3f, 0.8f);
         Scale = new Vector2(2, 2);
         
         AngularVelocityMin = -45.0f;
