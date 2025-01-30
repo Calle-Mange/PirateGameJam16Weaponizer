@@ -62,7 +62,6 @@ public partial class Player : CharacterBody2D
 		animatedSprite.AnimationFinished += OnAxeInteractionFinished;
 		hurtTimer = GetNode<Timer>("HurtTimer");
 		AxeInteracting = false;
-		AudioManager.Instance.PlaySound("MedivalStress");
 		AddToGroup("Player");
 	}
 
