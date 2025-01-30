@@ -26,7 +26,7 @@ public partial class RopeInteractable : BaseInteractable
 		sprite = GetNode<Sprite2D>("../with_rope_sprite");
 		noRopeSprite = GetNode<Sprite2D>("../no_rope_sprite");
         collisionShape = GetNode<CollisionShape2D>("CollisionShape2D");
-		cutAnimation = GetNode<CutAnimation>("/root/main/IsometricLevel/Interactables/WeightHolder/DaggerCut");
+		cutAnimation = GetNode<CutAnimation>("/root/main3/IsometricLevel/Interactables/WeightHolder/DaggerCut");
 		player = GetNode<Player>("../../../Player");
 
 		if (cutAnimation != null)

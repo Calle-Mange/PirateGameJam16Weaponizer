@@ -9,8 +9,8 @@ public partial class SpawnManager : Node
 
     public override void _Ready()
     {
-		spawnPointContainer = GetNode("../SpawnPoints");
-		layerFolder = GetNode<Node2D>("../IsometricLevel/LayerFolder");
+		spawnPointContainer = GetNode("/root/main3/SpawnPoints");
+		layerFolder = GetNode<Node2D>("/root/main3/IsometricLevel/LayerFolder");
 	}
 
 	public Vector2 GetRespawnPosition(Vector2 playerPosition){

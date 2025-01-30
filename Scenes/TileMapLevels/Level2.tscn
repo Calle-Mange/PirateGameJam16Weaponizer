@@ -89,7 +89,7 @@ _data = {
 "move_down_tiles": SubResource("Animation_udsht")
 }
 
-[node name="main" type="Node2D"]
+[node name="main3" type="Node2D"]
 
 [node name="IsometricLevel" type="Node2D" parent="."]
 

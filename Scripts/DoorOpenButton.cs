@@ -12,7 +12,7 @@ public partial class DoorOpenButton : Node2D
         unpressedSprite = GetNode<Sprite2D>("unpressed_sprite");
         pressedSprite = GetNode<Sprite2D>("pressed_sprite");
         collisionArea = GetNode<Area2D>("Area2D");
-		levelAnimationPlayer = GetNode<AnimationPlayer>("/root/main/AnimationPlayer");
+		levelAnimationPlayer = GetNode<AnimationPlayer>("/root/main3/AnimationPlayer");
 
 		Node current = this;
         while (current != null)
