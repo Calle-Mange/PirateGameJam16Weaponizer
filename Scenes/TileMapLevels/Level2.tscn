@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://djycxengplujk" path="res://Assets/Graphics/WouldBuilding/Level1.tres" id="1_4eo32"]
 [ext_resource type="PackedScene" uid="uid://dhje0inujoekn" path="res://Scenes/EnvironmentItems/HazardSign.tscn" id="2_68skw"]
-[ext_resource type="PackedScene" path="res://Scenes/player.tscn" id="2_j5r25"]
+[ext_resource type="PackedScene" uid="uid://kosbjroc1yti" path="res://Scenes/player.tscn" id="2_j5r25"]
 [ext_resource type="PackedScene" uid="uid://rv1k6dom2j6y" path="res://Scenes/TileMapLevels/LevelExit.tscn" id="3_7ig0y"]
 [ext_resource type="Texture2D" uid="uid://d2hskdl8ndsad" path="res://Assets/Graphics/WouldBuilding/Background.png" id="3_fr4xu"]
 [ext_resource type="PackedScene" path="res://Scenes/WindEnemy.tscn" id="3_qxbry"]

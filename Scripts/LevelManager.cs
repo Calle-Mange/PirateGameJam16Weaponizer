@@ -9,8 +9,9 @@ public partial class LevelManager : Node
 
     private readonly string mainMenuPath = "res://Scenes/Menu/main_menu.tscn";
     private readonly string storyPath = "res://Scenes/Menu/story_scene.tscn";
+	private readonly string previousScene;
 
-    private readonly string endScenePath = "res://Scenes/Menu/end_scene.tscn";
+	private readonly string endScenePath = "res://Scenes/Menu/end_scene.tscn";
 
     private readonly string[] levelPaths = new[]
     {

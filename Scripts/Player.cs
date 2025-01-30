@@ -263,7 +263,7 @@ public partial class Player : CharacterBody2D
 				isFalling = true;
 				fallStartPosition = GlobalPosition;
 				movementVelocity = Vector2.Zero;
-				AudioManager.Instance.PlaySound("falling");
+				AudioManager.Instance.PlaySound("Falling");
 			}
 
 			if (fallStartPosition.Y < 0)

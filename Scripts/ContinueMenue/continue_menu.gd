@@ -8,13 +8,14 @@ var exitButton = $MarginContainer/PanelContainer/MarginContainer/Node2D/ExitButt
 var currentSelector = 0
 var selectColor = Color(1, 0.953, 0);
 var NoSelectColor = Color(0.875, 0.875, 0.875);
+var audioLock: bool = true
 
 func _ready() -> void:
 	set_current_selector(currentSelector)
 
 func _on_continue_button_pressed() -> void:
 	print("continue pressed")
-	level_manager.ChangeSceneToFile("res://Scenes/TileMapLevels/map0.tscn")
+	level_manager.RestartCurrentLevel()
 
 
 func _on_exit_button_pressed() -> void:
@@ -26,12 +27,16 @@ func _process(_delta: float) -> void:
 	if (Input.is_action_just_pressed("ui_down") && currentSelector != 1):
 		print("down")
 		currentSelector += 1
+		$SelectAudio.play()
 		set_current_selector(currentSelector)
 	if (Input.is_action_just_pressed("ui_up") && currentSelector != 0):
 		print("up")
 		currentSelector -= 1
+		$SelectAudio.play()
 		set_current_selector(currentSelector)
 	if (Input.is_action_just_pressed("ui_accept")):
+		$PickAudio.play()
+		await get_tree().create_timer(2).timeout 
 		print("ok")
 		select_current_option(currentSelector)
 
@@ -47,7 +52,7 @@ func set_current_selector(_currentSelector) -> void:
 		
 func select_current_option(_currentSelector) -> void:
 	if _currentSelector == 0:
-		level_manager.ChangeSceneToFile("res://Scenes/TileMapLevels/map0.tscn")
+		level_manager.RestartCurrentLevel()
 		queue_free()
 		
 	elif _currentSelector == 1:
