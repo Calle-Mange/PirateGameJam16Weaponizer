@@ -29,7 +29,7 @@ public partial class LevelManager : Node
     public void StartFirstLevel()
     {
         // Called from the story scene when it's finished
-
+        AudioManager.Instance.PlaySound("MedivalStress");
         currentLevel = 1;
         ChangeSceneToFile(levelPaths[0]);
     }
