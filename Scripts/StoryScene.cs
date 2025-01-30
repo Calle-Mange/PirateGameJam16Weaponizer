@@ -5,9 +5,9 @@ public partial class StoryScene : Node
 {
 	[Export] string[] storyTexts = {
 		"I was once known as the greatest blacksmith in the realm… Crafting weapons for all who sought my work.",
-		"But my rival couldn’t accept my choice to serve all sides of the great war. In his jealousy he cursed me…",
-		"Now I am bound to become the very weapons I once forged. Trapped in this battlefield echo.",
-		"My only hope lies in reaching his tower using the scattered weapons of war to break his curse."
+		// "But my rival couldn’t accept my choice to serve all sides of the great war. In his jealousy he cursed me…",
+		// "Now I am bound to become the very weapons I once forged. Trapped in this battlefield echo.",
+		// "My only hope lies in reaching his tower using the scattered weapons of war to break his curse."
 	};
 
 	private Label storyLabel;

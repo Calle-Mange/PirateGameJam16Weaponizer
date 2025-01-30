@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc2k5pfycleui"]
+[gd_scene load_steps=3 format=3 uid="uid://cc2k5pfycleui"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu/main_menu.gd" id="1_86g2d"]
+[ext_resource type="PackedScene" uid="uid://8sccs8l2o6k6" path="res://Scenes/AudioManager.tscn" id="2_f123i"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -71,3 +72,5 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Exit
 "
+
+[node name="Node" parent="." instance=ExtResource("2_f123i")]
