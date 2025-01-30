@@ -383,64 +383,135 @@ public partial class Player : CharacterBody2D
         if (inputDirection == Vector2.Zero && !AxeInteracting)
         {
             animatedSprite.Play("idle");
+			return;
         }
 
-		// move right
-		else if (inputDirection.X > 0 && inputDirection.Y == 0)
-		{
-			animatedSprite.Play("move_vertical");
-			animatedSprite.RotationDegrees = -120;
-		}
-
-		// move left
-		else if (inputDirection.X < 0 && inputDirection.Y == 0)
-		{
-			animatedSprite.Play("move_vertical");
-			animatedSprite.RotationDegrees = 60;
-		}
-
-		// move up
-		else if (inputDirection.X == 0 && inputDirection.Y < 0)
-		{
-			animatedSprite.Play("move_vertical");
-			animatedSprite.RotationDegrees = 125;
-		}
-
-		// move down
-		else if (inputDirection.X == 0 && inputDirection.Y > 0)
-		{
-			animatedSprite.Play("move_vertical");
-			animatedSprite.RotationDegrees = -60;
-		}
-
-		// move north west
-		else if (inputDirection.X < 0 && inputDirection.Y < 0)
-		{
-			animatedSprite.Play("move_diagonal");
-			animatedSprite.RotationDegrees = 90;
-		}
-
-		// move north east
-		else if (inputDirection.X > 0 && inputDirection.Y < 0)
-		{
-			animatedSprite.Play("move_diagonal");
-			animatedSprite.RotationDegrees = 180;
-		}
-
-		// move south west
-		else if (inputDirection.X < 0 && inputDirection.Y > 0)
-		{
-			animatedSprite.Play("move_diagonal");
-			animatedSprite.RotationDegrees = 0;
-		}
-
-		// move south east
-		else if (inputDirection.X > 0 && inputDirection.Y > 0)
-		{
-			animatedSprite.Play("move_diagonal");
-			animatedSprite.RotationDegrees = -90;
-		}
+		if (currentweapon == GlobalGameVariables.Instance.WeaponList.Axe)
+    	{
+        	HandleAxeMovementAnimation(inputDirection);
+    	}
+    	else
+    	{
+        	HandleDefaultMovementAnimation(inputDirection);
+    	}
 	}
+
+	private void HandleAxeMovementAnimation(Vector2 inputDirection)
+	{
+    	if (inputDirection.X > 0 && inputDirection.Y == 0)
+    	{
+        	animatedSprite.Play("move_vertical");
+        	animatedSprite.RotationDegrees = -120;
+        	animatedSprite.FlipH = false;
+        	animatedSprite.FlipV = false;
+    	}
+    	else if (inputDirection.X < 0 && inputDirection.Y == 0)
+    	{
+        	animatedSprite.Play("move_vertical");
+        	animatedSprite.RotationDegrees = -120;
+        	animatedSprite.FlipH = true;
+        	animatedSprite.FlipV = false;
+    	}
+    	else if (inputDirection.X == 0 && inputDirection.Y < 0)
+    	{
+        	animatedSprite.Play("move_vertical");
+        	animatedSprite.RotationDegrees = -60;
+        	animatedSprite.FlipH = false;
+        	animatedSprite.FlipV = true;
+    	}
+    	else if (inputDirection.X == 0 && inputDirection.Y > 0)
+    	{
+        	animatedSprite.Play("move_vertical");
+        	animatedSprite.RotationDegrees = -60;
+        	animatedSprite.FlipH = false;
+        	animatedSprite.FlipV = false;
+    	}
+    	else if (inputDirection.X < 0 && inputDirection.Y < 0)
+    	{
+        	animatedSprite.Play("move_diagonal");
+        	animatedSprite.RotationDegrees = 90;
+        	animatedSprite.FlipH = false;
+        	animatedSprite.FlipV = false;
+    	}
+    	else if (inputDirection.X > 0 && inputDirection.Y < 0)
+    	{
+        	animatedSprite.Play("move_diagonal");
+        	animatedSprite.RotationDegrees = 180;
+        	animatedSprite.FlipH = false;
+        	animatedSprite.FlipV = false;
+    	}
+    	else if (inputDirection.X < 0 && inputDirection.Y > 0)
+    	{
+        	animatedSprite.Play("move_diagonal");
+        	animatedSprite.RotationDegrees = 0;
+        	animatedSprite.FlipH = false;
+        	animatedSprite.FlipV = false;
+    	}
+    	else if (inputDirection.X > 0 && inputDirection.Y > 0)
+    	{
+        	animatedSprite.Play("move_diagonal");
+        	animatedSprite.RotationDegrees = -90;
+        	animatedSprite.FlipH = false;
+        	animatedSprite.FlipV = false;
+    	}
+    	else
+    	{
+        	animatedSprite.FlipH = false;
+        	animatedSprite.FlipV = false;
+    	}
+	}
+
+	private void HandleDefaultMovementAnimation(Vector2 inputDirection)
+	{
+    // move right
+    if (inputDirection.X > 0 && inputDirection.Y == 0)
+    {
+        animatedSprite.Play("move_vertical");
+        animatedSprite.RotationDegrees = -120;
+    }
+    // move left
+    else if (inputDirection.X < 0 && inputDirection.Y == 0)
+    {
+        animatedSprite.Play("move_vertical");
+        animatedSprite.RotationDegrees = 60;
+    }
+    // move up
+    else if (inputDirection.X == 0 && inputDirection.Y < 0)
+    {
+        animatedSprite.Play("move_vertical");
+        animatedSprite.RotationDegrees = 125;
+    }
+    // move down
+    else if (inputDirection.X == 0 && inputDirection.Y > 0)
+    {
+        animatedSprite.Play("move_vertical");
+        animatedSprite.RotationDegrees = -60;
+    }
+    // move north west
+    else if (inputDirection.X < 0 && inputDirection.Y < 0)
+    {
+        animatedSprite.Play("move_diagonal");
+        animatedSprite.RotationDegrees = 90;
+    }
+    // move north east
+    else if (inputDirection.X > 0 && inputDirection.Y < 0)
+    {
+        animatedSprite.Play("move_diagonal");
+        animatedSprite.RotationDegrees = 180;
+    }
+    // move south west
+    else if (inputDirection.X < 0 && inputDirection.Y > 0)
+    {
+        animatedSprite.Play("move_diagonal");
+        animatedSprite.RotationDegrees = 0;
+    }
+    // move south east
+    else if (inputDirection.X > 0 && inputDirection.Y > 0)
+    {
+        animatedSprite.Play("move_diagonal");
+        animatedSprite.RotationDegrees = -90;
+    }
+}
 
     private void OnAxeInteractionFinished()
     {

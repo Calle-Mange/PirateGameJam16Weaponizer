@@ -48,7 +48,6 @@ public partial class LevelManager : Node
         }
         else
         {
-            GD.Print("Game Completed!");
             ChangeSceneToFile(endScenePath);
         }
     }
